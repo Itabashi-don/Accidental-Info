@@ -1,2 +1,11 @@
+html, body { margin: 0; }
+
+.header { position: absolute; left: 0; top: 0; display: flex; flex-direction: row; justify-content: start; align-items: center; width: 100%; height: auto; padding: 1em 1em; color: white; background: darkcyan; }
+
+.header > *:not(:last-child) { margin-right: 1em; }
+
+.header_logo { width: auto; height: 1.5em; }
+
+.header_serviceName { display: inline-flex; flex-direction: row; align-items: center; font-size: 1.5em; }
 
 /*# sourceMappingURL=maps/main.css.map */

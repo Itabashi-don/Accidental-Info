@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+.header {
+	position: absolute;
+	left: 0;
+	top: 0;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+
+	width: 100%;
+	height: auto;
+	padding: 1em 1em;
+	
+	color: white;
+	background: darkcyan;
+
+	& > *:not(:last-child) { margin-right: 1em }
+
+	&_logo {
+		width: auto;
+		height: 1.5em;
+	}
+
+	&_serviceName {
+		display: inline-flex;
+		flex-direction: row;
+		align-items: center;
+
+		font-size: 1.5em;
+	}
+}
