@@ -1,22 +1,25 @@
 {
-	"name": "itabashi-don_hazard-info",
-	"version": "0.0.1",
+	"name": "itabashi-don_accidental-info",
+	"version": "0.0.2",
 	"description": "A website collecting accidental information of Itabashi and around",
+	"keywords": [
+		"Itabashi"
+	],
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
+	"author": {
+		"name": "板橋丼(Itabashi-don)",
+		"url": "https://itabashi.0j0.jp/"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/Itabashi-don/Accidental-Info#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Itabashi-don/Hazard-Info.git"
+		"url": "git+https://github.com/Itabashi-don/Accidental-Info.git"
 	},
 	"bugs": {
-		"url": "https://github.com/Itabashi-don/Hazard-Info/issues"
-	},
-	"homepage": "https://github.com/Itabashi-don/Hazard-Info#readme",
-	"keywords": [
-		"itabashi"
-	],
-	"author": "Genbu Hase (https://genbuhase.github.io/)",
-	"license": "MIT"
+		"url": "https://github.com/Itabashi-don/Accidental-Info/issues"
+	}
 }
