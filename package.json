@@ -1,14 +1,18 @@
 {
 	"name": "itabashi-don_accidental-info",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "A website collecting accidental information of Itabashi and around",
 	"keywords": [
 		"Itabashi"
 	],
 	"main": "index.js",
 	"scripts": {
+		"start": "npm run server",
+		"dev": "run-p server build:scss",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "npx node-sass -w ./css/sources/main.scss ./css/main.css --output-style compact --source-map ./css/maps"
+
+		"server": "takeapeek -p 8001",
+		"build:scss": "node-sass -w ./css/sources/main.scss ./css/main.css --output-style compact --source-map ./css/maps"
 	},
 	"author": {
 		"name": "板橋丼(Itabashi-don)",
@@ -22,6 +26,10 @@
 	},
 	"bugs": {
 		"url": "https://github.com/Itabashi-don/Accidental-Info/issues"
+	},
+	"dependencies": {
+		"npm-run-all": "^4.1.5",
+		"takeapeek": "^0.2.2"
 	},
 	"devDependencies": {
 		"node-sass": "^4.12.0"
