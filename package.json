@@ -1,6 +1,6 @@
 {
 	"name": "itabashi-don_accidental-info",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "A website collecting accidental information of Itabashi and around",
 	"keywords": [
 		"Itabashi"
@@ -21,5 +21,8 @@
 	},
 	"bugs": {
 		"url": "https://github.com/Itabashi-don/Accidental-Info/issues"
+	},
+	"devDependencies": {
+		"node-sass": "^4.12.0"
 	}
 }
