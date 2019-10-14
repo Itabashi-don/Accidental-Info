@@ -13,9 +13,9 @@ $lineHeight: 1.5; // [Note] line-height affects height property
 
 /* Definition of Color Variables */
 
-// navbar includes header and footer
-$navbar-textColor: #ffffff;
-$navbar-backColor: #008b8b;
-$navbar-shadowColor: darken($navbar-backColor, 8%);
-$navbar_link-textColor: #ffe4e1;
-$navbar_link-textColor--focused: darken($navbar_link-textColor, 8%);
+// "header" includes header and footer
+$header-textColor: #ffffff;
+$header-backColor: #008b8b;
+$header-shadowColor: darken($header-backColor, 8%);
+$header_link-textColor: #ffe4e1;
+$header_link-textColor--focused: darken($header_link-textColor, 8%);
