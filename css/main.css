@@ -1,6 +1,6 @@
 * { line-height: 1.5; box-sizing: border-box; }
 
-html, body { height: 100%; margin: 0; font-size: initial; }
+html, body { margin: 0; font-size: initial; }
 
 @media only screen and (max-width: 767px) { html, body { font-size: initial; } }
 
