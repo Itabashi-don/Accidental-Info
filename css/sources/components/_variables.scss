@@ -1,12 +1,21 @@
 @charset "UTF-8";
 
-// A collection of Media-Queries
-$mediaQueries: (
+/* Definition of System Variables */
+$mediaQueries: ( // A collection of Media-Queries
 	mobile: "only screen and (max-width: 767px)",
 	mobile-l: "only screen and (min-width: 425px) and (max-width: 767px)",
 	mobile-m: "only screen and (min-width: 375px) and (max-width: 424px)",
 	mobile-s: "only screen and (max-width: 374px)"
 );
 
-// [Note] line-height affects height property
-$lineHeight: 1.5;
+$lineHeight: 1.5; // [Note] line-height affects height property
+
+
+/* Definition of Color Variables */
+
+// navbar includes header and footer
+$navbar-textColor: #ffffff;
+$navbar-backColor: #008b8b;
+$navbar-shadowColor: darken($navbar-backColor, 8%);
+$navbar_link-textColor: #ffe4e1;
+$navbar_link-textColor--focused: darken($navbar_link-textColor, 8%);
