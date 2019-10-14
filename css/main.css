@@ -1,6 +1,6 @@
-* { box-sizing: border-box; }
+* { line-height: 1.5; box-sizing: border-box; }
 
-html, body { height: 100%; margin: 0; font-size: initial; line-height: 1.5; }
+html, body { height: 100%; margin: 0; font-size: initial; }
 
 @media only screen and (max-width: 767px) { html, body { font-size: initial; } }
 
@@ -30,8 +30,8 @@ br[mobile-s] { display: none; }
 
 .header_serviceName--logo { width: auto; height: 1.5em; }
 
-@media only screen and (max-width: 767px) { .header_serviceName--logo { content: url(../assets/logo.svg); } }
-
 .header + * { margin-top: calc(2.25em + 2em); }
+
+@media only screen and (max-width: 374px) { .header + * { margin-top: calc(4.5em + 2em); } }
 
 /*# sourceMappingURL=maps/main.css.map */

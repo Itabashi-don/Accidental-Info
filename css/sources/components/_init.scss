@@ -5,18 +5,20 @@
 
 
 
-* { box-sizing: border-box }
+* {
+	line-height: $lineHeight;
+	box-sizing: border-box;
+}
 
 html, body {
 	height: 100%;
 	margin: 0;
 
 	font-size: initial;
-	line-height: $lineHeight;
-
 	@include onSize(mobile) { font-size: initial }
 }
 
+// Definition of breaks which is shown on only each environments
 br {
 	@each $type, $query in $mediaQueries {
 		&[#{$type}] {

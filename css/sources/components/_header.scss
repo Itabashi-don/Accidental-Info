@@ -41,10 +41,11 @@ $textColor--header: white;
 		&--logo {
 			width: auto;
 			height: fontBasedHeight(1em);
-
-			@include onSize(mobile) { content: url(../assets/logo.svg) }
 		}
 	}
 
-	& + * { margin-top: calc(#{fontBasedHeight(1.5em)} + 2em) }
+	& + * {
+		margin-top: calc(#{fontBasedHeight(1.5em)} + 2em); // 1.5em(font-size) * line-height + 2em(padding)
+		@include onSize(mobile-s) { margin-top: calc(#{fontBasedHeight(1.5em * 2)} + 2em) } // 1.5em(font-size) * 2(lines) * line-height + 2em(padding)
+	}
 }
