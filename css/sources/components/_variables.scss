@@ -2,6 +2,9 @@
 
 /* Definition of System Variables */
 $mediaQueries: ( // A collection of Media-Queries
+	laptop: "only screen and (min-width: 1024px)",
+	tablet: "only screen and (max-width: 1023px)",
+
 	mobile: "only screen and (max-width: 767px)",
 	mobile-l: "only screen and (min-width: 425px) and (max-width: 767px)",
 	mobile-m: "only screen and (min-width: 375px) and (max-width: 424px)",
