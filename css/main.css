@@ -4,9 +4,11 @@
 /* Definition of Color Variables */
 * { line-height: 1.5; box-sizing: border-box; }
 
-html, body { margin: 0; font-size: initial; }
+html, body { height: 100%; margin: 0; font-size: initial; }
 
 @media only screen and (max-width: 767px) { html, body { font-size: initial; } }
+
+body { display: flex; flex-direction: column; }
 
 br[laptop] { display: none; }
 
@@ -44,7 +46,7 @@ template.header-and-footer a, .header a, .footer a { color: #ffe4e1; }
 
 template.header-and-footer a:focus, .header a:focus, .footer a:focus { color: #ffbfb8; }
 
-.header { position: fixed; left: 0; top: 0; }
+.header { position: fixed; left: 0; top: 0; z-index: 127; }
 
 .header > *:not(:last-child) { margin-right: 1em; }
 
@@ -58,8 +60,6 @@ template.header-and-footer a:focus, .header a:focus, .footer a:focus { color: #f
 
 @media only screen and (max-width: 374px) { .header + * { margin-top: calc(4.5em + 2em); } }
 
-.footer { position: absolute; left: 0; bottom: 0; }
-
 .footer_copyright { flex: 1; font-size: 0.75em; text-align: right; }
 
 /* Definition of System Variables */
@@ -68,7 +68,7 @@ template.header-and-footer a:focus, .header a:focus, .footer a:focus { color: #f
 /* Definition of Color Variables */
 /* Definition of System Variables */
 /* Definition of Color Variables */
-.content { display: grid; grid-template-columns: 100%; grid-auto-rows: 1fr; padding: 1em; }
+.content { display: grid; grid-template-columns: 100%; grid-auto-rows: 1fr; flex: 1; padding: 1em; }
 
 @media only screen and (min-width: 1024px) { .content { grid-template-columns: 47.5% 1fr 47.5%; } }
 

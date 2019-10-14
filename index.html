@@ -21,10 +21,18 @@
 
 		<Main Class = "content">
 			<Details>
-				<Summary>気象情報 / Weather News</Summary>
+				<Summary>気象レーダー / 気象情報</Summary>
 
 				<Section>
-					<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=radar&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0"></Iframe>
+					<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=13&level=surface&overlay=radar&message=true&marker=true&calendar=now&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0"></Iframe>
+				</Section>
+			</Details>
+
+			<Details>
+				<Summary>天気ピッカー / 気象情報</Summary>
+
+				<Section>
+					<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=rain&menu=true&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0" Style = "height: 180px"></Iframe>
 				</Section>
 			</Details>
 
@@ -41,10 +49,10 @@
 
 			<!--
 				# 気象レーダー
-				<iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=radar&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+				<Iframe width="650" height="450" Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=radar&message=true&marker=true&calendar=now&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0"></Iframe>
 
 				# 天気ピッカー
-				<iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=radar&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+				<Iframe width="650" height="450" Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=rain&menu=true&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0"></Iframe>
 			-->
 		</Main>
 

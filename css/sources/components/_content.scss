@@ -11,6 +11,7 @@
 	grid-template-columns: 100%;
 	grid-auto-rows: 1fr;
 
+	flex: 1;
 	padding: 1em;
 
 	@include onSize(laptop) { grid-template-columns: 47.5% 1fr 47.5% }
