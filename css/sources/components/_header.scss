@@ -4,8 +4,9 @@
 @import "./mixins";
 @import "./functions";
 
-$backColor--header: darkcyan;
-$textColor--header: white;
+$backColor--header: #008b8b;
+$textColor--header: #ffffff;
+$shadowColor--header: darken($backColor--header, 8%);
 
 
 
@@ -23,6 +24,7 @@ $textColor--header: white;
 	
 	background: $backColor--header;
 	color: $textColor--header;
+	box-shadow: 0px 0px 2px 0px $shadowColor--header;
 
 	& > *:not(:last-child) { margin-right: 1em }
 
