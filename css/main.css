@@ -1,11 +1,37 @@
-html, body { margin: 0; }
+* { box-sizing: border-box; }
 
-.header { position: absolute; left: 0; top: 0; display: flex; flex-direction: row; justify-content: start; align-items: center; width: 100%; height: auto; padding: 1em 1em; color: white; background: darkcyan; }
+html, body { height: 100%; margin: 0; font-size: initial; line-height: 1.5; }
+
+@media only screen and (max-width: 767px) { html, body { font-size: initial; } }
+
+br[mobile] { display: none; }
+
+@media only screen and (max-width: 767px) { br[mobile] { display: block; } }
+
+br[mobile-l] { display: none; }
+
+@media only screen and (min-width: 425px) and (max-width: 767px) { br[mobile-l] { display: block; } }
+
+br[mobile-m] { display: none; }
+
+@media only screen and (min-width: 375px) and (max-width: 424px) { br[mobile-m] { display: block; } }
+
+br[mobile-s] { display: none; }
+
+@media only screen and (max-width: 374px) { br[mobile-s] { display: block; } }
+
+.header { position: fixed; left: 0; top: 0; display: flex; flex-direction: row; justify-content: start; align-items: center; width: 100%; padding: 1em 1em; background: darkcyan; color: white; }
 
 .header > *:not(:last-child) { margin-right: 1em; }
 
-.header_logo { width: auto; height: 1.5em; }
-
 .header_serviceName { display: inline-flex; flex-direction: row; align-items: center; font-size: 1.5em; }
+
+.header_serviceName--name { display: inline-flex; margin-left: 1em; }
+
+.header_serviceName--logo { width: auto; height: 1.5em; }
+
+@media only screen and (max-width: 767px) { .header_serviceName--logo { content: url(../assets/logo.svg); } }
+
+.header + * { margin-top: calc(2.25em + 2em); }
 
 /*# sourceMappingURL=maps/main.css.map */

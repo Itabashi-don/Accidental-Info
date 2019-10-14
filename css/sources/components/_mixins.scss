@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+@import "./variables";
+
+
+
+// Generates a Media-Query of provided type
+@mixin onSize ($type: mobile) {
+	@media #{ map-get($mediaQueries, $type) } { @content }
+}

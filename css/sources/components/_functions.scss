@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+@import "./variables";
+
+
+
+// Converts provided height to new one based on font
+@function fontBasedHeight ($height: 1em) { @return $height * $lineHeight }

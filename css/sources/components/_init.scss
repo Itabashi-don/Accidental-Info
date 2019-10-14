@@ -1,5 +1,27 @@
 @charset "UTF-8";
 
+@import "./variables";
+@import "./mixins";
+
+
+
+* { box-sizing: border-box }
+
 html, body {
+	height: 100%;
 	margin: 0;
+
+	font-size: initial;
+	line-height: $lineHeight;
+
+	@include onSize(mobile) { font-size: initial }
+}
+
+br {
+	@each $type, $query in $mediaQueries {
+		&[#{$type}] {
+			display: none;
+			@include onSize($type) { display: block }
+		}
+	}
 }

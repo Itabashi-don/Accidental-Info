@@ -1,9 +1,17 @@
 @charset "UTF-8";
 
+@import "./variables";
+@import "./mixins";
+@import "./functions";
+
+$backColor--header: darkcyan;
+$textColor--header: white;
+
+
+
 .header {
-	position: absolute;
-	left: 0;
-	top: 0;
+	position: fixed;
+	left: 0; top: 0;
 
 	display: flex;
 	flex-direction: row;
@@ -11,18 +19,12 @@
 	align-items: center;
 
 	width: 100%;
-	height: auto;
 	padding: 1em 1em;
 	
-	color: white;
-	background: darkcyan;
+	background: $backColor--header;
+	color: $textColor--header;
 
 	& > *:not(:last-child) { margin-right: 1em }
-
-	&_logo {
-		width: auto;
-		height: 1.5em;
-	}
 
 	&_serviceName {
 		display: inline-flex;
@@ -30,5 +32,19 @@
 		align-items: center;
 
 		font-size: 1.5em;
+
+		&--name {
+			display: inline-flex;
+			margin-left: 1em;
+		}
+
+		&--logo {
+			width: auto;
+			height: fontBasedHeight(1em);
+
+			@include onSize(mobile) { content: url(../assets/logo.svg) }
+		}
 	}
+
+	& + * { margin-top: calc(#{fontBasedHeight(1.5em)} + 2em) }
 }
