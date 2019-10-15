@@ -2,7 +2,7 @@
 
 
 
-/* Definition of System Variables */
+// ##### Definition of System Variables ##### //
 $mediaQueries: ( // A collection of Media-Queries
 	laptop: "only screen and (min-width: 1024px)",
 	tablet: "only screen and (max-width: 1023px)",
@@ -16,7 +16,7 @@ $mediaQueries: ( // A collection of Media-Queries
 $lineHeight: 1.5; // [Note] line-height affects height property
 
 
-/* Definition of Color Variables */
+// ##### Definition of Color Variables ##### //
 
 // "header" includes header and footer
 $header-textColor: #ffffff;
