@@ -1,6 +1,6 @@
 <!DocType HTML>
 
-<HTML Lang = "ja">
+<HTML>
 	<Head>
 		<Meta Charset = "UTF-8" />
 		<Meta Name = "Viewport" Content = "width=device-width, initial-scale=1, user-scalable=no" />
@@ -19,41 +19,53 @@
 			</Span>
 		</Header>
 
-		<Main Class = "content">
-			<Details>
-				<Summary>気象レーダー / 気象情報</Summary>
+		<Main ID = "info" Class = "content">
+			<Nav Class = "navigation-tabBar">
+				<Li ID = "info-navBar_tab--weather" Class = "navigation-tabBar_tab"><!-- Weather News --></Li>
+				<Li ID = "info-navBar_tab--train" Class = "navigation-tabBar_tab"><!-- Train Status --></Li>
+			</Nav>
 
-				<Section>
-					<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=13&level=surface&overlay=radar&message=true&marker=true&calendar=now&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0"></Iframe>
-				</Section>
-			</Details>
+			<Section ID = "content_tabBar-panel--weather">
+				<Details>
+					<Summary>気象レーダー / 気象情報</Summary>
 
-			<Details>
-				<Summary>天気ピッカー / 気象情報</Summary>
+					<Section>
+						<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=radar&menu=true&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0"></Iframe>
+					</Section>
+				</Details>
 
-				<Section>
-					<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=rain&menu=true&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0" Style = "height: 180px"></Iframe>
-				</Section>
-			</Details>
+				<Details>
+					<Summary>天気ピッカー / 気象情報</Summary>
 
-			<Details>
-				<Summary>警報・注意報 / Weather Caution and Warning</Summary>
+					<Section>
+						<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=rain&menu=true&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0" Style = "height: 180px"></Iframe>
+					</Section>
+				</Details>
 
-				<Section>
-					<P>
-						テスト<Br />
-						Hey
-					</P>
-				</Section>
-			</Details>
+				<Details>
+					<Summary>警報・注意報 / Weather Caution and Warning</Summary>
+	
+					<Section>
+						<P>
+							テスト<Br />
+							Hey
+						</P>
+					</Section>
+				</Details>
+			</Section>
 
-			<!--
-				# 気象レーダー
-				<Iframe width="650" height="450" Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=radar&message=true&marker=true&calendar=now&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0"></Iframe>
-
-				# 天気ピッカー
-				<Iframe width="650" height="450" Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=rain&menu=true&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0"></Iframe>
-			-->
+			<Section ID = "content_tabBar-panel--transportation">
+				<Details>
+					<Summary>鉄道運行情報 / Train Status</Summary>
+	
+					<Section>
+						<P>
+							テスト<Br />
+							Hey
+						</P>
+					</Section>
+				</Details>
+			</Section>
 		</Main>
 
 		<Footer Class = "footer">

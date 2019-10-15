@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
-@import "./components/init";
-@import "./components/header";
-@import "./components/content";
+@import "./modules/init";
+@import "./modules/i18n";
+@import "./modules/header";
+@import "./modules/content";
+@import "./modules/navigation";

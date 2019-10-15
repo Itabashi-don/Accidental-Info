@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+
+
+// Add a localization of provided language
+@mixin i18n ($lang, $content) {
+	@if ($lang == null or $lang == "") {
+		&::before { content: $content }
+	} @else {
+		&:lang(#{$lang}) {
+			&::before { content: $content; @content }
+		}
+	}
+}
+
+
+
+#info {
+	&-navBar_tab {
+		&--weather {
+			@include i18n("", "Weather News");
+			@include i18n(ja, "気象情報");
+		}
+
+		&--train {
+			@include i18n("", "Train Status");
+			@include i18n(ja, "鉄道運行情報");
+		}
+	}
+}
