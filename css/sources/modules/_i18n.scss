@@ -22,8 +22,8 @@
 			@include i18n(ja, "気象情報");
 		}
 
-		&--train {
-			@include i18n("", "Train Status");
+		&--transportation {
+			@include i18n("", "Transportation Status");
 			@include i18n(ja, "鉄道運行情報");
 		}
 	}

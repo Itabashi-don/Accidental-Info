@@ -8,6 +8,21 @@
 
 .navigation {
 	&-tabBar {
-		&_tab {}
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+		background: $navigation_tabBar-backColor;
+		
+		@include onSize(laptop) { display: none }
+
+		& > li { list-style: none }
+		& a { text-decoration: none }
+
+		&_tab {
+			padding: 0.5em;
+			color: $navigation_tabBar_tab-textColor;
+		}
 	}
 }

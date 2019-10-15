@@ -5,7 +5,7 @@
 // ##### Definition of System Variables ##### //
 $mediaQueries: ( // A collection of Media-Queries
 	laptop: "only screen and (min-width: 1024px)",
-	tablet: "only screen and (max-width: 1023px)",
+	tablet: "only screen and (min-width: 768px) and (max-width: 1023px)",
 
 	mobile: "only screen and (max-width: 767px)",
 	mobile-l: "only screen and (min-width: 425px) and (max-width: 767px)",
@@ -24,3 +24,6 @@ $header-backColor: #008b8b;
 $header-shadowColor: darken($header-backColor, 8%);
 $header_link-textColor: #ffe4e1;
 $header_link-textColor--focused: darken($header_link-textColor, 8%);
+
+$navigation_tabBar-backColor: $header-backColor;
+$navigation_tabBar_tab-textColor: $header-textColor;

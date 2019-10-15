@@ -13,6 +13,7 @@
 
 	<Body>
 		<Header Class = "header">
+			<!-- ToDo: scrollY = 0でbox-shadowを非表示に -->
 			<Span Class = "header_serviceName">
 				<Img Class = "header_serviceName-logo" Alt = "板橋丼(Itabashi-don)" Src = "./assets/logo.svg" />
 				<Span Class = "header_serviceName-name">Accidental <Br mobile-s />Information</Span>
@@ -21,8 +22,8 @@
 
 		<Main ID = "info" Class = "content">
 			<Nav Class = "navigation-tabBar">
-				<Li ID = "info-navBar_tab--weather" Class = "navigation-tabBar_tab"><!-- Weather News --></Li>
-				<Li ID = "info-navBar_tab--train" Class = "navigation-tabBar_tab"><!-- Train Status --></Li>
+				<A ID = "info-navBar_tab--weather" Class = "navigation-tabBar_tab" Href = "#"><!-- Weather News --></A>
+				<A ID = "info-navBar_tab--transportation" Class = "navigation-tabBar_tab" Href = "#"><!-- Transportation Status --></A>
 			</Nav>
 
 			<Section ID = "content_tabBar-panel--weather">
