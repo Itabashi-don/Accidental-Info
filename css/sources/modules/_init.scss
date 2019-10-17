@@ -32,5 +32,7 @@ br {
 			display: none;
 			@include onSize($type) { display: block }
 		}
+
+		&[not-#{$type}] { @include onSize($type) { display: none } }
 	}
 }
