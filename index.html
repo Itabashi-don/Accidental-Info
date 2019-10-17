@@ -5,6 +5,7 @@
 		<Meta Charset = "UTF-8" />
 		<Meta Name = "Viewport" Content = "width=device-width, initial-scale=1, user-scalable=no" />
 		<Link Rel = "Icon" Href = "./assets/favicon.ico" />
+		<!-- ToDo: "Itabashi-don Emergency Alerts" へのリネーム -->
 		<Title>Accidental Information｜板橋丼(Itabashi-don)</Title>
 
 		<Link Rel = "StyleSheet" Href = "./css/main.css" />
@@ -17,16 +18,14 @@
 	<Body>
 		<Header Class = "header">
 			<!-- ToDo: scrollY = 0 でbox-shadowを非表示に -->
-			<Span Class = "header_serviceName">
+			<Section Class = "header_serviceName">
 				<A Class = "header_serviceName-logo" Href = "https://itabashi.0j0.jp/">
 					<Img Alt = "板橋丼(Itabashi-don)" Src = "./assets/logo.svg" />
 				</A>
 
 				<Span Class = "header_serviceName-name">Accidental <Br mobile-s />Information</Span>
-			</Span>
-		</Header>
+			</Section>
 
-		<Main ID = "info" Class = "content">
 			<Nav Class = "navigation_tabBar">
 				<!-- ToDo: タブのセンタリング -->
 				<A ID = "info-navBar_tab--weather" Class = "navigation_tabBar_tab navigation_tabBar_tab--active" Selector = "#info-panels_panel--weather"><!-- Weather News --></A>
@@ -34,7 +33,9 @@
 				<A ID = "info-navBar_tab--river" Class = "navigation_tabBar_tab" Disabled><!-- River Status --></A>
 				<A ID = "info-navBar_tab--municipal" Class = "navigation_tabBar_tab" Selector = "#info-panels_panel--municipal"><!-- Municipal Information --></A>
 			</Nav>
+		</Header>
 
+		<Main ID = "info" Class = "content">
 			<Section ID = "info-panels">
 				<Panel ID = "info-panels_panel--weather" Class = "navigation_panel" Group = "info-panels" Open>
 					<Details Open>

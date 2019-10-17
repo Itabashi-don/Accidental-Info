@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+
+
+// ##### Definition of Basic Color Variables ##### //
+$basic-errorColor: #b00020 !default;
+$basic-disabledColor: change-color(#000000, $alpha: 0.38) !default;
+
+$basic-primaryColor: #00838f !default;
+$basic-primaryColor-lighter: #4fb3bf !default;
+$basic-primaryColor-darker: #005662 !default;
+$basic-secondaryColor: #006064 !default;
+$basic-secondaryColor-lighter: #428e92 !default;
+$basic-secondaryColor-darker: #00363a !default;
+
+$basic-textColor: change-color(#000000, $alpha: 0.87) !default;
+$basic-textColor-lighter: change-color($basic-textColor, $alpha: 0.60) !default;
+$basic-textColor-light: change-color($basic-textColor, $alpha: 0.38) !default;
+$basic-textColor-darker: none !default;
+$basic-textColor-dark: none !default;
+$basic-textColor-link: none !default;
+
+$basic-textColor--onDark: #ffffff !default;
+$basic-textColor-link--onDark: #ffe4e1 !default;
+
+$basic-backColor: #ffffff !default;
+$basic-backColor-lighter: none !default;
+$basic-backColor-light: none !default;
+$basic-backColor-darker: #E1E2E1 !default;
+$basic-backColor-dark: none !default;
