@@ -27,3 +27,5 @@ $header_link-textColor--focused: darken($header_link-textColor, 8%);
 
 $navigation_tabBar-backColor: $header-backColor;
 $navigation_tabBar_tab-textColor: $header-textColor;
+$navigation_tabBar_tab-textColor--inactive: darken($navigation_tabBar_tab-textColor, 12%);
+$navigation_tabBar_tab-textColor--disabled: darken($navigation_tabBar_tab-textColor, 24%);

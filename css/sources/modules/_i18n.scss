@@ -26,5 +26,15 @@
 			@include i18n("", "Transportation Status");
 			@include i18n(ja, "鉄道運行情報");
 		}
+
+		&--river {
+			@include i18n("", "River Status");
+			@include i18n(ja, "河川情報");
+		}
+
+		&--municipal {
+			@include i18n("", "Municipal Information");
+			@include i18n(ja, "自治体情報");
+		}
 	}
 }

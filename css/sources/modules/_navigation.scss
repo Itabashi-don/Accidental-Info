@@ -7,7 +7,7 @@
 
 
 .navigation {
-	&-tabBar {
+	&_tabBar {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
@@ -22,7 +22,21 @@
 
 		&_tab {
 			padding: 0.5em;
-			color: $navigation_tabBar_tab-textColor;
+			color: $navigation_tabBar_tab-textColor--inactive;
+
+			cursor: pointer;
+
+			&--active { color: $navigation_tabBar_tab-textColor }
+
+			&[disabled] {
+				color: $navigation_tabBar_tab-textColor--disabled;
+				pointer-events: none;
+			}
 		}
+	}
+
+	&_panel {
+		display: none;
+		&[open] { display: block }
 	}
 }

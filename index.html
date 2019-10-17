@@ -8,64 +8,101 @@
 		<Title>Accidental Information｜板橋丼(Itabashi-don)</Title>
 
 		<Link Rel = "StyleSheet" Href = "./css/main.css" />
-		<Script Src = "./js/main.js"></Script>
+
+		<Script Src = "./js/modules/I18n.js"></Script>
+		<Script Src = "./js/modules/Navigation.js"></Script>
+		<Script Src = "./js/main.js" Defer></Script>
 	</Head>
 
 	<Body>
 		<Header Class = "header">
-			<!-- ToDo: scrollY = 0でbox-shadowを非表示に -->
+			<!-- ToDo: scrollY = 0 でbox-shadowを非表示に -->
 			<Span Class = "header_serviceName">
-				<Img Class = "header_serviceName-logo" Alt = "板橋丼(Itabashi-don)" Src = "./assets/logo.svg" />
+				<A Class = "header_serviceName-logo" Href = "https://itabashi.0j0.jp/">
+					<Img Alt = "板橋丼(Itabashi-don)" Src = "./assets/logo.svg" />
+				</A>
+
 				<Span Class = "header_serviceName-name">Accidental <Br mobile-s />Information</Span>
 			</Span>
 		</Header>
 
 		<Main ID = "info" Class = "content">
-			<Nav Class = "navigation-tabBar">
-				<A ID = "info-navBar_tab--weather" Class = "navigation-tabBar_tab" Href = "#"><!-- Weather News --></A>
-				<A ID = "info-navBar_tab--transportation" Class = "navigation-tabBar_tab" Href = "#"><!-- Transportation Status --></A>
+			<Nav Class = "navigation_tabBar">
+				<!-- ToDo: タブのセンタリング -->
+				<A ID = "info-navBar_tab--weather" Class = "navigation_tabBar_tab navigation_tabBar_tab--active" Selector = "#info-panels_panel--weather"><!-- Weather News --></A>
+				<A ID = "info-navBar_tab--transportation" Class = "navigation_tabBar_tab" Selector = "#info-panels_panel--transportation"><!-- Transportation Status --></A>
+				<A ID = "info-navBar_tab--river" Class = "navigation_tabBar_tab" Disabled><!-- River Status --></A>
+				<A ID = "info-navBar_tab--municipal" Class = "navigation_tabBar_tab" Selector = "#info-panels_panel--municipal"><!-- Municipal Information --></A>
 			</Nav>
 
-			<Section ID = "content_tabBar-panel--weather">
-				<Details>
-					<Summary>気象レーダー / 気象情報</Summary>
-
-					<Section>
-						<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=radar&menu=true&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0"></Iframe>
-					</Section>
-				</Details>
-
-				<Details>
-					<Summary>天気ピッカー / 気象情報</Summary>
-
-					<Section>
-						<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=rain&menu=true&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0" Style = "height: 180px"></Iframe>
-					</Section>
-				</Details>
-
-				<Details>
-					<Summary>警報・注意報 / Weather Caution and Warning</Summary>
+			<Section ID = "info-panels">
+				<Panel ID = "info-panels_panel--weather" Class = "navigation_panel" Group = "info-panels" Open>
+					<Details Open>
+						<Summary>気象レーダー / 気象情報</Summary>
 	
-					<Section>
-						<P>
-							テスト<Br />
-							Hey
-						</P>
-					</Section>
-				</Details>
-			</Section>
-
-			<Section ID = "content_tabBar-panel--transportation">
-				<Details>
-					<Summary>鉄道運行情報 / Train Status</Summary>
+						<Section>
+							<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=radar&menu=true&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0"></Iframe>
+						</Section>
+					</Details>
 	
-					<Section>
-						<P>
-							テスト<Br />
-							Hey
-						</P>
-					</Section>
-				</Details>
+					<Details Open>
+						<Summary>天気ピッカー / 気象情報</Summary>
+	
+						<Section>
+							<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=rain&menu=true&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0" Style = "height: 180px"></Iframe>
+						</Section>
+					</Details>
+	
+					<Details>
+						<Summary>警報・注意報 / Weather Caution and Warning</Summary>
+		
+						<Section>
+							<P>
+								テスト<Br />
+								Hey
+							</P>
+						</Section>
+					</Details>
+				</Panel>
+	
+				<Panel ID = "info-panels_panel--transportation" Class = "navigation_panel" Group = "info-panels">
+					<Details>
+						<Summary>鉄道運行情報 / Train Status</Summary>
+		
+						<Section>
+							<P>
+								テスト<Br />
+								Hey
+							</P>
+						</Section>
+					</Details>
+				</Panel>
+	
+				<Panel ID = "info-panels_panel--river" Class = "navigation_panel" Group = "info-panels">
+					<Details>
+						<Summary>鉄道運行情報 / Train Status</Summary>
+		
+						<Section>
+							<P>
+								テスト<Br />
+								Hey
+							</P>
+						</Section>
+					</Details>
+				</Panel>
+	
+				<Panel ID = "info-panels_panel--municipal" Class = "navigation_panel" Group = "info-panels">
+					<Details>
+						<Summary>鉄道運行情報 / Train Status</Summary>
+		
+						<Section>
+							<P>
+								テスト<Br />
+								Hey
+							</P>
+						</Section>
+					</Details>
+				</Panel>
 			</Section>
 		</Main>
 

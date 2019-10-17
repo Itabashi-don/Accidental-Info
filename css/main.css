@@ -39,6 +39,14 @@ br[mobile-s] { display: none; }
 
 #info-navBar_tab--transportation:lang(ja)::before { content: "鉄道運行情報"; }
 
+#info-navBar_tab--river::before { content: "River Status"; }
+
+#info-navBar_tab--river:lang(ja)::before { content: "河川情報"; }
+
+#info-navBar_tab--municipal::before { content: "Municipal Information"; }
+
+#info-navBar_tab--municipal:lang(ja)::before { content: "自治体情報"; }
+
 template.header-and-footer, .header, .footer { display: flex; flex-direction: row; justify-content: start; align-items: center; width: 100%; padding: 1em; color: #ffffff; background: #008b8b; box-shadow: 0px 0px 2px 0px #006262; }
 
 template.header-and-footer a, .header a, .footer a { color: #ffe4e1; }
@@ -55,6 +63,8 @@ template.header-and-footer a:focus, .header a:focus, .footer a:focus { color: #f
 
 .header_serviceName-logo { width: auto; height: 1.5em; }
 
+.header_serviceName-logo img { width: auto; height: inherit; }
+
 .header + * { margin-top: calc(2.25em + 2em); }
 
 @media only screen and (max-width: 374px) { .header + * { margin-top: calc(4.5em + 2em); } }
@@ -63,14 +73,22 @@ template.header-and-footer a:focus, .header a:focus, .footer a:focus { color: #f
 
 .content { /* display: grid; grid-template-columns: 100%; grid-auto-rows: 1fr; flex: 1; padding: 1em; @include onSize(laptop) { grid-template-columns: 47.5% 1fr 47.5% } details { @include onSize(laptop) { &:nth-child(2n - 1) { grid-column: 1 / 2 } &:nth-child(2n) { grid-column: 3 / 4 } } > section { position: relative; width: 100%; &::before { content: ""; display: block; padding-top: calc(100% / 16 * 9); } > * { position: absolute; left: 0; top: 0; width: 100%; height: 100%; } } } */ }
 
-.navigation-tabBar { display: flex; flex-direction: row; justify-content: center; align-items: center; background: #008b8b; }
+.navigation_tabBar { display: flex; flex-direction: row; justify-content: center; align-items: center; background: #008b8b; }
 
-@media only screen and (min-width: 1024px) { .navigation-tabBar { display: none; } }
+@media only screen and (min-width: 1024px) { .navigation_tabBar { display: none; } }
 
-.navigation-tabBar > li { list-style: none; }
+.navigation_tabBar > li { list-style: none; }
 
-.navigation-tabBar a { text-decoration: none; }
+.navigation_tabBar a { text-decoration: none; }
 
-.navigation-tabBar_tab { padding: 0.5em; color: #ffffff; }
+.navigation_tabBar_tab { padding: 0.5em; color: #e0e0e0; cursor: pointer; }
+
+.navigation_tabBar_tab--active { color: #ffffff; }
+
+.navigation_tabBar_tab[disabled] { color: #c2c2c2; pointer-events: none; }
+
+.navigation_panel { display: none; }
+
+.navigation_panel[open] { display: block; }
 
 /*# sourceMappingURL=maps/main.css.map */

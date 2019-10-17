@@ -51,6 +51,8 @@ template.header-and-footer {
 		&-logo {
 			width: auto;
 			height: fontBasedHeight(1em);
+
+			& img { width: auto; height: inherit; }
 		}
 	}
 
