@@ -13,35 +13,41 @@ br[laptop] { display: none; }
 
 @media only screen and (min-width: 1024px) { br[not-laptop] { display: none; } }
 
+br[mobile] { display: none; }
+
+@media only screen and (max-width: 1023px) { br[mobile] { display: block; } }
+
+@media only screen and (max-width: 1023px) { br[not-mobile] { display: none; } }
+
 br[tablet] { display: none; }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) { br[tablet] { display: block; } }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) { br[not-tablet] { display: none; } }
 
-br[mobile] { display: none; }
+br[phone] { display: none; }
 
-@media only screen and (max-width: 767px) { br[mobile] { display: block; } }
+@media only screen and (max-width: 767px) { br[phone] { display: block; } }
 
-@media only screen and (max-width: 767px) { br[not-mobile] { display: none; } }
+@media only screen and (max-width: 767px) { br[not-phone] { display: none; } }
 
-br[mobile-l] { display: none; }
+br[phone-l] { display: none; }
 
-@media only screen and (min-width: 425px) and (max-width: 767px) { br[mobile-l] { display: block; } }
+@media only screen and (min-width: 425px) and (max-width: 767px) { br[phone-l] { display: block; } }
 
-@media only screen and (min-width: 425px) and (max-width: 767px) { br[not-mobile-l] { display: none; } }
+@media only screen and (min-width: 425px) and (max-width: 767px) { br[not-phone-l] { display: none; } }
 
-br[mobile-m] { display: none; }
+br[phone-m] { display: none; }
 
-@media only screen and (min-width: 375px) and (max-width: 424px) { br[mobile-m] { display: block; } }
+@media only screen and (min-width: 375px) and (max-width: 424px) { br[phone-m] { display: block; } }
 
-@media only screen and (min-width: 375px) and (max-width: 424px) { br[not-mobile-m] { display: none; } }
+@media only screen and (min-width: 375px) and (max-width: 424px) { br[not-phone-m] { display: none; } }
 
-br[mobile-s] { display: none; }
+br[phone-s] { display: none; }
 
-@media only screen and (max-width: 374px) { br[mobile-s] { display: block; } }
+@media only screen and (max-width: 374px) { br[phone-s] { display: block; } }
 
-@media only screen and (max-width: 374px) { br[not-mobile-s] { display: none; } }
+@media only screen and (max-width: 374px) { br[not-phone-s] { display: none; } }
 
 #info-navBar_tab--weather::before { content: "Weather News"; }
 
