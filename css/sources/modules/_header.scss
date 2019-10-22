@@ -37,39 +37,46 @@ template.header-and-footer {
 
 	z-index: 127;
 
-	&_serviceName {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		flex: 1;
-
-		font-size: 1.5em;
-
-		&-name {
-			display: inline-flex;
-			margin-left: 1em;
-		}
-
-		&-logo {
-			width: auto;
-			height: fontBasedHeight(1em);
-
-			& img { width: auto; height: inherit; }
-		}
-	}
-
 	& + * {
 		margin-top: calc(#{fontBasedHeight(1.5em * 2 + 1em)} + 1em + 2em);
 		@include onSize(tablet) { margin-top: calc(#{fontBasedHeight(1.5em + 1em)} + 1em + 2em) }
 		@include onSize(laptop) { margin-top: calc(#{fontBasedHeight(1em)} + 1em + 2em) }
 	}
+
+	.header {
+		&_serviceName {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			flex: 1;
+	
+			font-size: 1.5em;
+			
+			.header_serviceName {
+				&-name { margin-left: 1em }
+		
+				&-logo {
+					height: fontBasedHeight(1em);
+		
+					& img { height: inherit }
+				}
+			}
+		}
+	
+		&_navBar {
+			width: 100%;
+			@include onSize(laptop) { width: auto }
+		}
+	}
 }
 
 .footer { @extend template.header-and-footer;
-	&_copyright {
-		flex: 1;
+	.footer {
+		&_copyright {
+			flex: 1;
 
-		font-size: 0.75em;
-		text-align: right;
+			font-size: 0.75em;
+			text-align: right;
+		}
 	}
 }

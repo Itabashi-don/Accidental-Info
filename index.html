@@ -17,16 +17,15 @@
 	<Body>
 		<Header Class = "header">
 			<!-- ToDo: scrollY = 0 でbox-shadowを非表示に -->
-			<Section Class = "header_serviceName">
+			<Span Class = "header_serviceName">
 				<A Class = "header_serviceName-logo" Href = "https://itabashi.0j0.jp/">
 					<Img Alt = "板橋丼(Itabashi-don)" Src = "./assets/logo.svg" />
 				</A>
 
 				<Span Class = "header_serviceName-name">Itabashi-don <Br mobile />Emergency Alerts</Span>
-			</Section>
+			</Span>
 
-			<Nav Class = "navigation_tabBar">
-				<!-- ToDo: タブのセンタリング・スクロール機能 -->
+			<Nav Class = "header_navBar navigation_tabBar">
 				<A ID = "info-navBar_tab--weather" Class = "navigation_tabBar_tab navigation_tabBar_tab--active" Selector = "#info-panels_panel--weather"><!-- Weather News --></A>
 				<A ID = "info-navBar_tab--transportation" Class = "navigation_tabBar_tab" Selector = "#info-panels_panel--transportation"><!-- Transportation Status --></A>
 				<A ID = "info-navBar_tab--river" Class = "navigation_tabBar_tab" Disabled><!-- River Status --></A>
