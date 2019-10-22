@@ -21,6 +21,8 @@ $basic-textColor-dark: none !default;
 $basic-textColor-link: none !default;
 
 $basic-textColor--onDark: #ffffff !default;
+$basic-textColor-darker--onDark: change-color($basic-textColor--onDark, $alpha: 0.60) !default;
+$basic-textColor-dark--onDark: change-color($basic-textColor--onDark, $alpha: 0.38) !default;
 $basic-textColor-link--onDark: #ffe4e1 !default;
 
 $basic-backColor: #ffffff !default;

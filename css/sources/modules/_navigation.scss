@@ -8,10 +8,8 @@
 
 .navigation {
 	&_tabBar {
-		padding: 0.5em 0;
-
 		text-align: center;
-		overflow-x: auto;
+		overflow: auto hidden;
 		white-space: nowrap;
 
 		background: $navigation_tabBar-backColor;
@@ -20,14 +18,34 @@
 
 		.navigation_tabBar {
 			&_tab {
+				position: relative;
+
+				display: inline-block;
 				padding: 0.5em;
-				color: $navigation_tabBar_tab-textColor--inactive;
-	
+
+				&, &:focus { color: $navigation_tabBar_tab-textColor }
 				cursor: pointer;
-	
-				&--active {
-					color: $navigation_tabBar_tab-textColor;
+
+				&::after {
+					content: "";
+
+					position: absolute;
+					left: 50%; bottom: 0;
+
+					display: block;
+					width: 0; height: 3px;
+
+					background: $navigation_tabBar_tab-borderColor;
+
+					transition: 0.25s 0s ease-in-out;
+					transition-property: left, width;
 				}
+
+				&:hover, &:focus, &--active {
+					&::after { left: 0; width: 100% }
+				}
+	
+				&--active { color: $navigation_tabBar_tab-textColor--active }
 	
 				&[disabled] {
 					color: $navigation_tabBar_tab-textColor--disabled;

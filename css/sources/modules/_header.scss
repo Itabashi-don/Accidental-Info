@@ -65,7 +65,11 @@ template.header-and-footer {
 	
 		&_navBar {
 			width: 100%;
-			@include onSize(laptop) { width: auto }
+
+			@include onSize(laptop) {
+				width: auto;
+				max-width: 40%;
+			}
 		}
 	}
 }

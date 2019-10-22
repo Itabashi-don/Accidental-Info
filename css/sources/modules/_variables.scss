@@ -32,6 +32,7 @@ $header_link-textColor: $basic-textColor-link--onDark;
 $header_link-textColor--focused: darken($header_link-textColor, 8%);
 
 $navigation_tabBar-backColor: $basic-primaryColor;
-$navigation_tabBar_tab-textColor: $basic-textColor--onDark;
-$navigation_tabBar_tab-textColor--inactive: $basic-textColor-link--onDark;
-$navigation_tabBar_tab-textColor--disabled: darken($navigation_tabBar_tab-textColor, 24%);
+$navigation_tabBar_tab-textColor: $basic-textColor-darker--onDark;
+$navigation_tabBar_tab-textColor--active: $basic-textColor--onDark;
+$navigation_tabBar_tab-textColor--disabled: $basic-textColor-dark--onDark;
+$navigation_tabBar_tab-borderColor: $basic-primaryColor-lighter;
