@@ -8,8 +8,13 @@
 
 template.header-and-footer {
 	display: flex;
-	justify-content: start;
-	align-items: center;
+	flex-direction: column;
+	align-items: center; // X-axis on Column-direction
+
+	@include onSize(laptop) {
+		flex-direction: row;
+		justify-content: start; // X-axis on Row-direction
+	}
 
 	width: 100%;
 	padding: 1em;
@@ -27,9 +32,6 @@ template.header-and-footer {
 
 
 .header { @extend template.header-and-footer;
-	flex-direction: column;
-	@include onSize(laptop) { flex-direction: row }
-
 	position: fixed;
 	left: 0; top: 0;
 
@@ -57,14 +59,13 @@ template.header-and-footer {
 	}
 
 	& + * {
-		margin-top: calc(#{fontBasedHeight(1.5em * 2)} + 2em); // 1.5em(font-size) * 2(lines) * line-height + 2em(padding)
-		@include onSize(laptop) { margin-top: calc(#{fontBasedHeight(1.5em)} + 2em) } // 1.5em(font-size) * line-height + 2em(padding)
+		margin-top: calc(#{fontBasedHeight(1.5em * 2 + 1em)} + 1em + 2em);
+		@include onSize(tablet) { margin-top: calc(#{fontBasedHeight(1.5em + 1em)} + 1em + 2em) }
+		@include onSize(laptop) { margin-top: calc(#{fontBasedHeight(1em)} + 1em + 2em) }
 	}
 }
 
 .footer { @extend template.header-and-footer;
-	flex-direction: row;
-	
 	&_copyright {
 		flex: 1;
 

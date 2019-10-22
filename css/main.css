@@ -59,15 +59,15 @@ br[mobile-s] { display: none; }
 
 #info-navBar_tab--municipal:lang(ja)::before { content: "自治体情報"; }
 
-template.header-and-footer, .header, .footer { display: flex; justify-content: start; align-items: center; width: 100%; padding: 1em; color: #ffffff; background: #00838f; box-shadow: 0px 0px 2px 0px #005662; }
+template.header-and-footer, .header, .footer { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 1em; color: #ffffff; background: #00838f; box-shadow: 0px 0px 2px 0px #005662; }
+
+@media only screen and (min-width: 1024px) { template.header-and-footer, .header, .footer { flex-direction: row; justify-content: start; } }
 
 template.header-and-footer a, .header a, .footer a { color: #ffe4e1; }
 
 template.header-and-footer a:focus, .header a:focus, .footer a:focus { color: #ffbfb8; }
 
-.header { flex-direction: column; position: fixed; left: 0; top: 0; z-index: 127; }
-
-@media only screen and (min-width: 1024px) { .header { flex-direction: row; } }
+.header { position: fixed; left: 0; top: 0; z-index: 127; }
 
 .header_serviceName { display: flex; flex-direction: row; align-items: center; flex: 1; font-size: 1.5em; }
 
@@ -77,11 +77,11 @@ template.header-and-footer a:focus, .header a:focus, .footer a:focus { color: #f
 
 .header_serviceName-logo img { width: auto; height: inherit; }
 
-.header + * { margin-top: calc(4.5em + 2em); }
+.header + * { margin-top: calc(6em + 1em + 2em); }
 
-@media only screen and (min-width: 1024px) { .header + * { margin-top: calc(2.25em + 2em); } }
+@media only screen and (min-width: 768px) and (max-width: 1023px) { .header + * { margin-top: calc(3.75em + 1em + 2em); } }
 
-.footer { flex-direction: row; }
+@media only screen and (min-width: 1024px) { .header + * { margin-top: calc(1.5em + 1em + 2em); } }
 
 .footer_copyright { flex: 1; font-size: 0.75em; text-align: right; }
 
