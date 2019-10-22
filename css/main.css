@@ -67,11 +67,13 @@ template.header-and-footer a, .header a, .footer a { color: #ffe4e1; }
 
 template.header-and-footer a:focus, .header a:focus, .footer a:focus { color: #ffbfb8; }
 
-.header { position: fixed; left: 0; top: 0; z-index: 127; }
+.header { position: fixed; left: 0; top: 0; padding-bottom: 0; z-index: 127; }
 
-.header + * { margin-top: calc(6em + 1em + 2em); }
+@media only screen and (min-width: 1024px) { .header { padding-bottom: 1em; } }
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) { .header + * { margin-top: calc(3.75em + 1em + 2em); } }
+.header + * { margin-top: calc(6em + 1em + 1em); }
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) { .header + * { margin-top: calc(3.75em + 1em + 1em); } }
 
 @media only screen and (min-width: 1024px) { .header + * { margin-top: calc(1.5em + 1em + 2em); } }
 
