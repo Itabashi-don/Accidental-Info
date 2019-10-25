@@ -15,11 +15,11 @@ const Navigation = (() => {
 		set selector (val) { this.elem.setAttribute("selector", val) }
 
 		/** @return {HTMLElement | null} */
-		get matchedElem () { return this.selector ? document.querySelector(this.selector) : null }
+		get matched () { return this.selector ? document.querySelector(this.selector) : null }
 
 		register () {
 			if (!this.selector) return;
-			if (!this.matchedElem) throw new ReferenceError(`The selector didn't match with any elements`);
+			if (!this.matched) throw new ReferenceError(`The selector didn't match with any elements`);
 
 			this.elem.addEventListener("click", () => this.dispatch());
 		}
@@ -40,13 +40,20 @@ const Navigation = (() => {
 				this.elem = elem;
 			}
 
+			/** @return {string} */
+			get id () { return this.elem.id }
+
 			/** @return {Panel.PanelGroup} */
 			get group () { return new Navigation.Panel.PanelGroup(this.elem.parentElement) }
 
 			/** @return {boolean} */
-			get open () { return this.elem.hasAttribute("open") }
+			get active () { return this.elem.classList.contains(Panel.stateClasses.active) }
 			/** @param {boolean} val */
-			set open (val) { val ? this.elem.setAttribute("open", "") : this.elem.removeAttribute("open") }
+			set active (val) { val ? this.elem.classList.add(Panel.stateClasses.active) : this.elem.classList.remove(Panel.stateClasses.active) }
+		}
+
+		Panel.stateClasses = {
+			active: `${Panel.className}--active`
 		}
 
 		Panel.PanelGroup = class PanelGroup {
@@ -57,14 +64,26 @@ const Navigation = (() => {
 				this.elem = elem;
 			}
 
+			/** @return {Panel[]} */
 			get panels () {
-				const panels = this.elem.querySelectorAll(`:scope > .${Navigation.Panel.className}`);
-				return Array.from(panels).map(panel => new Navigation.Panel(panel));
+				const panels = this.elem.querySelectorAll(`:scope > .${Panel.className}`);
+				return Array.from(panels).map(panel => new Panel(panel));
 			}
 
+			/** @return {Panel | null} */
 			get activePanel () {
-				const activePanel = this.elem.querySelector(`:scope > .${Navigation.Panel.className}[Open]`);
-				return activePanel ? new Navigation.Panel(activePanel) : null;
+				const activePanel = this.elem.querySelector(`:scope > .${Panel.className}[${Panel.stateClasses.active}]`);
+				return activePanel ? new Panel(activePanel) : null;
+			}
+			
+			/** @param {Panel} panel */
+			activate (panel) {
+				const matchedPanel = this.panels.find(child => child.id === panel.id);
+
+				if (matchedPanel && !matchedPanel.active) {
+					for (const child of this.panels) child.active = false;
+					matchedPanel.active = true;
+				}
 			}
 		}
 
@@ -85,15 +104,41 @@ const Navigation = (() => {
 			constructor (elem) {
 				super(elem);
 			}
+
+			/** @param {Navigation.Panel | null} */
+			get matched () { return new Navigation.Panel(super.matched) }
+
+			/** @return {Tab.TabBar} */
+			get tabBar () { return new Tab.TabBar(this.elem.parentElement) }
+
+			/** @return {boolean} */
+			get active () { return this.elem.classList.contains(Tab.stateClasses.active) }
+			/** @param {boolean} val */
+			set active (val) { val ? this.elem.classList.add(Tab.stateClasses.active) : this.elem.classList.remove(Tab.stateClasses.active) }
 			
 			/** @return {boolean} */
-			get disabled () { return this.elem.hasAttribute("disabled") }
+			get disabled () { return this.elem.classList.contains(Tab.stateClasses.disabled) }
 			/** @param {boolean} val */
-			set disabled (val) { val ? this.elem.setAttribute("disabled", "") : this.elem.removeAttribute("disabled") }
+			set disabled (val) { val ? this.elem.classList.add(Tab.stateClasses.disabled) : this.elem.classList.remove(Tab.stateClasses.disabled) }
+
+			activate () {
+				if (this.active) return;
+
+				for (const tab of this.tabBar.childTabs) tab.active = false;
+				this.active = true;
+			}
 
 			dispatch () {
-				if (!this.disabled) this.matchedElem.setAttribute("open", "");
+				if (!this.disabled) {
+					this.activate();
+					this.matched.group.activate(this.matched);
+				}
 			}
+		}
+
+		Tab.stateClasses = {
+			active: `${Tab.className}--active`,
+			disabled: `${Tab.className}--disabled`
 		}
 
 		Tab.TabBar = class TabBar {
@@ -120,6 +165,7 @@ const Navigation = (() => {
 
 
 		Object.defineProperties(Tab, {
+			stateClasses: { configurable: false, writable: false, enumerable: true },
 			TabBar: { configurable: false, writable: false, enumerable: true }
 		});
 

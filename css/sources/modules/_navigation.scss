@@ -65,7 +65,7 @@
 	
 				&--active { color: $navigation_tabBar_tab-textColor--active }
 	
-				&[disabled] {
+				&--disabled {
 					color: $navigation_tabBar_tab-textColor--disabled;
 					pointer-events: none;
 				}
@@ -74,10 +74,12 @@
 	}
 
 	&_panelGroup {
+		display: block;
+		
 		.navigation {
 			&_panel {
 				display: none;
-				&[open] { display: block }
+				&--active { display: block }
 			}
 		}
 	}

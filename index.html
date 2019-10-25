@@ -28,14 +28,14 @@
 			<Nav Class = "header_navBar navigation_tabBar">
 				<A ID = "info-navBar_tab--weather" Class = "navigation_tab navigation_tab--active" Selector = "#info-panels_panel--weather"><!-- Weather News --></A>
 				<A ID = "info-navBar_tab--transportation" Class = "navigation_tab" Selector = "#info-panels_panel--transportation"><!-- Transportation Status --></A>
-				<A ID = "info-navBar_tab--river" Class = "navigation_tab" Disabled><!-- River Status --></A>
+				<A ID = "info-navBar_tab--river" Class = "navigation_tab navigation_tab--disabled"><!-- River Status --></A>
 				<A ID = "info-navBar_tab--municipal" Class = "navigation_tab" Selector = "#info-panels_panel--municipal"><!-- Municipal Information --></A>
 			</Nav>
 		</Header>
 
 		<Main ID = "info" Class = "content">
 			<PanelGroup ID = "info-panels" Class = "navigation_panelGroup">
-				<Panel ID = "info-panels_panel--weather" Class = "navigation_panel" Open>
+				<Panel ID = "info-panels_panel--weather" Class = "navigation_panel navigation_panel--active">
 					<Details Open>
 						<Summary>気象レーダー / 気象情報</Summary>
 	

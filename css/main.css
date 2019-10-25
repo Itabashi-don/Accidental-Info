@@ -117,10 +117,12 @@ template.header-and-footer a:focus, .header a:focus, .footer a:focus { color: #f
 
 .navigation_tabBar .navigation_tab--active { color: #ffffff; }
 
-.navigation_tabBar .navigation_tab[disabled] { color: rgba(255, 255, 255, 0.38); pointer-events: none; }
+.navigation_tabBar .navigation_tab--disabled { color: rgba(255, 255, 255, 0.38); pointer-events: none; }
+
+.navigation_panelGroup { display: block; }
 
 .navigation_panelGroup .navigation_panel { display: none; }
 
-.navigation_panelGroup .navigation_panel[open] { display: block; }
+.navigation_panelGroup .navigation_panel--active { display: block; }
 
 /*# sourceMappingURL=maps/main.css.map */
