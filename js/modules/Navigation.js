@@ -1,25 +1,6 @@
 const Navigation = (() => {
 	class Navigation {}
 
-	Navigation.Panel = class Panel {
-		static get className () { return "navigation_panel" }
-
-		/** @param {HTMLElement} elem */
-		constructor (elem) {
-			this.elem = elem;
-		}
-
-		/** @return {string} */
-		get group () { return this.elem.getAttribute("group") }
-		/** @param {string} val */
-		set group (val) { this.elem.setAttribute("group", val) }
-
-		/** @return {boolean} */
-		get open () { return this.elem.hasAttribute("open") }
-		/** @param {boolean} val */
-		set open (val) { val ? this.elem.setAttribute("open", "") : this.elem.removeAttribute("open") }
-	}
-
 	Navigation.Trigger = class Trigger {
 		static get className () { return "navigation-trigger" }
 
@@ -37,7 +18,7 @@ const Navigation = (() => {
 		get matchedElem () { return this.selector ? document.querySelector(this.selector) : null }
 
 		register () {
-			if (!this.selector) throw new TypeError(`"selector" can't be blank`);
+			if (!this.selector) return;
 			if (!this.matchedElem) throw new ReferenceError(`The selector didn't match with any elements`);
 
 			this.elem.addEventListener("click", () => this.dispatch());
@@ -50,30 +31,55 @@ const Navigation = (() => {
 		dispatch () { throw new Error("dispatch() must be implemented as it's an abstract method") }
 	}
 
-	Navigation.TabBar = (() => {
-		class TabBar {
-			static get className () { return "navigation_tabBar" }
+	Navigation.Panel = (() => {
+		class Panel {
+			static get className () { return "navigation_panel" }
 
 			/** @param {HTMLElement} elem */
 			constructor (elem) {
 				this.elem = elem;
 			}
 
-			/** @return {TabBar.Tab[]} */
-			get childTabs () {
-				const tabs = this.elem.querySelectorAll(`:scope > .${Navigation.TabBar.Tab.className}`);
-				return Array.from(tabs).map(tab => new Navigation.TabBar.Tab(tab));
+			/** @return {Panel.PanelGroup} */
+			get group () { return new Navigation.Panel.PanelGroup(this.elem.parentElement) }
+
+			/** @return {boolean} */
+			get open () { return this.elem.hasAttribute("open") }
+			/** @param {boolean} val */
+			set open (val) { val ? this.elem.setAttribute("open", "") : this.elem.removeAttribute("open") }
+		}
+
+		Panel.PanelGroup = class PanelGroup {
+			static get className () { return "navigation_panelGroup" }
+
+			/** @param {HTMLElement} elem */
+			constructor (elem) {
+				this.elem = elem;
 			}
 
-			register () {
-				for (const childTab of this.childTabs) {
-					childTab.register();
-				}
+			get panels () {
+				const panels = this.elem.querySelectorAll(`:scope > .${Navigation.Panel.className}`);
+				return Array.from(panels).map(panel => new Navigation.Panel(panel));
+			}
+
+			get activePanel () {
+				const activePanel = this.elem.querySelector(`:scope > .${Navigation.Panel.className}[Open]`);
+				return activePanel ? new Navigation.Panel(activePanel) : null;
 			}
 		}
 
-		TabBar.Tab = class Tab extends Navigation.Trigger {
-			static get className () { return "navigation_tabBar_tab" }
+
+
+		Object.defineProperties(Panel, {
+			PanelGroup: { configurable: false, writable: false, enumerable: true }
+		});
+
+		return Panel;
+	})();
+
+	Navigation.Tab = (() => {
+		class Tab extends Navigation.Trigger {
+			static get className () { return "navigation_tab" }
 
 			/** @param {HTMLElement} elem */
 			constructor (elem) {
@@ -90,22 +96,43 @@ const Navigation = (() => {
 			}
 		}
 
-		Object.defineProperties(TabBar, {
-			Tab: { configurable: false, writable: false, enumerable: true }
+		Tab.TabBar = class TabBar {
+			static get className () { return "navigation_tabBar" }
+	
+			/** @param {HTMLElement} elem */
+			constructor (elem) {
+				this.elem = elem;
+			}
+	
+			/** @return {Tab[]} */
+			get childTabs () {
+				const tabs = this.elem.querySelectorAll(`:scope > .${Navigation.Tab.className}`);
+				return Array.from(tabs).map(tab => new Navigation.Tab(tab));
+			}
+	
+			register () {
+				for (const childTab of this.childTabs) {
+					childTab.register();
+				}
+			}
+		}
+
+
+
+		Object.defineProperties(Tab, {
+			TabBar: { configurable: false, writable: false, enumerable: true }
 		});
 
-		
+		return Tab;
+	})()
 
-		return TabBar;
-	})();
+
 
 	Object.defineProperties(Navigation, {
-		Panel: { configurable: false, writable: false, enumerable: true },
 		Trigger: { configurable: false, writable: false, enumerable: true },
-		TabBar: { configurable: false, writable: false, enumerable: true }
+		Panel: { configurable: false, writable: false, enumerable: true },
+		Tab: { configurable: false, writable: false, enumerable: true }
 	});
-
-
 
 	return Navigation;
 })();
@@ -113,9 +140,9 @@ const Navigation = (() => {
 
 
 window.addEventListener("DOMContentLoaded", () => {
-	const navigation_tabBars = document.getElementsByClassName(Navigation.TabBar.className);
-	for (const tabBar of navigation_tabBars) new Navigation.TabBar(tabBar).register();
+	const navigation_tabBars = document.getElementsByClassName(Navigation.Tab.TabBar.className);
+	for (const tabBar of navigation_tabBars) new Navigation.Tab.TabBar(tabBar).register();
 
-	/*const navigation_tabBar_tabs = document.getElementsByClassName(Navigation.TabBar.Tab.className);
-	for (const tab of navigation_tabBar_tabs) new Navigation.TabBar.Tab(tab);*/
+	/*const navigation_tabBar_tabs = document.getElementsByClassName(Navigation.Tab.className);
+	for (const tab of navigation_tabBar_tabs) new Navigation.Tab(tab);*/
 });

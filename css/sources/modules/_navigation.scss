@@ -8,6 +8,8 @@
 
 .navigation {
 	&_tabBar {
+		display: block;
+
 		text-align: center;
 		overflow: auto hidden;
 		white-space: nowrap;
@@ -16,7 +18,20 @@
 
 		& a { text-decoration: none }
 
-		.navigation_tabBar {
+		/*&::before {
+			content: "◀";
+
+			position: absolute;
+			display: inline-block;
+			width: 1em;
+			padding: 0.5em;
+
+			color: $navigation_tabBar_arrow-textColor;
+			background: $navigation_tabBar-backColor;
+			z-index: 1;
+		}*/
+
+		.navigation {
 			&_tab {
 				position: relative;
 
@@ -25,6 +40,9 @@
 
 				&, &:focus { color: $navigation_tabBar_tab-textColor }
 				cursor: pointer;
+
+				// &:first-child { margin-left: 2em }
+				// &:last-child { margin-right: 2em }
 
 				&::after {
 					content: "";
@@ -55,8 +73,12 @@
 		}
 	}
 
-	&_panel {
-		display: none;
-		&[open] { display: block }
+	&_panelGroup {
+		.navigation {
+			&_panel {
+				display: none;
+				&[open] { display: block }
+			}
+		}
 	}
 }
