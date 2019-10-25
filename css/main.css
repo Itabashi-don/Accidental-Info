@@ -83,7 +83,7 @@ template.header-and-footer a:focus, .header a:focus, .footer a:focus { color: #f
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) { .header + * { margin-top: calc(3.75rem + 1rem + 1rem); } }
 
-@media only screen and (min-width: 1024px) { .header + * { margin-top: calc(2.25rem + 1rem + 2rem); } }
+@media only screen and (min-width: 1024px) { .header + * { margin-top: calc(1.5rem + 1rem + 2rem); } }
 
 .header .header_serviceName { display: flex; flex-direction: row; align-items: center; flex: 1; padding: 1rem 1rem 0 1rem; font-size: 1.5rem; }
 

@@ -43,7 +43,7 @@ template.header-and-footer {
 	& + * {
 		margin-top: calc(#{fontBasedHeight($header_serviceName-fontSize * 2 + 1rem)} + 1rem + 1rem);
 		@include onSize(tablet) { margin-top: calc(#{fontBasedHeight($header_serviceName-fontSize + 1rem)} + 1rem + 1rem) }
-		@include onSize(laptop) { margin-top: calc(#{fontBasedHeight($header_serviceName-fontSize)} + 1rem + 2rem) }
+		@include onSize(laptop) { margin-top: calc(#{fontBasedHeight(1rem)} + 1rem + 2rem) }
 	}
 
 	.header {
