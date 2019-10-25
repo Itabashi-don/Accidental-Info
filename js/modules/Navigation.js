@@ -182,13 +182,3 @@ const Navigation = (() => {
 
 	return Navigation;
 })();
-
-
-
-window.addEventListener("DOMContentLoaded", () => {
-	const navigation_tabBars = document.getElementsByClassName(Navigation.Tab.TabBar.className);
-	for (const tabBar of navigation_tabBars) new Navigation.Tab.TabBar(tabBar).register();
-
-	/*const navigation_tabBar_tabs = document.getElementsByClassName(Navigation.Tab.className);
-	for (const tab of navigation_tabBar_tabs) new Navigation.Tab(tab);*/
-});

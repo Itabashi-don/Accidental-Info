@@ -14,7 +14,16 @@
 		overflow: auto hidden;
 		white-space: nowrap;
 
-		background: $navigation_tabBar-backColor;
+		background:
+			/* Shadow Covers */
+			linear-gradient(to left, rgba(0, 0, 0, 0), $navigation_tabBar-backColor 15px) left 0 / 50px 100% local,
+			linear-gradient(to right, rgba(0, 0, 0, 0), $navigation_tabBar-backColor 15px) right 0 / 50px 100% local,
+			/* Shadows */
+			linear-gradient(to left, rgba(0, 0, 0, 0), $navigation_tabBar_scrollIndicator-shadowColor) left 0 / 20px 100% scroll,
+			linear-gradient(to right, rgba(0, 0, 0, 0), $navigation_tabBar_scrollIndicator-shadowColor) right 0 / 20px 100% scroll;
+
+		background-repeat: no-repeat;
+		background-color: $navigation_tabBar-backColor;
 
 		& a { text-decoration: none }
 
