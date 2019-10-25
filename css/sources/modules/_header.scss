@@ -35,16 +35,15 @@ template.header-and-footer {
 	position: fixed;
 	left: 0; top: 0;
 
-	// padding: 0;
-	padding-bottom: 0;
+	padding: 0;
+	@include onSize(laptop) { padding: 1rem }
+
 	z-index: 127;
 
-	@include onSize(laptop) { padding-bottom: 1em }
-
 	& + * {
-		margin-top: calc(#{fontBasedHeight(1.5em * 2 + 1em)} + 1em + 1em);
-		@include onSize(tablet) { margin-top: calc(#{fontBasedHeight(1.5em + 1em)} + 1em + 1em) }
-		@include onSize(laptop) { margin-top: calc(#{fontBasedHeight(1em)} + 1em + 2em) }
+		margin-top: calc(#{fontBasedHeight($header_serviceName-fontSize * 2 + 1rem)} + 1rem + 1rem);
+		@include onSize(tablet) { margin-top: calc(#{fontBasedHeight($header_serviceName-fontSize + 1rem)} + 1rem + 1rem) }
+		@include onSize(laptop) { margin-top: calc(#{fontBasedHeight($header_serviceName-fontSize)} + 1rem + 2rem) }
 	}
 
 	.header {
@@ -54,17 +53,18 @@ template.header-and-footer {
 			align-items: center;
 			flex: 1;
 
-			// padding: 1rem 1rem 0 1rem;
-			font-size: 1.5em;
+			padding: 1rem 1rem 0 1rem;
+			@include onSize(laptop) { padding: 0 }
+
+			font-size: $header_serviceName-fontSize;
 			
 			.header_serviceName {
-				&-name { margin-left: 1em }
-		
 				&-logo {
 					height: fontBasedHeight(1em);
-		
 					& img { height: inherit }
 				}
+
+				&-name { margin-left: 1em }
 			}
 		}
 	
@@ -84,7 +84,7 @@ template.header-and-footer {
 		&_copyright {
 			flex: 1;
 
-			font-size: 0.75em;
+			font-size: $footer_copyright-fontSize;
 			text-align: right;
 		}
 	}

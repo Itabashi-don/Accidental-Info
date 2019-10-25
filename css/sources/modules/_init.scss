@@ -10,12 +10,14 @@
 	box-sizing: border-box;
 }
 
+html {
+	font-size: initial;
+	@include onSize(laptop) { font-size: initial }
+}
+
 html, body {
 	height: 100%;
 	margin: 0;
-
-	font-size: initial;
-	@include onSize(laptop) { font-size: initial }
 }
 
 body {

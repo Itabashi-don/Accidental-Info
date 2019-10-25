@@ -16,7 +16,13 @@ $mediaQueries: ( // A collection of Media-Queries
 	phone-s: "only screen and (max-width: 374px)"
 );
 
+
+
+// ##### Definition of Size Variables ##### //
 $lineHeight: 1.5; // [Note] line-height affects height property
+
+$header_serviceName-fontSize: 1.5rem;
+$footer_copyright-fontSize: 0.75rem;
 
 
 
