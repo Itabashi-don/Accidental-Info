@@ -68,7 +68,7 @@ template.header-and-footer {
 			}
 		}
 	
-		&_navBar {
+		&_tabBar {
 			width: 100%;
 
 			@include onSize(laptop) {

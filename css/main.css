@@ -51,21 +51,21 @@ br[phone-s] { display: none; }
 
 @media only screen and (max-width: 374px) { br[not-phone-s] { display: none; } }
 
-#info-navBar_tab--weather::before { content: "Weather News"; }
+#IDEA-tabBar_tab--weather::before { content: "Weather News"; }
 
-#info-navBar_tab--weather:lang(ja)::before { content: "気象情報"; }
+#IDEA-tabBar_tab--weather:lang(ja)::before { content: "気象情報"; }
 
-#info-navBar_tab--transportation::before { content: "Transportation Status"; }
+#IDEA-tabBar_tab--transportation::before { content: "Transportation Status"; }
 
-#info-navBar_tab--transportation:lang(ja)::before { content: "鉄道運行情報"; }
+#IDEA-tabBar_tab--transportation:lang(ja)::before { content: "鉄道運行情報"; }
 
-#info-navBar_tab--river::before { content: "River Status"; }
+#IDEA-tabBar_tab--river::before { content: "River Status"; }
 
-#info-navBar_tab--river:lang(ja)::before { content: "河川情報"; }
+#IDEA-tabBar_tab--river:lang(ja)::before { content: "河川情報"; }
 
-#info-navBar_tab--municipal::before { content: "Municipal Information"; }
+#IDEA-tabBar_tab--municipal::before { content: "Municipal Information"; }
 
-#info-navBar_tab--municipal:lang(ja)::before { content: "自治体情報"; }
+#IDEA-tabBar_tab--municipal:lang(ja)::before { content: "自治体情報"; }
 
 template.header-and-footer, .header, .footer { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 1em; color: #ffffff; background: #00838f; box-shadow: 0px 0px 2px 0px #005662; }
 
@@ -95,9 +95,9 @@ template.header-and-footer a:focus, .header a:focus, .footer a:focus { color: #f
 
 .header .header_serviceName .header_serviceName-name { margin-left: 1em; }
 
-.header .header_navBar { width: 100%; }
+.header .header_tabBar { width: 100%; }
 
-@media only screen and (min-width: 1024px) { .header .header_navBar { width: auto; max-width: 40%; } }
+@media only screen and (min-width: 1024px) { .header .header_tabBar { width: auto; max-width: 40%; } }
 
 .footer .footer_copyright { flex: 1; font-size: 0.75rem; text-align: right; }
 

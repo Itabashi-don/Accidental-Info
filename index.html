@@ -1,6 +1,6 @@
 <!DocType HTML>
 
-<HTML>
+<HTML ID = "IDEA">
 	<Head>
 		<Meta Charset = "UTF-8" />
 		<Meta Name = "Viewport" Content = "width=device-width, initial-scale=1, user-scalable=no" />
@@ -15,7 +15,7 @@
 	</Head>
 
 	<Body>
-		<Header Class = "header">
+		<Header ID = "IDEA-header" Class = "header">
 			<!-- ToDo: scrollY = 0 でbox-shadowを非表示に -->
 			<Span Class = "header_serviceName">
 				<A Class = "header_serviceName-logo" Href = "https://itabashi.0j0.jp/">
@@ -25,17 +25,17 @@
 				<Span Class = "header_serviceName-name">Itabashi-don <Br phone />Emergency Alerts</Span>
 			</Span>
 
-			<Nav Class = "header_navBar navigation_tabBar">
-				<A ID = "info-navBar_tab--weather" Class = "navigation_tab navigation_tab--active" Selector = "#info-panels_panel--weather"><!-- Weather News --></A>
-				<A ID = "info-navBar_tab--transportation" Class = "navigation_tab" Selector = "#info-panels_panel--transportation"><!-- Transportation Status --></A>
-				<A ID = "info-navBar_tab--river" Class = "navigation_tab navigation_tab--disabled"><!-- River Status --></A>
-				<A ID = "info-navBar_tab--municipal" Class = "navigation_tab" Selector = "#info-panels_panel--municipal"><!-- Municipal Information --></A>
+			<Nav Class = "header_tabBar navigation_tabBar">
+				<A ID = "IDEA-tabBar_tab--weather" Class = "navigation_tab navigation_tab--active" Selector = "#IDEA-content_panel--weather"><!-- Weather News --></A>
+				<A ID = "IDEA-tabBar_tab--transportation" Class = "navigation_tab" Selector = "#IDEA-content_panel--transportation"><!-- Transportation Status --></A>
+				<A ID = "IDEA-tabBar_tab--river" Class = "navigation_tab navigation_tab--disabled"><!-- River Status --></A>
+				<A ID = "IDEA-tabBar_tab--municipal" Class = "navigation_tab" Selector = "#IDEA-content_panel--municipal"><!-- Municipal Information --></A>
 			</Nav>
 		</Header>
 
-		<Main ID = "info" Class = "content">
-			<PanelGroup ID = "info-panels" Class = "navigation_panelGroup">
-				<Panel ID = "info-panels_panel--weather" Class = "navigation_panel navigation_panel--active">
+		<Main ID = "IDEA-content" Class = "content">
+			<PanelGroup Class = "navigation_panelGroup">
+				<Panel ID = "IDEA-content_panel--weather" Class = "navigation_panel navigation_panel--active">
 					<Details Open>
 						<Summary>気象レーダー / 気象情報</Summary>
 	
@@ -64,7 +64,7 @@
 					</Details>
 				</Panel>
 	
-				<Panel ID = "info-panels_panel--transportation" Class = "navigation_panel">
+				<Panel ID = "IDEA-content_panel--transportation" Class = "navigation_panel">
 					<Details>
 						<Summary>鉄道運行情報 / Train Status</Summary>
 		
@@ -77,7 +77,7 @@
 					</Details>
 				</Panel>
 	
-				<Panel ID = "info-panels_panel--river" Class = "navigation_panel">
+				<Panel ID = "IDEA-content_panel--river" Class = "navigation_panel">
 					<Details>
 						<Summary>河川情報 / River Status</Summary>
 		
@@ -90,7 +90,7 @@
 					</Details>
 				</Panel>
 	
-				<Panel ID = "info-panels_panel--municipal" Class = "navigation_panel">
+				<Panel ID = "IDEA-content_panel--municipal" Class = "navigation_panel">
 					<Details>
 						<Summary>自治体情報 / Municipal Information</Summary>
 		
@@ -105,7 +105,7 @@
 			</PanelGroup>
 		</Main>
 
-		<Footer Class = "footer">
+		<Footer ID = "IDEA-footer" Class = "footer">
 			<Span Class = "footer_copyright">
 				Copyright (C) 2019 <A Href = "https://itabashi.0j0.jp/">板橋丼(Itabashi-don)</A>
 			</Span>

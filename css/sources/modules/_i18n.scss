@@ -15,8 +15,8 @@
 
 
 
-#info {
-	&-navBar_tab {
+#IDEA {
+	&-tabBar_tab {
 		&--weather {
 			@include i18n("", "Weather News");
 			@include i18n(ja, "気象情報");
