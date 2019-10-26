@@ -6,7 +6,7 @@
 
 
 
-template.header-and-footer {
+%header-and-footer {
 	display: flex;
 	flex-direction: column;
 	align-items: center; // X-axis on Column-direction
@@ -31,7 +31,7 @@ template.header-and-footer {
 
 
 
-.header { @extend template.header-and-footer;
+.header { @extend %header-and-footer;
 	position: fixed;
 	left: 0; top: 0;
 
@@ -46,46 +46,42 @@ template.header-and-footer {
 		@include onSize(laptop) { margin-top: calc(#{fontBasedHeight(1rem)} + 1rem + 2rem) }
 	}
 
-	.header {
-		&_serviceName {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			flex: 1;
+	#{&}_serviceName {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex: 1;
 
-			padding: 1rem 1rem 0 1rem;
-			@include onSize(laptop) { padding: 0 }
+		padding: 1rem 1rem 0 1rem;
+		@include onSize(laptop) { padding: 0 }
 
-			font-size: $header_serviceName-fontSize;
-			
-			.header_serviceName {
-				&-logo {
-					height: fontBasedHeight(1em);
-					& img { height: inherit }
-				}
-
-				&-name { margin-left: 1em }
+		font-size: $header_serviceName-fontSize;
+		
+		.header_serviceName {
+			&-logo {
+				height: fontBasedHeight(1em);
+				& img { height: inherit }
 			}
+
+			&-name { margin-left: 1em }
 		}
-	
-		&_tabBar {
-			width: 100%;
+	}
 
-			@include onSize(laptop) {
-				width: auto;
-				max-width: 40%;
-			}
+	#{&}_tabBar {
+		width: 100%;
+
+		@include onSize(laptop) {
+			width: auto;
+			max-width: 40%;
 		}
 	}
 }
 
-.footer { @extend template.header-and-footer;
-	.footer {
-		&_copyright {
-			flex: 1;
+.footer { @extend %header-and-footer;
+	#{&}_copyright {
+		flex: 1;
 
-			font-size: $footer_copyright-fontSize;
-			text-align: right;
-		}
+		font-size: $footer_copyright-fontSize;
+		text-align: right;
 	}
 }

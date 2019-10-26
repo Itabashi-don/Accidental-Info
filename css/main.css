@@ -67,13 +67,13 @@ br[phone-s] { display: none; }
 
 #IDEA-tabBar_tab--municipal:lang(ja)::before { content: "自治体情報"; }
 
-template.header-and-footer, .header, .footer { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 1em; color: #ffffff; background: #00838f; box-shadow: 0px 0px 2px 0px #005662; }
+.header, .footer { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 1em; color: #ffffff; background: #00838f; box-shadow: 0px 0px 2px 0px #005662; }
 
-@media only screen and (min-width: 1024px) { template.header-and-footer, .header, .footer { flex-direction: row; justify-content: start; } }
+@media only screen and (min-width: 1024px) { .header, .footer { flex-direction: row; justify-content: start; } }
 
-template.header-and-footer a, .header a, .footer a { color: #ffe4e1; }
+.header a, .footer a { color: #ffe4e1; }
 
-template.header-and-footer a:focus, .header a:focus, .footer a:focus { color: #ffbfb8; }
+.header a:focus, .footer a:focus { color: #ffbfb8; }
 
 .header { position: fixed; left: 0; top: 0; padding: 0; z-index: 127; }
 
