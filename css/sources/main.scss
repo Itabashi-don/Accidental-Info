@@ -1,7 +1,31 @@
 @charset "UTF-8";
 
-@import "./modules/init";
-@import "./modules/i18n";
-@import "./modules/header";
-@import "./modules/content";
-@import "./modules/navigation";
+
+
+//==================================================
+// Foundation
+//==================================================
+
+@import "./foundation/init";
+
+
+//==================================================
+// Layouts
+//==================================================
+
+@import "./layouts/header";
+@import "./layouts/content";
+
+
+//==================================================
+// Components
+//==================================================
+
+@import "./components/navigation";
+
+
+//==================================================
+// Utilities
+//==================================================
+
+@import "./utils/i18n";

@@ -1,6 +1,6 @@
 {
 	"name": "itabashi-don_emergency-alerts",
-	"version": "0.0.40",
+	"version": "0.0.41",
 	"description": "A website collecting accidental information of Itabashi and around",
 	"keywords": [
 		"Itabashi"
@@ -11,7 +11,7 @@
 		"dev": "run-p server build:scss",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"server": "serve -n -l 8001",
-		"build:scss": "node-sass -w ./css/sources/main.scss ./css/main.css --output-style compact --source-map ./css/maps"
+		"build:scss": "node-sass -w ./css/sources/main.scss ./css/main.css --output-style compact --source-map ./css/"
 	},
 	"author": {
 		"name": "板橋丼(Itabashi-don)",

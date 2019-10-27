@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
-@import "./variables";
-@import "./mixins";
-@import "./functions";
+@import "../foundation/variables";
+@import "../foundation/mixins";
+@import "../foundation/functions";
 
 
 
@@ -15,10 +15,10 @@
 		white-space: nowrap;
 
 		background:
-			/* Shadow Covers */
+			// Shadow Covers
 			linear-gradient(to left, transparent, $navigation_tabBar-backColor 1em) left center / 2em 100% local,
 			linear-gradient(to right, transparent, $navigation_tabBar-backColor 1em) right center / 2em 100% local,
-			/* Shadows */
+			// Shadows
 			linear-gradient(to left, transparent, $navigation_tabBar_scrollIndicator-shadowColor) left center / 1em 100% scroll,
 			linear-gradient(to right, transparent, $navigation_tabBar_scrollIndicator-shadowColor) right center / 1em 100% scroll;
 

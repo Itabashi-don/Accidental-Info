@@ -51,42 +51,6 @@ br[phone-s] { display: none; }
 
 @media only screen and (max-width: 374px) { br[not-phone-s] { display: none; } }
 
-#IDEA-tabBar_tab--weather::before { content: "Weather News"; }
-
-#IDEA-tabBar_tab--weather:lang(ja)::before { content: "気象情報"; }
-
-#IDEA-tabBar_tab--weather:lang(ja-JP)::before { content: "気象情報"; }
-
-#IDEA-tabBar_tab--transportation::before { content: "Transportation Status"; }
-
-#IDEA-tabBar_tab--transportation:lang(ja)::before { content: "鉄道運行情報"; }
-
-#IDEA-tabBar_tab--transportation:lang(ja-JP)::before { content: "鉄道運行情報"; }
-
-#IDEA-tabBar_tab--river::before { content: "River Status"; }
-
-#IDEA-tabBar_tab--river:lang(ja)::before { content: "河川情報"; }
-
-#IDEA-tabBar_tab--river:lang(ja-JP)::before { content: "河川情報"; }
-
-#IDEA-tabBar_tab--municipal::before { content: "Municipal Information"; }
-
-#IDEA-tabBar_tab--municipal:lang(ja)::before { content: "自治体情報"; }
-
-#IDEA-tabBar_tab--municipal:lang(ja-JP)::before { content: "自治体情報"; }
-
-#IDEA-content_weatherPanel-weatherRadar summary::after { content: "Weather Radar"; }
-
-#IDEA-content_weatherPanel-weatherRadar summary:lang(ja)::after { content: "気象レーダー"; }
-
-#IDEA-content_weatherPanel-weatherRadar summary:lang(ja-JP)::after { content: "気象レーダー"; }
-
-#IDEA-content_weatherPanel-forecast summary::after { content: "Weekly Forecast"; }
-
-#IDEA-content_weatherPanel-forecast summary:lang(ja)::after { content: "週間予報"; }
-
-#IDEA-content_weatherPanel-forecast summary:lang(ja-JP)::after { content: "週間予報"; }
-
 .header, .footer { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 1rem; color: #ffffff; background: #00838f; box-shadow: 0px 0px 4px 0px #005662; z-index: 126; }
 
 @media only screen and (min-width: 1024px) { .header, .footer { flex-direction: row; justify-content: start; } }
@@ -145,4 +109,40 @@ br[phone-s] { display: none; }
 
 .navigation_panelGroup .navigation_panel--active { display: block; }
 
-/*# sourceMappingURL=maps/main.css.map */
+#IDEA-tabBar_tab--weather::before { content: "Weather News"; }
+
+#IDEA-tabBar_tab--weather:lang(ja)::before { content: "気象情報"; }
+
+#IDEA-tabBar_tab--weather:lang(ja-JP)::before { content: "気象情報"; }
+
+#IDEA-tabBar_tab--transportation::before { content: "Transportation Status"; }
+
+#IDEA-tabBar_tab--transportation:lang(ja)::before { content: "鉄道運行情報"; }
+
+#IDEA-tabBar_tab--transportation:lang(ja-JP)::before { content: "鉄道運行情報"; }
+
+#IDEA-tabBar_tab--river::before { content: "River Status"; }
+
+#IDEA-tabBar_tab--river:lang(ja)::before { content: "河川情報"; }
+
+#IDEA-tabBar_tab--river:lang(ja-JP)::before { content: "河川情報"; }
+
+#IDEA-tabBar_tab--municipal::before { content: "Municipal Information"; }
+
+#IDEA-tabBar_tab--municipal:lang(ja)::before { content: "自治体情報"; }
+
+#IDEA-tabBar_tab--municipal:lang(ja-JP)::before { content: "自治体情報"; }
+
+#IDEA-content_weatherPanel-weatherRadar summary::after { content: "Weather Radar"; }
+
+#IDEA-content_weatherPanel-weatherRadar summary:lang(ja)::after { content: "気象レーダー"; }
+
+#IDEA-content_weatherPanel-weatherRadar summary:lang(ja-JP)::after { content: "気象レーダー"; }
+
+#IDEA-content_weatherPanel-forecast summary::after { content: "Weekly Forecast"; }
+
+#IDEA-content_weatherPanel-forecast summary:lang(ja)::after { content: "週間予報"; }
+
+#IDEA-content_weatherPanel-forecast summary:lang(ja-JP)::after { content: "週間予報"; }
+
+/*# sourceMappingURL=main.css.map */
