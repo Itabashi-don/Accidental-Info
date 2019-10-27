@@ -55,17 +55,25 @@ br[phone-s] { display: none; }
 
 #IDEA-tabBar_tab--weather:lang(ja)::before { content: "気象情報"; }
 
+#IDEA-tabBar_tab--weather:lang(ja-JP)::before { content: "気象情報"; }
+
 #IDEA-tabBar_tab--transportation::before { content: "Transportation Status"; }
 
 #IDEA-tabBar_tab--transportation:lang(ja)::before { content: "鉄道運行情報"; }
+
+#IDEA-tabBar_tab--transportation:lang(ja-JP)::before { content: "鉄道運行情報"; }
 
 #IDEA-tabBar_tab--river::before { content: "River Status"; }
 
 #IDEA-tabBar_tab--river:lang(ja)::before { content: "河川情報"; }
 
+#IDEA-tabBar_tab--river:lang(ja-JP)::before { content: "河川情報"; }
+
 #IDEA-tabBar_tab--municipal::before { content: "Municipal Information"; }
 
 #IDEA-tabBar_tab--municipal:lang(ja)::before { content: "自治体情報"; }
+
+#IDEA-tabBar_tab--municipal:lang(ja-JP)::before { content: "自治体情報"; }
 
 .header, .footer { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 1em; color: #ffffff; background: #00838f; box-shadow: 0px 0px 2px 0px #005662; }
 

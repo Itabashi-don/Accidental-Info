@@ -2,13 +2,21 @@
 
 
 
+// Localized languages
+$languages: (
+	en: ("", en, en-US),
+	ja: (ja, ja-JP)
+);
+
 // Add a localization of provided language
 @mixin i18n ($lang, $content) {
 	@if ($lang == null or $lang == "") {
 		&::before { content: $content }
 	} @else {
-		&:lang(#{$lang}) {
-			&::before { content: $content; @content }
+		@each $langCode in map-get($languages, $lang) {
+			&:lang(#{$langCode}) {
+				&::before { content: $content; @content }
+			}
 		}
 	}
 }
