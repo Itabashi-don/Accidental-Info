@@ -50,7 +50,7 @@
 		// &:first-child { margin-left: 2em }
 		// &:last-child { margin-right: 2em }
 
-		transition: color 0.25s 0s ease-in-out;
+		transition: color 0.25s 0s ease-out;
 
 		&::after {
 			content: "";

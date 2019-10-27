@@ -7,6 +7,7 @@
 		<Link Rel = "Icon" Href = "./assets/favicon.ico" />
 		<Title>IDEA ― Itabashi-don Emergency Alerts｜板橋丼(Itabashi-don)</Title>
 
+		<Link Rel = "StyleSheet" Href = "https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
 		<Link Rel = "StyleSheet" Href = "./css/main.css" />
 
 		<Script Src = "./js/components/Navigation.js"></Script>
@@ -25,11 +26,26 @@
 				<Span Class = "header_serviceName-name">Itabashi-don <Br phone />Emergency Alerts</Span>
 			</Span>
 
-			<Nav Class = "header_tabBar navigation">
-				<A ID = "IDEA-tabBar_tab--weather" Class = "navigation_tab navigation_tab--active" Selector = "#IDEA-content_weatherPanel"><!-- Weather News --></A>
-				<A ID = "IDEA-tabBar_tab--transportation" Class = "navigation_tab" Selector = "#IDEA-content_transportationPanel"><!-- Transportation Status --></A>
-				<A ID = "IDEA-tabBar_tab--river" Class = "navigation_tab navigation_tab--disabled"><!-- River Status --></A>
-				<A ID = "IDEA-tabBar_tab--municipal" Class = "navigation_tab" Selector = "#IDEA-content_municipalPanel"><!-- Municipal Information --></A>
+			<Nav Class = "header_navigation navigation">
+				<A ID = "IDEA-navigation_tab--weather" Class = "navigation_tab navigation_tab--active" Selector = "#IDEA-content_weatherPanel">
+					<I Class = "navigation_tab-icon fas fa-cloud-showers-heavy"></I>
+					<Span><!-- Weather --></Span>
+				</A>
+
+				<A ID = "IDEA-navigation_tab--transportation" Class = "navigation_tab" Selector = "#IDEA-content_transportationPanel">
+					<I Class = "navigation_tab-icon fas fa-subway"></I>
+					<Span><!-- Transportation --></Span>
+				</A>
+
+				<A ID = "IDEA-navigation_tab--river" Class = "navigation_tab navigation_tab--disabled">
+					<I Class = "navigation_tab-icon fas fa-water"></I>
+					<Span><!-- River --></Span>
+				</A>
+
+				<A ID = "IDEA-navigation_tab--municipal" Class = "navigation_tab" Selector = "#IDEA-content_municipalPanel">
+					<I Class = "navigation_tab-icon fas fa-broadcast-tower"></I>
+					<Span><!-- Municipal --></Span>
+				</A>
 			</Nav>
 		</Header>
 
@@ -40,7 +56,10 @@
 						<Summary><!-- Weather Radar --></Summary>
 	
 						<Section>
-							<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=radar&menu=true&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0"></Iframe>
+							<Iframe
+								Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=10&level=surface&overlay=radar&menu=true&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1"
+								FrameBorder = "0">
+							</Iframe>
 						</Section>
 					</Details>
 	
@@ -48,18 +67,18 @@
 						<Summary><!-- Weekly Forecast --></Summary>
 	
 						<Section>
-							<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=rain&menu=true&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0" Style = "height: 180px"></Iframe>
+							<Iframe
+								Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=rain&menu=true&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1"
+								FrameBorder = "0"
+								Style = "height: 180px">
+							</Iframe>
 						</Section>
 					</Details>
 	
-					<Details>
-						<Summary>警報・注意報 / Weather Caution and Warning</Summary>
+					<Details ID = "IDEA-content_weatherPanel-warning" Open>
+						<Summary><!-- Warning and Advisory --></Summary>
 		
 						<Section>
-							<P>
-								テスト<Br />
-								Hey
-							</P>
 						</Section>
 					</Details>
 				</Panel>

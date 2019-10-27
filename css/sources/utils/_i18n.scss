@@ -24,38 +24,43 @@ $languages: (
 
 
 #IDEA {
-	&-tabBar_tab {
-		&--weather {
-			@include i18n("", "Weather News");
+	&-navigation_tab {
+		&--weather > span {
+			@include i18n("", "Weather");
 			@include i18n(ja, "気象情報");
 		}
 
-		&--transportation {
-			@include i18n("", "Transportation Status");
+		&--transportation > span {
+			@include i18n("", "Transportation");
 			@include i18n(ja, "鉄道運行情報");
 		}
 
-		&--river {
-			@include i18n("", "River Status");
+		&--river > span {
+			@include i18n("", "River");
 			@include i18n(ja, "河川情報");
 		}
 
-		&--municipal {
-			@include i18n("", "Municipal Information");
+		&--municipal > span {
+			@include i18n("", "Municipal");
 			@include i18n(ja, "自治体情報");
 		}
 	}
 
 	&-content {
 		&_weatherPanel {
-			&-weatherRadar summary {
+			&-weatherRadar > summary {
 				@include i18n("", "Weather Radar", after);
 				@include i18n(ja, "気象レーダー", after);
 			}
 
-			&-forecast summary {
+			&-forecast > summary {
 				@include i18n("", "Weekly Forecast", after);
 				@include i18n(ja, "週間予報", after);
+			}
+
+			&-warning > summary {
+				@include i18n("", "Warning and Advisory", after);
+				@include i18n(ja, "警報・注意報", after)
 			}
 		}
 	}

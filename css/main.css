@@ -79,9 +79,9 @@ br[phone-s] { display: none; }
 
 .header .header_serviceName .header_serviceName-name { margin-left: 1em; }
 
-.header .header_tabBar { width: 100%; }
+.header .header_navigation { width: 100%; }
 
-@media only screen and (min-width: 1024px) { .header .header_tabBar { width: auto; max-width: 40%; } }
+@media only screen and (min-width: 1024px) { .header .header_navigation { width: auto; max-width: 40%; } }
 
 .footer .footer_copyright { flex: 1; font-size: 0.75rem; text-align: right; }
 
@@ -91,7 +91,7 @@ br[phone-s] { display: none; }
 
 .navigation a { text-decoration: none; }
 
-.navigation .navigation_tab { position: relative; display: inline-block; padding: 0.5em; cursor: pointer; transition: color 0.25s 0s ease-in-out; }
+.navigation .navigation_tab { position: relative; display: inline-block; padding: 0.5em; cursor: pointer; transition: color 0.25s 0s ease-out; }
 
 .navigation .navigation_tab, .navigation .navigation_tab:focus { color: rgba(255, 255, 255, 0.6); }
 
@@ -109,40 +109,46 @@ br[phone-s] { display: none; }
 
 .navigation_panelGroup { display: block; }
 
-#IDEA-tabBar_tab--weather::before { content: "Weather News"; }
+#IDEA-navigation_tab--weather > span::before { content: "Weather"; }
 
-#IDEA-tabBar_tab--weather:lang(ja)::before { content: "気象情報"; }
+#IDEA-navigation_tab--weather > span:lang(ja)::before { content: "気象情報"; }
 
-#IDEA-tabBar_tab--weather:lang(ja-JP)::before { content: "気象情報"; }
+#IDEA-navigation_tab--weather > span:lang(ja-JP)::before { content: "気象情報"; }
 
-#IDEA-tabBar_tab--transportation::before { content: "Transportation Status"; }
+#IDEA-navigation_tab--transportation > span::before { content: "Transportation"; }
 
-#IDEA-tabBar_tab--transportation:lang(ja)::before { content: "鉄道運行情報"; }
+#IDEA-navigation_tab--transportation > span:lang(ja)::before { content: "鉄道運行情報"; }
 
-#IDEA-tabBar_tab--transportation:lang(ja-JP)::before { content: "鉄道運行情報"; }
+#IDEA-navigation_tab--transportation > span:lang(ja-JP)::before { content: "鉄道運行情報"; }
 
-#IDEA-tabBar_tab--river::before { content: "River Status"; }
+#IDEA-navigation_tab--river > span::before { content: "River"; }
 
-#IDEA-tabBar_tab--river:lang(ja)::before { content: "河川情報"; }
+#IDEA-navigation_tab--river > span:lang(ja)::before { content: "河川情報"; }
 
-#IDEA-tabBar_tab--river:lang(ja-JP)::before { content: "河川情報"; }
+#IDEA-navigation_tab--river > span:lang(ja-JP)::before { content: "河川情報"; }
 
-#IDEA-tabBar_tab--municipal::before { content: "Municipal Information"; }
+#IDEA-navigation_tab--municipal > span::before { content: "Municipal"; }
 
-#IDEA-tabBar_tab--municipal:lang(ja)::before { content: "自治体情報"; }
+#IDEA-navigation_tab--municipal > span:lang(ja)::before { content: "自治体情報"; }
 
-#IDEA-tabBar_tab--municipal:lang(ja-JP)::before { content: "自治体情報"; }
+#IDEA-navigation_tab--municipal > span:lang(ja-JP)::before { content: "自治体情報"; }
 
-#IDEA-content_weatherPanel-weatherRadar summary::after { content: "Weather Radar"; }
+#IDEA-content_weatherPanel-weatherRadar > summary::after { content: "Weather Radar"; }
 
-#IDEA-content_weatherPanel-weatherRadar summary:lang(ja)::after { content: "気象レーダー"; }
+#IDEA-content_weatherPanel-weatherRadar > summary:lang(ja)::after { content: "気象レーダー"; }
 
-#IDEA-content_weatherPanel-weatherRadar summary:lang(ja-JP)::after { content: "気象レーダー"; }
+#IDEA-content_weatherPanel-weatherRadar > summary:lang(ja-JP)::after { content: "気象レーダー"; }
 
-#IDEA-content_weatherPanel-forecast summary::after { content: "Weekly Forecast"; }
+#IDEA-content_weatherPanel-forecast > summary::after { content: "Weekly Forecast"; }
 
-#IDEA-content_weatherPanel-forecast summary:lang(ja)::after { content: "週間予報"; }
+#IDEA-content_weatherPanel-forecast > summary:lang(ja)::after { content: "週間予報"; }
 
-#IDEA-content_weatherPanel-forecast summary:lang(ja-JP)::after { content: "週間予報"; }
+#IDEA-content_weatherPanel-forecast > summary:lang(ja-JP)::after { content: "週間予報"; }
+
+#IDEA-content_weatherPanel-warning > summary::after { content: "Warning and Advisory"; }
+
+#IDEA-content_weatherPanel-warning > summary:lang(ja)::after { content: "警報・注意報"; }
+
+#IDEA-content_weatherPanel-warning > summary:lang(ja-JP)::after { content: "警報・注意報"; }
 
 /*# sourceMappingURL=main.css.map */
