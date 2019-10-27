@@ -29,7 +29,7 @@ const Navigation = (() => {
 		 * @abstract
 		 */
 		dispatch () { throw new Error("dispatch() must be implemented as it's an abstract method") }
-	}
+	};
 
 	Navigation.Panel = (() => {
 		class Panel {
@@ -54,7 +54,7 @@ const Navigation = (() => {
 
 		Panel.stateClasses = {
 			active: `${Panel.className}--active`
-		}
+		};
 
 		Panel.PanelGroup = class PanelGroup {
 			static get className () { return "navigation_panelGroup" }
@@ -85,7 +85,7 @@ const Navigation = (() => {
 					matchedPanel.active = true;
 				}
 			}
-		}
+		};
 
 
 
@@ -139,10 +139,10 @@ const Navigation = (() => {
 		Tab.stateClasses = {
 			active: `${Tab.className}--active`,
 			disabled: `${Tab.className}--disabled`
-		}
+		};
 
 		Tab.TabBar = class TabBar {
-			static get className () { return "navigation_tabBar" }
+			static get className () { return "navigation" }
 	
 			/** @param {HTMLElement} elem */
 			constructor (elem) {
@@ -160,7 +160,7 @@ const Navigation = (() => {
 					childTab.register();
 				}
 			}
-		}
+		};
 
 
 
@@ -170,7 +170,7 @@ const Navigation = (() => {
 		});
 
 		return Tab;
-	})()
+	})();
 
 
 

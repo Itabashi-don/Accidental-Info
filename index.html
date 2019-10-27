@@ -9,8 +9,8 @@
 
 		<Link Rel = "StyleSheet" Href = "./css/main.css" />
 
-		<Script Src = "./js/modules/I18n.js"></Script>
-		<Script Src = "./js/modules/Navigation.js"></Script>
+		<Script Src = "./js/components/Navigation.js"></Script>
+		<Script Src = "./js/utils/I18n.js"></Script>
 		<Script Src = "./js/main.js" Defer></Script>
 	</Head>
 
@@ -25,7 +25,7 @@
 				<Span Class = "header_serviceName-name">Itabashi-don <Br phone />Emergency Alerts</Span>
 			</Span>
 
-			<Nav Class = "header_tabBar navigation_tabBar">
+			<Nav Class = "header_tabBar navigation">
 				<A ID = "IDEA-tabBar_tab--weather" Class = "navigation_tab navigation_tab--active" Selector = "#IDEA-content_weatherPanel"><!-- Weather News --></A>
 				<A ID = "IDEA-tabBar_tab--transportation" Class = "navigation_tab" Selector = "#IDEA-content_transportationPanel"><!-- Transportation Status --></A>
 				<A ID = "IDEA-tabBar_tab--river" Class = "navigation_tab navigation_tab--disabled"><!-- River Status --></A>

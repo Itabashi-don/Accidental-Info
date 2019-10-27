@@ -6,91 +6,83 @@
 
 
 .navigation {
-	&_tabBar {
-		display: block;
+	display: block;
 
-		text-align: center;
-		overflow: auto hidden;
-		white-space: nowrap;
+	text-align: center;
+	overflow: auto hidden;
+	white-space: nowrap;
 
-		background:
-			// Shadow Covers
-			linear-gradient(to left, transparent, $navigation_tabBar-backColor 1em) left center / 2em 100% local,
-			linear-gradient(to right, transparent, $navigation_tabBar-backColor 1em) right center / 2em 100% local,
-			// Shadows
-			linear-gradient(to left, transparent, $navigation_tabBar_scrollIndicator-shadowColor) left center / 1em 100% scroll,
-			linear-gradient(to right, transparent, $navigation_tabBar_scrollIndicator-shadowColor) right center / 1em 100% scroll;
+	background:
+		// Shadow Covers
+		linear-gradient(to left, transparent, $navigation-backColor 1em) left center / 2em 100% local,
+		linear-gradient(to right, transparent, $navigation-backColor 1em) right center / 2em 100% local,
+		// Shadows
+		linear-gradient(to left, transparent, $navigation_scrollIndicator-shadowColor) left center / 1em 100% scroll,
+		linear-gradient(to right, transparent, $navigation_scrollIndicator-shadowColor) right center / 1em 100% scroll;
 
-		background-repeat: no-repeat;
-		background-color: $navigation_tabBar-backColor;
+	background-repeat: no-repeat;
+	background-color: $navigation-backColor;
 
-		& a { text-decoration: none }
+	& a { text-decoration: none }
 
-		/*&::before {
-			content: "◀";
+	/*&::before {
+		content: "◀";
+
+		position: absolute;
+		display: inline-block;
+		width: 1em;
+		padding: 0.5em;
+
+		color: $navigation_arrow-textColor;
+		background: $navigation-backColor;
+		z-index: 1;
+	}*/
+
+	#{&}_tab {
+		position: relative;
+
+		display: inline-block;
+		padding: 0.5em;
+
+		&, &:focus { color: $navigation_tab-textColor }
+		cursor: pointer;
+
+		// &:first-child { margin-left: 2em }
+		// &:last-child { margin-right: 2em }
+
+		transition: color 0.25s 0s ease-in-out;
+
+		&::after {
+			content: "";
 
 			position: absolute;
-			display: inline-block;
-			width: 1em;
-			padding: 0.5em;
+			left: 50%; bottom: 0;
 
-			color: $navigation_tabBar_arrow-textColor;
-			background: $navigation_tabBar-backColor;
-			z-index: 1;
-		}*/
+			display: block;
+			width: 0; height: 3px;
 
-		.navigation {
-			&_tab {
-				position: relative;
+			background: $navigation_tab-borderColor;
 
-				display: inline-block;
-				padding: 0.5em;
+			transition: 0.25s 0s ease-in-out;
+			transition-property: left, width;
+		}
 
-				&, &:focus { color: $navigation_tabBar_tab-textColor }
-				cursor: pointer;
+		&:hover, &:focus, &--active {
+			&::after { left: 0; width: 100% }
+		}
 
-				// &:first-child { margin-left: 2em }
-				// &:last-child { margin-right: 2em }
+		&--active { color: $navigation_tab-textColor--active }
 
-				transition: color 0.25s 0s ease-in-out;
-
-				&::after {
-					content: "";
-
-					position: absolute;
-					left: 50%; bottom: 0;
-
-					display: block;
-					width: 0; height: 3px;
-
-					background: $navigation_tabBar_tab-borderColor;
-
-					transition: 0.25s 0s ease-in-out;
-					transition-property: left, width;
-				}
-
-				&:hover, &:focus, &--active {
-					&::after { left: 0; width: 100% }
-				}
-	
-				&--active { color: $navigation_tabBar_tab-textColor--active }
-	
-				&--disabled {
-					color: $navigation_tabBar_tab-textColor--disabled;
-					pointer-events: none;
-				}
-			}
+		&--disabled {
+			color: $navigation_tab-textColor--disabled;
+			pointer-events: none;
 		}
 	}
 
-	&_panelGroup {
-		display: block;
-		
-		.navigation {
-			&_panel {
-				display: none;
-				&--active { display: block }
-			}
-		}
+	&_panel {
+		display: none;
+		&--active { display: block }
+
+		&Group { display: block }
 	}
 }

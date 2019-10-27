@@ -87,27 +87,27 @@ br[phone-s] { display: none; }
 
 .content { flex: 1; padding: 1rem; /*display: grid; grid-template-columns: 100%; grid-auto-rows: 1fr; flex: 1; padding: 1em; @include onSize(laptop) { grid-template-columns: 47.5% 1fr 47.5% } details { @include onSize(laptop) { &:nth-child(2n - 1) { grid-column: 1 / 2 } &:nth-child(2n) { grid-column: 3 / 4 } } > section { position: relative; width: 100%; &::before { content: ""; display: block; padding-top: calc(100% / 16 * 9); } > * { position: absolute; left: 0; top: 0; width: 100%; height: 100%; } } }*/ }
 
-.navigation_tabBar { display: block; text-align: center; overflow: auto hidden; white-space: nowrap; background: linear-gradient(to left, transparent, #00838f 1em) left center/2em 100% local, linear-gradient(to right, transparent, #00838f 1em) right center/2em 100% local, linear-gradient(to left, transparent, rgba(0, 86, 98, 0.5)) left center/1em 100% scroll, linear-gradient(to right, transparent, rgba(0, 86, 98, 0.5)) right center/1em 100% scroll; background-repeat: no-repeat; background-color: #00838f; /*&::before { content: "◀"; position: absolute; display: inline-block; width: 1em; padding: 0.5em; color: $navigation_tabBar_arrow-textColor; background: $navigation_tabBar-backColor; z-index: 1; }*/ }
+.navigation { display: block; text-align: center; overflow: auto hidden; white-space: nowrap; background: linear-gradient(to left, transparent, #00838f 1em) left center/2em 100% local, linear-gradient(to right, transparent, #00838f 1em) right center/2em 100% local, linear-gradient(to left, transparent, rgba(0, 86, 98, 0.5)) left center/1em 100% scroll, linear-gradient(to right, transparent, rgba(0, 86, 98, 0.5)) right center/1em 100% scroll; background-repeat: no-repeat; background-color: #00838f; /*&::before { content: "◀"; position: absolute; display: inline-block; width: 1em; padding: 0.5em; color: $navigation_arrow-textColor; background: $navigation-backColor; z-index: 1; }*/ }
 
-.navigation_tabBar a { text-decoration: none; }
+.navigation a { text-decoration: none; }
 
-.navigation_tabBar .navigation_tab { position: relative; display: inline-block; padding: 0.5em; cursor: pointer; transition: color 0.25s 0s ease-in-out; }
+.navigation .navigation_tab { position: relative; display: inline-block; padding: 0.5em; cursor: pointer; transition: color 0.25s 0s ease-in-out; }
 
-.navigation_tabBar .navigation_tab, .navigation_tabBar .navigation_tab:focus { color: rgba(255, 255, 255, 0.6); }
+.navigation .navigation_tab, .navigation .navigation_tab:focus { color: rgba(255, 255, 255, 0.6); }
 
-.navigation_tabBar .navigation_tab::after { content: ""; position: absolute; left: 50%; bottom: 0; display: block; width: 0; height: 3px; background: #4fb3bf; transition: 0.25s 0s ease-in-out; transition-property: left, width; }
+.navigation .navigation_tab::after { content: ""; position: absolute; left: 50%; bottom: 0; display: block; width: 0; height: 3px; background: #4fb3bf; transition: 0.25s 0s ease-in-out; transition-property: left, width; }
 
-.navigation_tabBar .navigation_tab:hover::after, .navigation_tabBar .navigation_tab:focus::after, .navigation_tabBar .navigation_tab--active::after { left: 0; width: 100%; }
+.navigation .navigation_tab:hover::after, .navigation .navigation_tab:focus::after, .navigation .navigation_tab--active::after { left: 0; width: 100%; }
 
-.navigation_tabBar .navigation_tab--active { color: #ffffff; }
+.navigation .navigation_tab--active { color: #ffffff; }
 
-.navigation_tabBar .navigation_tab--disabled { color: rgba(255, 255, 255, 0.38); pointer-events: none; }
+.navigation .navigation_tab--disabled { color: rgba(255, 255, 255, 0.38); pointer-events: none; }
+
+.navigation_panel { display: none; }
+
+.navigation_panel--active { display: block; }
 
 .navigation_panelGroup { display: block; }
-
-.navigation_panelGroup .navigation_panel { display: none; }
-
-.navigation_panelGroup .navigation_panel--active { display: block; }
 
 #IDEA-tabBar_tab--weather::before { content: "Weather News"; }
 
