@@ -9,13 +9,13 @@ $languages: (
 );
 
 // Add a localization of provided language
-@mixin i18n ($lang, $content) {
+@mixin i18n ($lang, $content, $beforeOrAfter: before) {
 	@if ($lang == null or $lang == "") {
-		&::before { content: $content }
+		&::#{$beforeOrAfter} { content: $content }
 	} @else {
 		@each $langCode in map-get($languages, $lang) {
 			&:lang(#{$langCode}) {
-				&::before { content: $content; @content }
+				&::#{$beforeOrAfter} { content: $content; @content }
 			}
 		}
 	}
@@ -43,6 +43,20 @@ $languages: (
 		&--municipal {
 			@include i18n("", "Municipal Information");
 			@include i18n(ja, "自治体情報");
+		}
+	}
+
+	&-content {
+		&_weatherPanel {
+			&-weatherRadar summary {
+				@include i18n("", "Weather Radar", after);
+				@include i18n(ja, "気象レーダー", after);
+			}
+
+			&-forecast summary {
+				@include i18n("", "Weekly Forecast", after);
+				@include i18n(ja, "週間予報", after);
+			}
 		}
 	}
 }

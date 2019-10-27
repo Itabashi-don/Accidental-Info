@@ -5,4 +5,4 @@
 
 
 // Converts provided height to new one based on font
-@function fontBasedHeight ($height: 1em) { @return $height * $lineHeight }
+@function fontBasedHeight ($height: 1em) { @return $height * $basic-lineHeight }

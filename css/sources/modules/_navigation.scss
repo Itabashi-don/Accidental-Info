@@ -16,11 +16,11 @@
 
 		background:
 			/* Shadow Covers */
-			linear-gradient(to left, rgba(0, 0, 0, 0), $navigation_tabBar-backColor 15px) left 0 / 50px 100% local,
-			linear-gradient(to right, rgba(0, 0, 0, 0), $navigation_tabBar-backColor 15px) right 0 / 50px 100% local,
+			linear-gradient(to right, $navigation_tabBar-backColor 1em, transparent) left center / 2.5em 100% local,
+			linear-gradient(to right, transparent, $navigation_tabBar-backColor 1em) right center / 2.5em 100% local,
 			/* Shadows */
-			linear-gradient(to left, rgba(0, 0, 0, 0), $navigation_tabBar_scrollIndicator-shadowColor) left 0 / 20px 100% scroll,
-			linear-gradient(to right, rgba(0, 0, 0, 0), $navigation_tabBar_scrollIndicator-shadowColor) right 0 / 20px 100% scroll;
+			linear-gradient(to right, $navigation_tabBar_scrollIndicator-shadowColor, transparent) left center / 1em 100% scroll,
+			linear-gradient(to right, transparent, $navigation_tabBar_scrollIndicator-shadowColor) right center / 1em 100% scroll;
 
 		background-repeat: no-repeat;
 		background-color: $navigation_tabBar-backColor;
@@ -52,6 +52,8 @@
 
 				// &:first-child { margin-left: 2em }
 				// &:last-child { margin-right: 2em }
+
+				transition: color 0.25s 0s ease-in-out;
 
 				&::after {
 					content: "";

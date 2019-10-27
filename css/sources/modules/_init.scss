@@ -6,12 +6,12 @@
 
 
 * {
-	line-height: $lineHeight;
+	line-height: $basic-lineHeight;
 	box-sizing: border-box;
 }
 
 html {
-	font-size: initial;
+	font-size: $basic-fontSize;
 	@include onSize(laptop) { font-size: initial }
 }
 

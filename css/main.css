@@ -75,7 +75,19 @@ br[phone-s] { display: none; }
 
 #IDEA-tabBar_tab--municipal:lang(ja-JP)::before { content: "自治体情報"; }
 
-.header, .footer { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 1em; color: #ffffff; background: #00838f; box-shadow: 0px 0px 2px 0px #005662; }
+#IDEA-content_weatherPanel-weatherRadar summary::after { content: "Weather Radar"; }
+
+#IDEA-content_weatherPanel-weatherRadar summary:lang(ja)::after { content: "気象レーダー"; }
+
+#IDEA-content_weatherPanel-weatherRadar summary:lang(ja-JP)::after { content: "気象レーダー"; }
+
+#IDEA-content_weatherPanel-forecast summary::after { content: "Weekly Forecast"; }
+
+#IDEA-content_weatherPanel-forecast summary:lang(ja)::after { content: "週間予報"; }
+
+#IDEA-content_weatherPanel-forecast summary:lang(ja-JP)::after { content: "週間予報"; }
+
+.header, .footer { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 1rem; color: #ffffff; background: #00838f; box-shadow: 0px 0px 2px 0px #005662; z-index: 126; }
 
 @media only screen and (min-width: 1024px) { .header, .footer { flex-direction: row; justify-content: start; } }
 
@@ -83,7 +95,7 @@ br[phone-s] { display: none; }
 
 .header a:focus, .footer a:focus { color: #ffbfb8; }
 
-.header { position: fixed; left: 0; top: 0; padding: 0; z-index: 127; }
+.header { position: fixed; left: 0; top: 0; padding: 0; }
 
 @media only screen and (min-width: 1024px) { .header { padding: 1rem; } }
 
@@ -111,11 +123,11 @@ br[phone-s] { display: none; }
 
 .content { flex: 1; padding: 1rem; /*display: grid; grid-template-columns: 100%; grid-auto-rows: 1fr; flex: 1; padding: 1em; @include onSize(laptop) { grid-template-columns: 47.5% 1fr 47.5% } details { @include onSize(laptop) { &:nth-child(2n - 1) { grid-column: 1 / 2 } &:nth-child(2n) { grid-column: 3 / 4 } } > section { position: relative; width: 100%; &::before { content: ""; display: block; padding-top: calc(100% / 16 * 9); } > * { position: absolute; left: 0; top: 0; width: 100%; height: 100%; } } }*/ }
 
-.navigation_tabBar { display: block; text-align: center; overflow: auto hidden; white-space: nowrap; background: linear-gradient(to left, rgba(0, 0, 0, 0), #00838f 15px) left 0/50px 100% local, linear-gradient(to right, rgba(0, 0, 0, 0), #00838f 15px) right 0/50px 100% local, linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) left 0/20px 100% scroll, linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)) right 0/20px 100% scroll; background-repeat: no-repeat; background-color: #00838f; /*&::before { content: "◀"; position: absolute; display: inline-block; width: 1em; padding: 0.5em; color: $navigation_tabBar_arrow-textColor; background: $navigation_tabBar-backColor; z-index: 1; }*/ }
+.navigation_tabBar { display: block; text-align: center; overflow: auto hidden; white-space: nowrap; background: linear-gradient(to right, #00838f 1em, transparent) left center/2.5em 100% local, linear-gradient(to right, transparent, #00838f 1em) right center/2.5em 100% local, linear-gradient(to right, #005662, transparent) left center/1em 100% scroll, linear-gradient(to right, transparent, #005662) right center/1em 100% scroll; background-repeat: no-repeat; background-color: #00838f; /*&::before { content: "◀"; position: absolute; display: inline-block; width: 1em; padding: 0.5em; color: $navigation_tabBar_arrow-textColor; background: $navigation_tabBar-backColor; z-index: 1; }*/ }
 
 .navigation_tabBar a { text-decoration: none; }
 
-.navigation_tabBar .navigation_tab { position: relative; display: inline-block; padding: 0.5em; cursor: pointer; }
+.navigation_tabBar .navigation_tab { position: relative; display: inline-block; padding: 0.5em; cursor: pointer; transition: color 0.25s 0s ease-in-out; }
 
 .navigation_tabBar .navigation_tab, .navigation_tabBar .navigation_tab:focus { color: rgba(255, 255, 255, 0.6); }
 

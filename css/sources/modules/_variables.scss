@@ -19,7 +19,8 @@ $mediaQueries: ( // A collection of Media-Queries
 
 
 // ##### Definition of Size Variables ##### //
-$lineHeight: 1.5; // [Note] line-height affects height property
+$basic-fontSize: initial;
+$basic-lineHeight: 1.5; // [Note] line-height affects height property
 
 $header_serviceName-fontSize: 1.5rem;
 $footer_copyright-fontSize: 0.75rem;
@@ -43,5 +44,5 @@ $navigation_tabBar_tab-textColor: $basic-textColor-darker--onDark;
 $navigation_tabBar_tab-textColor--active: $basic-textColor--onDark;
 $navigation_tabBar_tab-textColor--disabled: $basic-textColor-dark--onDark;
 $navigation_tabBar_tab-borderColor: $basic-primaryColor-lighter;
-$navigation_tabBar_arrow-textColor: $navigation_tabBar_tab-textColor;
-$navigation_tabBar_scrollIndicator-shadowColor: rgba(0, 0, 0, 0.2);
+$navigation_tabBar_scrollIndicator-shadowColor: $basic-primaryColor-darker;
+// $navigation_tabBar_arrow-textColor: $navigation_tabBar_tab-textColor;

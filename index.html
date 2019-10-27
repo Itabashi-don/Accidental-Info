@@ -36,16 +36,16 @@
 		<Main ID = "IDEA-content" Class = "content">
 			<PanelGroup Class = "navigation_panelGroup">
 				<Panel ID = "IDEA-content_weatherPanel" Class = "navigation_panel navigation_panel--active">
-					<Details Open>
-						<Summary ID = "IDEA-content_weatherPanel-radar">気象レーダー</Summary>
+					<Details ID = "IDEA-content_weatherPanel-weatherRadar" Open>
+						<Summary><!-- Weather Radar --></Summary>
 	
 						<Section>
 							<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=radar&menu=true&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0"></Iframe>
 						</Section>
 					</Details>
 	
-					<Details Open>
-						<Summary>天気ピッカー / 気象情報</Summary>
+					<Details ID = "IDEA-content_weatherPanel-forecast" Open>
+						<Summary><!-- Weekly Forecast --></Summary>
 	
 						<Section>
 							<Iframe Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=rain&menu=true&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1" FrameBorder = "0" Style = "height: 180px"></Iframe>
