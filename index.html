@@ -27,7 +27,7 @@
 			</Span>
 
 			<Nav Class = "header_navigation navigation">
-				<A ID = "IDEA-navigation_tab--weather" Class = "navigation_tab navigation_tab--active" Selector = "#IDEA-content_weatherPanel">
+				<A ID = "IDEA-navigation_tab--weather" Class = "navigation_tab" Selector = "#IDEA-content_weatherPanel" Active>
 					<I Class = "navigation_tab-icon fas fa-cloud-showers-heavy"></I>
 					<Span><!-- Weather --></Span>
 				</A>
@@ -37,7 +37,7 @@
 					<Span><!-- Transportation --></Span>
 				</A>
 
-				<A ID = "IDEA-navigation_tab--river" Class = "navigation_tab navigation_tab--disabled">
+				<A ID = "IDEA-navigation_tab--river" Class = "navigation_tab" Disabled>
 					<I Class = "navigation_tab-icon fas fa-water"></I>
 					<Span><!-- River --></Span>
 				</A>
@@ -51,74 +51,74 @@
 
 		<Main ID = "IDEA-content" Class = "content">
 			<PanelGroup Class = "navigation_panelGroup">
-				<Panel ID = "IDEA-content_weatherPanel" Class = "navigation_panel navigation_panel--active">
-					<Details ID = "IDEA-content_weatherPanel-weatherRadar" Open>
+				<Panel ID = "IDEA-content_weatherPanel" Class = "content_panel navigation_panel" Active>
+					<Details ID = "IDEA-content_weatherPanel-weatherRadar" Class = "card" Open>
 						<Summary><!-- Weather Radar --></Summary>
 	
-						<Section>
+						<Article>
 							<Iframe
 								Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=10&level=surface&overlay=radar&menu=true&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1"
 								FrameBorder = "0">
 							</Iframe>
-						</Section>
+						</Article>
 					</Details>
 	
-					<Details ID = "IDEA-content_weatherPanel-forecast" Open>
+					<Details ID = "IDEA-content_weatherPanel-forecast" Class = "card" Open>
 						<Summary><!-- Weekly Forecast --></Summary>
 	
-						<Section>
+						<Article>
 							<Iframe
 								Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=rain&menu=true&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1"
 								FrameBorder = "0"
 								Style = "height: 180px">
 							</Iframe>
-						</Section>
+						</Article>
 					</Details>
 	
-					<Details ID = "IDEA-content_weatherPanel-warning" Open>
+					<Details ID = "IDEA-content_weatherPanel-warning" Class = "card" Open>
 						<Summary><!-- Warning and Advisory --></Summary>
 		
-						<Section>
-						</Section>
+						<Article>
+						</Article>
 					</Details>
 				</Panel>
 	
-				<Panel ID = "IDEA-content_transportationPanel" Class = "navigation_panel">
+				<Panel ID = "IDEA-content_transportationPanel" Class = "content_panel navigation_panel">
 					<Details>
 						<Summary>鉄道運行情報 / Train Status</Summary>
 		
-						<Section>
+						<Article>
 							<P>
 								テスト<Br />
 								Hey
 							</P>
-						</Section>
+						</Article>
 					</Details>
 				</Panel>
 	
-				<Panel ID = "IDEA-content_riverPanel" Class = "navigation_panel">
+				<Panel ID = "IDEA-content_riverPanel" Class = "content_panel navigation_panel">
 					<Details>
 						<Summary>河川情報 / River Status</Summary>
 		
-						<Section>
+						<Article>
 							<P>
 								テスト<Br />
 								Hey
 							</P>
-						</Section>
+						</Article>
 					</Details>
 				</Panel>
 	
-				<Panel ID = "IDEA-content_municipalPanel" Class = "navigation_panel">
+				<Panel ID = "IDEA-content_municipalPanel" Class = "content_panel navigation_panel">
 					<Details>
 						<Summary>自治体情報 / Municipal Information</Summary>
 		
-						<Section>
+						<Article>
 							<P>
 								テスト<Br />
 								Hey
 							</P>
-						</Section>
+						</Article>
 					</Details>
 				</Panel>
 			</PanelGroup>

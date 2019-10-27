@@ -47,14 +47,18 @@ const Navigation = (() => {
 			get group () { return new Navigation.Panel.PanelGroup(this.elem.parentElement) }
 
 			/** @return {boolean} */
-			get active () { return this.elem.classList.contains(Panel.stateClasses.active) }
+			get active () { return this.elem.hasAttribute(Panel.stateAttrs.active) }
 			/** @param {boolean} val */
-			set active (val) { val ? this.elem.classList.add(Panel.stateClasses.active) : this.elem.classList.remove(Panel.stateClasses.active) }
+			set active (val) { val ? this.elem.setAttribute(Panel.stateAttrs.active, "") : this.elem.removeAttribute(Panel.stateAttrs.active) }
 		}
 
-		Panel.stateClasses = {
-			active: `${Panel.className}--active`
+		Panel.stateClasses = {};
+
+		Panel.stateAttrs = {
+			active: "active"
 		};
+
+
 
 		Panel.PanelGroup = class PanelGroup {
 			static get className () { return "navigation_panelGroup" }
@@ -71,10 +75,7 @@ const Navigation = (() => {
 			}
 
 			/** @return {Panel | null} */
-			get activePanel () {
-				const activePanel = this.elem.querySelector(`:scope > .${Panel.className}[${Panel.stateClasses.active}]`);
-				return activePanel ? new Panel(activePanel) : null;
-			}
+			get activePanel () { return this.panels.find(panel => panel.active) }
 			
 			/** @param {Panel} panel */
 			activate (panel) {
@@ -90,6 +91,9 @@ const Navigation = (() => {
 
 
 		Object.defineProperties(Panel, {
+			stateClasses: { configurable: false, writable: false, enumerable: true },
+			stateAttrs: { configurable: false, writable: false, enumerable: true },
+
 			PanelGroup: { configurable: false, writable: false, enumerable: true }
 		});
 
@@ -112,9 +116,9 @@ const Navigation = (() => {
 			get tabBar () { return new Tab.TabBar(this.elem.parentElement) }
 
 			/** @return {boolean} */
-			get active () { return this.elem.classList.contains(Tab.stateClasses.active) }
+			get active () { return this.elem.hasAttribute(Tab.stateAttrs.active) }
 			/** @param {boolean} val */
-			set active (val) { val ? this.elem.classList.add(Tab.stateClasses.active) : this.elem.classList.remove(Tab.stateClasses.active) }
+			set active (val) { val ? this.elem.setAttribute(Tab.stateAttrs.active, "") : this.elem.removeAttribute(Tab.stateAttrs.active) }
 			
 			/** @return {boolean} */
 			get disabled () { return this.elem.classList.contains(Tab.stateClasses.disabled) }
@@ -136,10 +140,14 @@ const Navigation = (() => {
 			}
 		}
 
-		Tab.stateClasses = {
-			active: `${Tab.className}--active`,
-			disabled: `${Tab.className}--disabled`
+		Tab.stateClasses = {};
+
+		Tab.stateAttrs = {
+			active: "active",
+			disabled: "disabled"
 		};
+
+
 
 		Tab.TabBar = class TabBar {
 			static get className () { return "navigation" }
@@ -166,6 +174,8 @@ const Navigation = (() => {
 
 		Object.defineProperties(Tab, {
 			stateClasses: { configurable: false, writable: false, enumerable: true },
+			stateAttrs: { configurable: false, writable: false, enumerable: true },
+
 			TabBar: { configurable: false, writable: false, enumerable: true }
 		});
 
