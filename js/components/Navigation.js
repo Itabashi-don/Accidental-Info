@@ -130,6 +130,8 @@ const Navigation = (() => {
 
 				for (const tab of this.tabBar.childTabs) tab.active = false;
 				this.active = true;
+
+				// ToDo: オートスクロール機能
 			}
 
 			dispatch () {
@@ -164,9 +166,7 @@ const Navigation = (() => {
 			}
 	
 			register () {
-				for (const childTab of this.childTabs) {
-					childTab.register();
-				}
+				for (const childTab of this.childTabs) childTab.register();
 			}
 		};
 

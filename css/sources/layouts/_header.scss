@@ -6,6 +6,8 @@
 
 
 %header-and-footer {
+	position: fixed;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center; // X-axis on Column-direction
@@ -33,7 +35,6 @@
 
 
 .header { @extend %header-and-footer;
-	position: fixed;
 	left: 0; top: 0;
 
 	padding: 0;
@@ -41,6 +42,8 @@
 
 	& + * {
 		margin-top: calc(#{fontBasedHeight($header_serviceName-fontSize * 2 + 1rem)} + 1rem + 1rem);
+		margin-bottom: calc(#{fontBasedHeight($footer_copyright-fontSize)} + 2rem);
+
 		@include onSize(tablet) { margin-top: calc(#{fontBasedHeight($header_serviceName-fontSize + 1rem)} + 1rem + 1rem) }
 		@include onSize(laptop) { margin-top: calc(#{fontBasedHeight(1rem)} + 1rem + 2rem) }
 	}
@@ -77,10 +80,17 @@
 }
 
 .footer { @extend %header-and-footer;
+	left: 0; bottom: 0;
+	
 	#{&}_copyright {
 		flex: 1;
 
 		font-size: $footer_copyright-fontSize;
 		text-align: right;
+
+		a {
+			display: inline-block;
+			height: fontBasedHeight(1em);
+		}
 	}
 }
