@@ -6,5 +6,8 @@
 
 
 .card {
-	
+	summary {
+		// list-style: none;
+		// &::-webkit-details-marker { display: none }
+	}
 }
