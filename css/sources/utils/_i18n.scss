@@ -32,7 +32,7 @@ $languages: (
 
 		&--transportation > span {
 			@include i18n("", "Transportation");
-			@include i18n(ja, "鉄道運行情報");
+			@include i18n(ja, "交通機関情報");
 		}
 
 		&--river > span {
@@ -61,6 +61,13 @@ $languages: (
 			&-warning > summary {
 				@include i18n("", "Warning and Advisory", after);
 				@include i18n(ja, "警報・注意報", after)
+			}
+		}
+
+		&_transportationPanel {
+			&-railways > summary {
+				@include i18n("", "Rail Operations", after);
+				@include i18n(ja, "鉄道運行情報", after);
 			}
 		}
 	}

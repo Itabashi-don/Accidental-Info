@@ -133,9 +133,9 @@ br[phone-s] { display: none; }
 
 #IDEA-navigation_tab--transportation > span::before { content: "Transportation"; }
 
-#IDEA-navigation_tab--transportation > span:lang(ja)::before { content: "鉄道運行情報"; }
+#IDEA-navigation_tab--transportation > span:lang(ja)::before { content: "交通機関情報"; }
 
-#IDEA-navigation_tab--transportation > span:lang(ja-JP)::before { content: "鉄道運行情報"; }
+#IDEA-navigation_tab--transportation > span:lang(ja-JP)::before { content: "交通機関情報"; }
 
 #IDEA-navigation_tab--river > span::before { content: "River"; }
 
@@ -166,5 +166,11 @@ br[phone-s] { display: none; }
 #IDEA-content_weatherPanel-warning > summary:lang(ja)::after { content: "警報・注意報"; }
 
 #IDEA-content_weatherPanel-warning > summary:lang(ja-JP)::after { content: "警報・注意報"; }
+
+#IDEA-content_transportationPanel-railways > summary::after { content: "Rail Operations"; }
+
+#IDEA-content_transportationPanel-railways > summary:lang(ja)::after { content: "鉄道運行情報"; }
+
+#IDEA-content_transportationPanel-railways > summary:lang(ja-JP)::after { content: "鉄道運行情報"; }
 
 /*# sourceMappingURL=main.css.map */
