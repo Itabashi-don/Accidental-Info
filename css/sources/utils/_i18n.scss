@@ -48,26 +48,26 @@ $languages: (
 
 	&-content {
 		&_weatherPanel {
-			&-weatherRadar > summary {
-				@include i18n("", "Weather Radar", after);
-				@include i18n(ja, "気象レーダー", after);
+			&-weatherRadar > .card_title {
+				@include i18n("", "Weather Radar");
+				@include i18n(ja, "気象レーダー");
 			}
 
-			&-forecast > summary {
-				@include i18n("", "Weekly Forecast", after);
-				@include i18n(ja, "週間予報", after);
+			&-forecast > .card_title {
+				@include i18n("", "Weekly Forecast");
+				@include i18n(ja, "週間予報");
 			}
 
-			&-warning > summary {
-				@include i18n("", "Warning and Advisory", after);
-				@include i18n(ja, "警報・注意報", after)
+			&-warning > .card_title {
+				@include i18n("", "Warning and Advisory");
+				@include i18n(ja, "警報・注意報")
 			}
 		}
 
 		&_transportationPanel {
-			&-railways > summary {
-				@include i18n("", "Rail Operations", after);
-				@include i18n(ja, "鉄道運行情報", after);
+			&-railways > .card_title {
+				@include i18n("", "Rail Operations");
+				@include i18n(ja, "鉄道運行情報");
 			}
 		}
 	}

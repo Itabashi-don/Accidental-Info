@@ -18,10 +18,13 @@ $mediaQueries: (
 
 
 
+// Get an uuid from provided id
+@function getUuid ($id) { @return map-get($uuids, $id) };
+
+// Converts provided height to new one based on font
+@function fontBasedHeight ($height: 1em) { @return $height * $basic-lineHeight };
+
 // Generates a Media-Query of provided type
 @mixin onSize ($type) {
 	@media #{ map-get($mediaQueries, $type) } { @content }
 };
-
-// Converts provided height to new one based on font
-@function fontBasedHeight ($height: 1em) { @return $height * $basic-lineHeight };

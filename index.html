@@ -53,9 +53,9 @@
 			<PanelGroup Class = "content_panelGroup navigation_panelGroup">
 				<Panel ID = "IDEA-content_weatherPanel" Class = "content_panel navigation_panel" Active>
 					<Details ID = "IDEA-content_weatherPanel-weatherRadar" Class = "card" Open>
-						<Summary><!-- Weather Radar --></Summary>
+						<Summary Class = "card_title"><!-- Weather Radar --></Summary>
 	
-						<Article>
+						<Article Class = "card_content">
 							<Iframe
 								Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=10&level=surface&overlay=radar&menu=true&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1"
 								FrameBorder = "0">
@@ -64,9 +64,9 @@
 					</Details>
 	
 					<Details ID = "IDEA-content_weatherPanel-forecast" Class = "card" Open>
-						<Summary><!-- Weekly Forecast --></Summary>
+						<Summary Class = "card_title"><!-- Weekly Forecast --></Summary>
 	
-						<Article>
+						<Article Class = "card_content">
 							<Iframe
 								Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=rain&menu=true&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1"
 								FrameBorder = "0"
@@ -75,10 +75,10 @@
 						</Article>
 					</Details>
 	
-					<Details ID = "IDEA-content_weatherPanel-warning" Class = "card" Open>
-						<Summary><!-- Warning and Advisory --></Summary>
+					<Details ID = "IDEA-content_weatherPanel-warning" Class = "card">
+						<Summary Class = "card_title"><!-- Warning and Advisory --></Summary>
 		
-						<Article>
+						<Article Class = "card_content">
 						</Article>
 					</Details>
 				</Panel>

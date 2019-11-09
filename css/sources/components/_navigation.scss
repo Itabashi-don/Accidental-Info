@@ -5,7 +5,17 @@
 
 
 
-.navigation {
+$uuids: (navigation: "navigation");
+$uuids: (
+	navigation: getUuid(navigation),
+	navigation_tab: "#{getUuid(navigation)}_tab",
+	navigation_panel: "#{getUuid(navigation)}_panel",
+	navigation_panelGroup: "#{getUuid(navigation)}_panelGroup"
+);
+
+
+
+.#{getUuid(navigation)} {
 	display: block;
 
 	text-align: center;
