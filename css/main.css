@@ -51,7 +51,7 @@ br[phone-s] { display: none; }
 
 @media only screen and (max-width: 374px) { br[not-phone-s] { display: none; } }
 
-.navigation { display: block; text-align: center; overflow: auto hidden; white-space: nowrap; background: linear-gradient(to left, transparent, #00838f 1em) left center/2em 100% local, linear-gradient(to right, transparent, #00838f 1em) right center/2em 100% local, linear-gradient(to left, transparent, rgba(0, 86, 98, 0.5)) left center/1em 100% scroll, linear-gradient(to right, transparent, rgba(0, 86, 98, 0.5)) right center/1em 100% scroll; background-repeat: no-repeat; background-color: #00838f; /*&::before { content: "◀"; position: absolute; display: inline-block; width: 1em; padding: 0.5em; color: $navigation_arrow-textColor; background: $navigation-backColor; z-index: 1; }*/ }
+.navigation { display: block; text-align: center; overflow: auto hidden; white-space: nowrap; background: linear-gradient(to left, transparent, #00838f 1em) left center/2em 100% local, linear-gradient(to right, transparent, #00838f 1em) right center/2em 100% local, linear-gradient(to left, transparent, rgba(0, 86, 98, 0.5)) left center/1em 100% scroll, linear-gradient(to right, transparent, rgba(0, 86, 98, 0.5)) right center/1em 100% scroll; background-repeat: no-repeat; background-color: #00838f; }
 
 .navigation a { text-decoration: none; }
 

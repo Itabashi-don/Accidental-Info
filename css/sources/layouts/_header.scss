@@ -5,20 +5,6 @@
 
 
 
-$uuids: ( header: "header", footer: "footer" );
-$uuids: (
-	header: getUuid(header),
-	header_serviceName: "#{getUuid(header)}_serviceName",
-	header_serviceName-logo: "#{getUuid(header)}_serviceName-logo",
-	header_serviceName-name: "#{getUuid(header)}_serviceName-name",
-	header_navigation: "#{getUuid(header)}_navigation",
-
-	footer: getUuid(footer),
-	footer_copyright: "#{getUuid(footer)}_copyright"
-);
-
-
-
 %header-and-footer {
 	position: fixed;
 
@@ -48,7 +34,7 @@ $uuids: (
 
 
 
-.#{getUuid(header)} { @extend %header-and-footer;
+#{getUuid(header)} { @extend %header-and-footer;
 	left: 0; top: 0;
 
 	padding: 0;
@@ -73,12 +59,12 @@ $uuids: (
 
 		font-size: $header_serviceName-fontSize;
 		
-		.#{getUuid(header_serviceName-logo)} {
+		#{getUuid(header_serviceName-logo)} {
 			height: fontBasedHeight(1em);
 			& img { height: inherit }
 		}
 
-		.#{getUuid(header_serviceName-name)} { margin-left: 1em }
+		#{getUuid(header_serviceName-name)} { margin-left: 1em }
 	}
 
 	#{&}_navigation {
@@ -91,7 +77,7 @@ $uuids: (
 	}
 }
 
-.footer { @extend %header-and-footer;
+#{getUuid(footer)} { @extend %header-and-footer;
 	left: 0; bottom: 0;
 	
 	#{&}_copyright {

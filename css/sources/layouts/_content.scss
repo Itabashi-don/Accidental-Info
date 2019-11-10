@@ -5,16 +5,7 @@
 
 
 
-$uuids: (content: "content");
-$uuids: (
-	content: getUuid(content),
-	content_panel: "#{getUuid(content)}_panel",
-	content_panelGroup: "#{getUuid(content)}_panelGroup"
-);
-
-
-
-.content {
+#{getUuid(content)} {
 	flex: 1;
 
 	&_panel {
@@ -27,7 +18,7 @@ $uuids: (
 
 			@include onSize(laptop) { grid-template-columns: 1fr 1fr }
 		}
-
-		&Group { padding: 1em }
 	}
+
+	&_panelGroup { padding: 1em }
 }

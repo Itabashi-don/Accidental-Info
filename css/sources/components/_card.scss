@@ -5,16 +5,7 @@
 
 
 
-$uuids: (card: "card");
-$uuids: (
-	card: getUuid(card),
-	card_title: "#{getUuid(card)}_title",
-	card_content: "#{getUuid(card)}_content"
-);
-
-
-
-.#{getUuid(card)} {
+#{getUuid(card)} {
 	// box-shadow: Material-Shadow;
 
 	#{&}_title {
@@ -35,7 +26,7 @@ $uuids: (
 			padding-top: calc(100% / 16 * 9);
 		}
 
-		> * {
+		& > * {
 			position: absolute;
 			left: 0; top: 0;
 

@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+
+
+// A collection of UUIDs
+$uuids: (
+	navigation: ".navigation",
+	card: ".card",
+	
+	header: ".header", footer: ".footer",
+	content: ".content"
+);
+
+$uuids: (
+	navigation: getUuid(navigation),
+	navigation_tab: "#{getUuid(navigation)}_tab",
+	navigation_panel: "#{getUuid(navigation)}_panel",
+	navigation_panelGroup: "#{getUuid(navigation)}_panelGroup",
+
+	card: getUuid(card),
+	card_title: "#{getUuid(card)}_title",
+	card_content: "#{getUuid(card)}_content",
+
+	header: getUuid(header),
+	header_serviceName: "#{getUuid(header)}_serviceName",
+	header_serviceName-logo: "#{getUuid(header)}_serviceName-logo",
+	header_serviceName-name: "#{getUuid(header)}_serviceName-name",
+	header_navigation: "#{getUuid(header)}_navigation",
+
+	footer: getUuid(footer),
+	footer_copyright: "#{getUuid(footer)}_copyright",
+
+	content: getUuid(content),
+	content_panel: "#{getUuid(content)}_panel",
+	content_panelGroup: "#{getUuid(content)}_panelGroup"
+);
+
+
+
+// Get an uuid from provided id
+@function getUuid ($id) { @return map-get($uuids, $id) };

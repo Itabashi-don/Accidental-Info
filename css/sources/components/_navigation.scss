@@ -5,17 +5,7 @@
 
 
 
-$uuids: (navigation: "navigation");
-$uuids: (
-	navigation: getUuid(navigation),
-	navigation_tab: "#{getUuid(navigation)}_tab",
-	navigation_panel: "#{getUuid(navigation)}_panel",
-	navigation_panelGroup: "#{getUuid(navigation)}_panelGroup"
-);
-
-
-
-.#{getUuid(navigation)} {
+#{getUuid(navigation)} {
 	display: block;
 
 	text-align: center;
@@ -33,20 +23,7 @@ $uuids: (
 	background-repeat: no-repeat;
 	background-color: $navigation-backColor;
 
-	& a { text-decoration: none }
-
-	/*&::before {
-		content: "◀";
-
-		position: absolute;
-		display: inline-block;
-		width: 1em;
-		padding: 0.5em;
-
-		color: $navigation_arrow-textColor;
-		background: $navigation-backColor;
-		z-index: 1;
-	}*/
+	a { text-decoration: none }
 
 	#{&}_tab {
 		position: relative;
@@ -56,9 +33,6 @@ $uuids: (
 
 		&, &:focus { color: $navigation_tab-textColor }
 		cursor: pointer;
-
-		// &:first-child { margin-left: 2em }
-		// &:last-child { margin-right: 2em }
 
 		transition: color 0.25s 0s ease-out;
 
@@ -92,7 +66,7 @@ $uuids: (
 	&_panel {
 		display: none;
 		&[active] { display: block }
-
-		&Group { display: block }
 	}
+
+	&_panelGroup { display: block }
 }
