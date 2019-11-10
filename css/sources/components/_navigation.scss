@@ -31,35 +31,36 @@
 		display: inline-block;
 		padding: 0.5em;
 
-		&, &:focus { color: $navigation_tab-textColor }
+		color: $navigation_tab-textColor;
 		cursor: pointer;
 
 		transition: color 0.25s 0s ease-out;
+
+		&:focus { color: $navigation_tab-textColor }
+		&[active] { color: $navigation_tab-textColor--active }
+		&[disabled] {
+			color: $navigation_tab-textColor--disabled;
+			pointer-events: none;
+		}
+
+		&:hover, &:focus, &[active] {
+			--navigation-indicator-left: 0;
+			--navigation-indicator-width: 100%;
+		}
 
 		&::after {
 			content: "";
 
 			position: absolute;
-			left: 50%; bottom: 0;
+			left: var(--navigation-indicator-left, 50%); bottom: 0;
 
 			display: block;
-			width: 0; height: 3px;
+			width: var(--navigation-indicator-width, 0); height: 3px;
 
 			background: $navigation_tab-borderColor;
 
 			transition: 0.25s 0s ease-in-out;
 			transition-property: left, width;
-		}
-
-		&:hover, &:focus, &[active] {
-			&::after { left: 0; width: 100% }
-		}
-
-		&[active] { color: $navigation_tab-textColor--active }
-
-		&[disabled] {
-			color: $navigation_tab-textColor--disabled;
-			pointer-events: none;
 		}
 	}
 

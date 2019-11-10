@@ -17,7 +17,6 @@
 
 	<Body>
 		<Header ID = "IDEA-header" Class = "header">
-			<!-- ToDo: scrollY = 0 でbox-shadowを非表示に -->
 			<Span Class = "header_serviceName">
 				<A Class = "header_serviceName-logo" Href = "https://itabashi.0j0.jp/">
 					<Img Alt = "板橋丼(Itabashi-don)" Src = "./assets/logo.svg" />
@@ -54,23 +53,18 @@
 				<Panel ID = "IDEA-content_weatherPanel" Class = "content_panel navigation_panel" Active>
 					<Details Class = "card" Open>
 						<Summary Class = "card_title">
+							<I Class = "fas fa-cloud-sun"></I>
 							<Span Locale = "idea.weatherPanel.weatherRadar"><!-- Weather Radar --></Span>
 						</Summary>
 	
 						<Article Class = "card_content">
-							<Iframe
-								Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=10&level=surface&overlay=radar&menu=true&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1"
-								FrameBorder = "0">
-							</Iframe>
-						</Article>
-					</Details>
-	
-					<Details Class = "card" Open>
-						<Summary Class = "card_title">
-							<Span Locale = "idea.weatherPanel.forecast"><!-- Weekly Forecast --></Span>
-						</Summary>
-	
-						<Article Class = "card_content">
+							<Div Class = "flexbox flexbox--16x9">
+								<Iframe
+									Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=10&level=surface&overlay=radar&menu=true&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1"
+									FrameBorder = "0">
+								</Iframe>
+							</Div>
+
 							<Iframe
 								Src = "https://embed.windy.com/embed2.html?lat=35.773&lon=139.676&zoom=11&level=surface&overlay=rain&menu=true&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=true&detailLat=35.773&detailLon=139.676&metricWind=default&metricTemp=default&radarRange=-1"
 								FrameBorder = "0"
@@ -81,6 +75,7 @@
 	
 					<Details Class = "card">
 						<Summary Class = "card_title">
+							<I Class = "fas fa-exclamation-triangle"></I>
 							<Span Locale = "idea.weatherPanel.warning"><!-- Warning and Advisory --></Span>
 						</Summary>
 		

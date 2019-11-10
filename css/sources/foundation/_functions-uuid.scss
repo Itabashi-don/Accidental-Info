@@ -6,6 +6,7 @@
 $uuids: (
 	navigation: ".navigation",
 	card: ".card",
+	flexbox: ".flexbox",
 	
 	header: ".header", footer: ".footer",
 	content: ".content"
@@ -20,6 +21,11 @@ $uuids: (
 	card: getUuid(card),
 	card_title: "#{getUuid(card)}_title",
 	card_content: "#{getUuid(card)}_content",
+
+	flexbox: getUuid(flexbox),
+	flexbox--1x1: "#{getUuid(flexbox)}--1x1",
+	flexbox--4x3: "#{getUuid(flexbox)}--4x3",
+	flexbox--16x9: "#{getUuid(flexbox)}--16x9",
 
 	header: getUuid(header),
 	header_serviceName: "#{getUuid(header)}_serviceName",

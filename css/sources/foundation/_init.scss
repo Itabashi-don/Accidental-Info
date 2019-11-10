@@ -11,7 +11,9 @@
 }
 
 html {
+	font-family: $basic-fontFamily;
 	font-size: $basic-fontSize;
+	
 	@include onSize(laptop) { font-size: initial }
 }
 
