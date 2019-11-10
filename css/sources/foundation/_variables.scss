@@ -36,4 +36,5 @@ $navigation_tab-textColor--active: $basic-textColor--onDark;
 $navigation_tab-textColor--disabled: $basic-textColor-dark--onDark;
 $navigation_tab-borderColor: $basic-primaryColor-lighter;
 $navigation_scrollIndicator-shadowColor: transparentize($basic-primaryColor-darker, 0.5);
-// $navigation_arrow-textColor: $navigation_tab-textColor;
+
+$card-boxShadow: $basic-boxShadow;

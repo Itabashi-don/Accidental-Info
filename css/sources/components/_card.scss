@@ -6,7 +6,7 @@
 
 
 #{getUuid(card)} {
-	// box-shadow: Material-Shadow;
+	box-shadow: $card-boxShadow;
 
 	#{&}_title {
 		padding: 1em;

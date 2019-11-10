@@ -30,3 +30,24 @@ $basic-backColor-lighter: none !default;
 $basic-backColor-light: none !default;
 $basic-backColor-darker: #E1E2E1 !default;
 $basic-backColor-dark: none !default;
+
+$basic-boxShadow-shallow:
+	0 2px 1px -1px rgba(0, 0, 0, 0.2),
+	0 1px 1px 0 rgba(0, 0, 0, 0.14),
+	0 1px 3px 0 rgba(0, 0, 0, 0.12) !default;
+$basic-boxShadow-shallower:
+	0 3px 1px -2px rgba(0, 0, 0, 0.2),
+	0 2px 2px 0 rgba(0, 0, 0, 0.14),
+	0 1px 5px 0 rgba(0, 0, 0, 0.12) !default;
+$basic-boxShadow:
+	0 2px 4px -1px rgba(0, 0, 0, 0.2),
+	0 4px 5px 0 rgba(0, 0, 0, 0.14),
+	0 1px 10px 0 rgba(0, 0, 0, 0.12) !default;
+$basic-boxShadow-deeper:
+	0 5px 5px -3px rgba(0, 0, 0, 0.2),
+	0 8px 10px 1px rgba(0, 0, 0, 0.14),
+	0 3px 14px 2px rgba(0, 0, 0, 0.12) !default;
+$basic-boxShadow-deep:
+	0 8px 10px -5px rgba(0, 0, 0, 0.2),
+	0 16px 24px 2px rgba(0, 0, 0, 0.14),
+	0 6px 30px 5px rgba(0, 0, 0, 0.12) !default;
