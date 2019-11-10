@@ -4,18 +4,60 @@
 
 // Localized languages
 $languages: (
-	en: ("", en, en-US),
-	ja: (ja, ja-JP)
+	en: (
+		attrs: (null, "en", "en-US"),
+		messages: (
+			"idea.navigation.weather": "Weather",
+			"idea.navigation.transportation": "Transportation",
+			"idea.navigation.river": "River",
+			"idea.navigation.municipal": "Municipal",
+
+			"idea.weatherPanel.weatherRadar": "Weather Radar",
+			"idea.weatherPanel.forecast": "Weekly Forecast",
+			"idea.weatherPanel.warning": "Warning and Advisory",
+
+			"idea.transportationPanel.railways": "Rail Operations"
+		)
+	),
+
+	ja: (
+		attrs: ("ja", "ja-JP"),
+		messages: (
+			"idea.navigation.weather": "気象情報",
+			"idea.navigation.transportation": "交通機関情報",
+			"idea.navigation.river": "河川情報",
+			"idea.navigation.municipal": "自治体情報",
+
+			"idea.weatherPanel.weatherRadar": "気象レーダー",
+			"idea.weatherPanel.forecast": "週間予報",
+			"idea.weatherPanel.warning": "警報・注意報",
+			
+			"idea.transportationPanel.railways": "鉄道運行情報"
+		)
+	)
 );
 
-// Add a localization of provided language
-@mixin i18n ($lang, $content, $beforeOrAfter: before) {
-	@if ($lang == null or $lang == "") {
-		&::#{$beforeOrAfter} { content: $content }
-	} @else {
-		@each $langCode in map-get($languages, $lang) {
-			&:lang(#{$langCode}) {
-				&::#{$beforeOrAfter} { content: $content; @content }
+
+
+// Apply localizations of provided language
+@mixin i18n ($langCode) {
+	$lang: map-get($languages, $langCode);
+	$langAttrs: map-get($lang, attrs);
+	$langMessages: map-get($lang, messages);
+
+	$langSelectors: null;
+	@each $langAttr in $langAttrs {
+		@if ($langAttr == null) {
+			$langSelectors: append($langSelectors, ":root", "comma")
+		} @else {
+			$langSelectors: append($langSelectors, ":root:lang(#{$langAttr})", "comma");
+		}
+	}
+
+	#{$langSelectors} {
+		@each $localeId, $content in $langMessages {
+			*[locale="#{$localeId}"] {
+				&::before { content: $content }
 			}
 		}
 	}
@@ -23,52 +65,4 @@ $languages: (
 
 
 
-#IDEA {
-	&-navigation_tab {
-		&--weather > span {
-			@include i18n("", "Weather");
-			@include i18n(ja, "気象情報");
-		}
-
-		&--transportation > span {
-			@include i18n("", "Transportation");
-			@include i18n(ja, "交通機関情報");
-		}
-
-		&--river > span {
-			@include i18n("", "River");
-			@include i18n(ja, "河川情報");
-		}
-
-		&--municipal > span {
-			@include i18n("", "Municipal");
-			@include i18n(ja, "自治体情報");
-		}
-	}
-
-	&-content {
-		&_weatherPanel {
-			&-weatherRadar > .card_title {
-				@include i18n("", "Weather Radar");
-				@include i18n(ja, "気象レーダー");
-			}
-
-			&-forecast > .card_title {
-				@include i18n("", "Weekly Forecast");
-				@include i18n(ja, "週間予報");
-			}
-
-			&-warning > .card_title {
-				@include i18n("", "Warning and Advisory");
-				@include i18n(ja, "警報・注意報")
-			}
-		}
-
-		&_transportationPanel {
-			&-railways > .card_title {
-				@include i18n("", "Rail Operations");
-				@include i18n(ja, "鉄道運行情報");
-			}
-		}
-	}
-}
+@each $langCode in map-keys($languages) { @include i18n($langCode) }

@@ -27,24 +27,24 @@
 			</Span>
 
 			<Nav Class = "header_navigation navigation">
-				<A ID = "IDEA-navigation_tab--weather" Class = "navigation_tab" Selector = "#IDEA-content_weatherPanel" Active>
+				<A Class = "navigation_tab" Selector = "#IDEA-content_weatherPanel" Active>
 					<I Class = "fas fa-cloud-showers-heavy"></I>
-					<Span><!-- Weather --></Span>
+					<Span Locale = "idea.navigation.weather"><!-- Weather --></Span>
 				</A>
 
-				<A ID = "IDEA-navigation_tab--transportation" Class = "navigation_tab" Selector = "#IDEA-content_transportationPanel">
+				<A Class = "navigation_tab" Selector = "#IDEA-content_transportationPanel">
 					<I Class = "fas fa-subway"></I>
-					<Span><!-- Transportation --></Span>
+					<Span Locale = "idea.navigation.transportation"><!-- Transportation --></Span>
 				</A>
 
-				<A ID = "IDEA-navigation_tab--river" Class = "navigation_tab" Disabled>
+				<A Class = "navigation_tab" Disabled>
 					<I Class = "fas fa-water"></I>
-					<Span><!-- River --></Span>
+					<Span Locale = "idea.navigation.river"><!-- River --></Span>
 				</A>
 
-				<A ID = "IDEA-navigation_tab--municipal" Class = "navigation_tab" Selector = "#IDEA-content_municipalPanel">
+				<A Class = "navigation_tab" Selector = "#IDEA-content_municipalPanel">
 					<I Class = "fas fa-broadcast-tower"></I>
-					<Span><!-- Municipal --></Span>
+					<Span Locale = "idea.navigation.municipal"><!-- Municipal --></Span>
 				</A>
 			</Nav>
 		</Header>
@@ -52,8 +52,10 @@
 		<Main ID = "IDEA-content" Class = "content">
 			<PanelGroup Class = "content_panelGroup navigation_panelGroup">
 				<Panel ID = "IDEA-content_weatherPanel" Class = "content_panel navigation_panel" Active>
-					<Details ID = "IDEA-content_weatherPanel-weatherRadar" Class = "card" Open>
-						<Summary Class = "card_title"><!-- Weather Radar --></Summary>
+					<Details Class = "card" Open>
+						<Summary Class = "card_title">
+							<Span Locale = "idea.weatherPanel.weatherRadar"><!-- Weather Radar --></Span>
+						</Summary>
 	
 						<Article Class = "card_content">
 							<Iframe
@@ -63,8 +65,10 @@
 						</Article>
 					</Details>
 	
-					<Details ID = "IDEA-content_weatherPanel-forecast" Class = "card" Open>
-						<Summary Class = "card_title"><!-- Weekly Forecast --></Summary>
+					<Details Class = "card" Open>
+						<Summary Class = "card_title">
+							<Span Locale = "idea.weatherPanel.forecast"><!-- Weekly Forecast --></Span>
+						</Summary>
 	
 						<Article Class = "card_content">
 							<Iframe
@@ -75,8 +79,10 @@
 						</Article>
 					</Details>
 	
-					<Details ID = "IDEA-content_weatherPanel-warning" Class = "card">
-						<Summary Class = "card_title"><!-- Warning and Advisory --></Summary>
+					<Details Class = "card">
+						<Summary Class = "card_title">
+							<Span Locale = "idea.weatherPanel.warning"><!-- Warning and Advisory --></Span>
+						</Summary>
 		
 						<Article Class = "card_content">
 						</Article>
@@ -84,8 +90,10 @@
 				</Panel>
 	
 				<Panel ID = "IDEA-content_transportationPanel" Class = "content_panel navigation_panel">
-					<Details ID = "IDEA-content_transportationPanel-railways">
-						<Summary><!-- Rail Operations --></Summary>
+					<Details>
+						<Summary>
+							<Span Locale = "idea.transportationPanel.railways"><!-- Rail Operations --></Span>
+						</Summary>
 		
 						<Article>
 							<P>

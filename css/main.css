@@ -131,52 +131,36 @@ br[phone-s] { display: none; }
 
 .content_panelGroup { padding: 1em; }
 
-#IDEA-navigation_tab--weather > span::before { content: "Weather"; }
+:root *[locale="idea.navigation.weather"]::before, :root:lang(en) *[locale="idea.navigation.weather"]::before, :root:lang(en-US) *[locale="idea.navigation.weather"]::before { content: "Weather"; }
 
-#IDEA-navigation_tab--weather > span:lang(ja)::before { content: "気象情報"; }
+:root *[locale="idea.navigation.transportation"]::before, :root:lang(en) *[locale="idea.navigation.transportation"]::before, :root:lang(en-US) *[locale="idea.navigation.transportation"]::before { content: "Transportation"; }
 
-#IDEA-navigation_tab--weather > span:lang(ja-JP)::before { content: "気象情報"; }
+:root *[locale="idea.navigation.river"]::before, :root:lang(en) *[locale="idea.navigation.river"]::before, :root:lang(en-US) *[locale="idea.navigation.river"]::before { content: "River"; }
 
-#IDEA-navigation_tab--transportation > span::before { content: "Transportation"; }
+:root *[locale="idea.navigation.municipal"]::before, :root:lang(en) *[locale="idea.navigation.municipal"]::before, :root:lang(en-US) *[locale="idea.navigation.municipal"]::before { content: "Municipal"; }
 
-#IDEA-navigation_tab--transportation > span:lang(ja)::before { content: "交通機関情報"; }
+:root *[locale="idea.weatherPanel.weatherRadar"]::before, :root:lang(en) *[locale="idea.weatherPanel.weatherRadar"]::before, :root:lang(en-US) *[locale="idea.weatherPanel.weatherRadar"]::before { content: "Weather Radar"; }
 
-#IDEA-navigation_tab--transportation > span:lang(ja-JP)::before { content: "交通機関情報"; }
+:root *[locale="idea.weatherPanel.forecast"]::before, :root:lang(en) *[locale="idea.weatherPanel.forecast"]::before, :root:lang(en-US) *[locale="idea.weatherPanel.forecast"]::before { content: "Weekly Forecast"; }
 
-#IDEA-navigation_tab--river > span::before { content: "River"; }
+:root *[locale="idea.weatherPanel.warning"]::before, :root:lang(en) *[locale="idea.weatherPanel.warning"]::before, :root:lang(en-US) *[locale="idea.weatherPanel.warning"]::before { content: "Warning and Advisory"; }
 
-#IDEA-navigation_tab--river > span:lang(ja)::before { content: "河川情報"; }
+:root *[locale="idea.transportationPanel.railways"]::before, :root:lang(en) *[locale="idea.transportationPanel.railways"]::before, :root:lang(en-US) *[locale="idea.transportationPanel.railways"]::before { content: "Rail Operations"; }
 
-#IDEA-navigation_tab--river > span:lang(ja-JP)::before { content: "河川情報"; }
+:root:lang(ja) *[locale="idea.navigation.weather"]::before, :root:lang(ja-JP) *[locale="idea.navigation.weather"]::before { content: "気象情報"; }
 
-#IDEA-navigation_tab--municipal > span::before { content: "Municipal"; }
+:root:lang(ja) *[locale="idea.navigation.transportation"]::before, :root:lang(ja-JP) *[locale="idea.navigation.transportation"]::before { content: "交通機関情報"; }
 
-#IDEA-navigation_tab--municipal > span:lang(ja)::before { content: "自治体情報"; }
+:root:lang(ja) *[locale="idea.navigation.river"]::before, :root:lang(ja-JP) *[locale="idea.navigation.river"]::before { content: "河川情報"; }
 
-#IDEA-navigation_tab--municipal > span:lang(ja-JP)::before { content: "自治体情報"; }
+:root:lang(ja) *[locale="idea.navigation.municipal"]::before, :root:lang(ja-JP) *[locale="idea.navigation.municipal"]::before { content: "自治体情報"; }
 
-#IDEA-content_weatherPanel-weatherRadar > .card_title::before { content: "Weather Radar"; }
+:root:lang(ja) *[locale="idea.weatherPanel.weatherRadar"]::before, :root:lang(ja-JP) *[locale="idea.weatherPanel.weatherRadar"]::before { content: "気象レーダー"; }
 
-#IDEA-content_weatherPanel-weatherRadar > .card_title:lang(ja)::before { content: "気象レーダー"; }
+:root:lang(ja) *[locale="idea.weatherPanel.forecast"]::before, :root:lang(ja-JP) *[locale="idea.weatherPanel.forecast"]::before { content: "週間予報"; }
 
-#IDEA-content_weatherPanel-weatherRadar > .card_title:lang(ja-JP)::before { content: "気象レーダー"; }
+:root:lang(ja) *[locale="idea.weatherPanel.warning"]::before, :root:lang(ja-JP) *[locale="idea.weatherPanel.warning"]::before { content: "警報・注意報"; }
 
-#IDEA-content_weatherPanel-forecast > .card_title::before { content: "Weekly Forecast"; }
-
-#IDEA-content_weatherPanel-forecast > .card_title:lang(ja)::before { content: "週間予報"; }
-
-#IDEA-content_weatherPanel-forecast > .card_title:lang(ja-JP)::before { content: "週間予報"; }
-
-#IDEA-content_weatherPanel-warning > .card_title::before { content: "Warning and Advisory"; }
-
-#IDEA-content_weatherPanel-warning > .card_title:lang(ja)::before { content: "警報・注意報"; }
-
-#IDEA-content_weatherPanel-warning > .card_title:lang(ja-JP)::before { content: "警報・注意報"; }
-
-#IDEA-content_transportationPanel-railways > .card_title::before { content: "Rail Operations"; }
-
-#IDEA-content_transportationPanel-railways > .card_title:lang(ja)::before { content: "鉄道運行情報"; }
-
-#IDEA-content_transportationPanel-railways > .card_title:lang(ja-JP)::before { content: "鉄道運行情報"; }
+:root:lang(ja) *[locale="idea.transportationPanel.railways"]::before, :root:lang(ja-JP) *[locale="idea.transportationPanel.railways"]::before { content: "鉄道運行情報"; }
 
 /*# sourceMappingURL=main.css.map */
