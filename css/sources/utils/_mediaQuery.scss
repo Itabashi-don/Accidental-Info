@@ -4,14 +4,14 @@
 
 
 
-// Definition of breaks which is shown on only each environments
-br {
+// Definition of elements which are shown on only each environments
+* {
 	@each $type, $query in $mediaQueries {
 		&[on-#{$type}] {
-			display: none;
-			@include onSize($type) { display: block }
+			display: none !important;
+			@include onSize($type) { display: initial }
 		}
 
-		&[not-on-#{$type}] { @include onSize($type) { display: none } }
+		&[not-on-#{$type}] { @include onSize($type) { display: none !important } }
 	}
 }

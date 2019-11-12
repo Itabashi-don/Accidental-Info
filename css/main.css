@@ -131,46 +131,46 @@ body { display: flex; flex-direction: column; color: rgba(0, 0, 0, 0.87); }
 
 :root:lang(ja) *[locale="idea.transportationPanel.railways"]::before, :root:lang(ja-JP) *[locale="idea.transportationPanel.railways"]::before { content: "鉄道運行情報"; }
 
-br[on-laptop] { display: none; }
+*[on-laptop] { display: none !important; }
 
-@media only screen and (min-width: 1024px) { br[on-laptop] { display: block; } }
+@media only screen and (min-width: 1024px) { *[on-laptop] { display: initial; } }
 
-@media only screen and (min-width: 1024px) { br[not-on-laptop] { display: none; } }
+@media only screen and (min-width: 1024px) { *[not-on-laptop] { display: none !important; } }
 
-br[on-mobile] { display: none; }
+*[on-mobile] { display: none !important; }
 
-@media only screen and (max-width: 1023px) { br[on-mobile] { display: block; } }
+@media only screen and (max-width: 1023px) { *[on-mobile] { display: initial; } }
 
-@media only screen and (max-width: 1023px) { br[not-on-mobile] { display: none; } }
+@media only screen and (max-width: 1023px) { *[not-on-mobile] { display: none !important; } }
 
-br[on-tablet] { display: none; }
+*[on-tablet] { display: none !important; }
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) { br[on-tablet] { display: block; } }
+@media only screen and (min-width: 768px) and (max-width: 1023px) { *[on-tablet] { display: initial; } }
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) { br[not-on-tablet] { display: none; } }
+@media only screen and (min-width: 768px) and (max-width: 1023px) { *[not-on-tablet] { display: none !important; } }
 
-br[on-phone] { display: none; }
+*[on-phone] { display: none !important; }
 
-@media only screen and (max-width: 767px) { br[on-phone] { display: block; } }
+@media only screen and (max-width: 767px) { *[on-phone] { display: initial; } }
 
-@media only screen and (max-width: 767px) { br[not-on-phone] { display: none; } }
+@media only screen and (max-width: 767px) { *[not-on-phone] { display: none !important; } }
 
-br[on-phone-l] { display: none; }
+*[on-phone-l] { display: none !important; }
 
-@media only screen and (min-width: 425px) and (max-width: 767px) { br[on-phone-l] { display: block; } }
+@media only screen and (min-width: 425px) and (max-width: 767px) { *[on-phone-l] { display: initial; } }
 
-@media only screen and (min-width: 425px) and (max-width: 767px) { br[not-on-phone-l] { display: none; } }
+@media only screen and (min-width: 425px) and (max-width: 767px) { *[not-on-phone-l] { display: none !important; } }
 
-br[on-phone-m] { display: none; }
+*[on-phone-m] { display: none !important; }
 
-@media only screen and (min-width: 375px) and (max-width: 424px) { br[on-phone-m] { display: block; } }
+@media only screen and (min-width: 375px) and (max-width: 424px) { *[on-phone-m] { display: initial; } }
 
-@media only screen and (min-width: 375px) and (max-width: 424px) { br[not-on-phone-m] { display: none; } }
+@media only screen and (min-width: 375px) and (max-width: 424px) { *[not-on-phone-m] { display: none !important; } }
 
-br[on-phone-s] { display: none; }
+*[on-phone-s] { display: none !important; }
 
-@media only screen and (max-width: 374px) { br[on-phone-s] { display: block; } }
+@media only screen and (max-width: 374px) { *[on-phone-s] { display: initial; } }
 
-@media only screen and (max-width: 374px) { br[not-on-phone-s] { display: none; } }
+@media only screen and (max-width: 374px) { *[not-on-phone-s] { display: none !important; } }
 
 /*# sourceMappingURL=main.css.map */
