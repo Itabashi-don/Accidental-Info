@@ -6,13 +6,28 @@
 
 
 #{getUuid(card)} {
-	box-shadow: $card-boxShadow;
-
 	#{&}_title {
+		position: relative;
 		padding: 1em;
 		
 		list-style: none;
 		&::-webkit-details-marker { display: none }
+
+		&::after {
+			content: "";
+
+			position: absolute;
+			left: 0; bottom: 0;
+
+			display: block;
+			width: 100%; height: $card_flipIndicator-height;
+
+			background: $card_flipIndicator-color;
+			opacity: var(--card_flipIndicator-opacity, 0);
+
+			transition: 0.25s 0s ease-in-out;
+			transition-property: opacity;
+		}
 	}
 
 	#{&}_content {

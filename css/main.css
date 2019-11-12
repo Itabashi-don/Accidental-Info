@@ -9,48 +9,6 @@ html, body { height: 100%; margin: 0; }
 
 body { display: flex; flex-direction: column; color: rgba(0, 0, 0, 0.87); }
 
-br[laptop] { display: none; }
-
-@media only screen and (min-width: 1024px) { br[laptop] { display: block; } }
-
-@media only screen and (min-width: 1024px) { br[not-laptop] { display: none; } }
-
-br[mobile] { display: none; }
-
-@media only screen and (max-width: 1023px) { br[mobile] { display: block; } }
-
-@media only screen and (max-width: 1023px) { br[not-mobile] { display: none; } }
-
-br[tablet] { display: none; }
-
-@media only screen and (min-width: 768px) and (max-width: 1023px) { br[tablet] { display: block; } }
-
-@media only screen and (min-width: 768px) and (max-width: 1023px) { br[not-tablet] { display: none; } }
-
-br[phone] { display: none; }
-
-@media only screen and (max-width: 767px) { br[phone] { display: block; } }
-
-@media only screen and (max-width: 767px) { br[not-phone] { display: none; } }
-
-br[phone-l] { display: none; }
-
-@media only screen and (min-width: 425px) and (max-width: 767px) { br[phone-l] { display: block; } }
-
-@media only screen and (min-width: 425px) and (max-width: 767px) { br[not-phone-l] { display: none; } }
-
-br[phone-m] { display: none; }
-
-@media only screen and (min-width: 375px) and (max-width: 424px) { br[phone-m] { display: block; } }
-
-@media only screen and (min-width: 375px) and (max-width: 424px) { br[not-phone-m] { display: none; } }
-
-br[phone-s] { display: none; }
-
-@media only screen and (max-width: 374px) { br[phone-s] { display: block; } }
-
-@media only screen and (max-width: 374px) { br[not-phone-s] { display: none; } }
-
 .navigation { display: block; text-align: center; overflow: auto hidden; white-space: nowrap; background: linear-gradient(to left, transparent, #00838f 1em) left center/2em 100% local, linear-gradient(to right, transparent, #00838f 1em) right center/2em 100% local, linear-gradient(to left, transparent, rgba(0, 86, 98, 0.5)) left center/1em 100% scroll, linear-gradient(to right, transparent, rgba(0, 86, 98, 0.5)) right center/1em 100% scroll; background-repeat: no-repeat; background-color: #00838f; }
 
 .navigation a { text-decoration: none; }
@@ -63,9 +21,9 @@ br[phone-s] { display: none; }
 
 .navigation .navigation_tab[disabled] { color: rgba(255, 255, 255, 0.38); pointer-events: none; }
 
-.navigation .navigation_tab:hover, .navigation .navigation_tab:focus, .navigation .navigation_tab[active] { --navigation-indicator-left: 0; --navigation-indicator-width: 100%; }
+.navigation .navigation_tab:hover, .navigation .navigation_tab:focus, .navigation .navigation_tab[active] { --navigation_indicator-left: 0; --navigation_indicator-width: 100%; }
 
-.navigation .navigation_tab::after { content: ""; position: absolute; left: var(--navigation-indicator-left, 50%); bottom: 0; display: block; width: var(--navigation-indicator-width, 0); height: 3px; background: #4fb3bf; transition: 0.25s 0s ease-in-out; transition-property: left, width; }
+.navigation .navigation_tab::after { content: ""; position: absolute; left: var(--navigation_indicator-left, 50%); bottom: 0; display: block; width: var(--navigation_indicator-width, 0); height: 3px; background: #4fb3bf; transition: 0.25s 0s ease-in-out; transition-property: left, width; }
 
 .navigation_panel { display: none; }
 
@@ -73,11 +31,11 @@ br[phone-s] { display: none; }
 
 .navigation_panelGroup { display: block; }
 
-.card { box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12); }
-
-.card .card_title { padding: 1em; list-style: none; }
+.card .card_title { position: relative; padding: 1em; list-style: none; }
 
 .card .card_title::-webkit-details-marker { display: none; }
+
+.card .card_title::after { content: ""; position: absolute; left: 0; bottom: 0; display: block; width: 100%; height: 3px; background: #4fb3bf; opacity: var(--card_flipIndicator-opacity, 0); transition: 0.25s 0s ease-in-out; transition-property: opacity; }
 
 .card .card_content { width: 100%; }
 
@@ -172,5 +130,47 @@ br[phone-s] { display: none; }
 :root:lang(ja) *[locale="idea.weatherPanel.warning"]::before, :root:lang(ja-JP) *[locale="idea.weatherPanel.warning"]::before { content: "警報・注意報"; }
 
 :root:lang(ja) *[locale="idea.transportationPanel.railways"]::before, :root:lang(ja-JP) *[locale="idea.transportationPanel.railways"]::before { content: "鉄道運行情報"; }
+
+br[on-laptop] { display: none; }
+
+@media only screen and (min-width: 1024px) { br[on-laptop] { display: block; } }
+
+@media only screen and (min-width: 1024px) { br[not-on-laptop] { display: none; } }
+
+br[on-mobile] { display: none; }
+
+@media only screen and (max-width: 1023px) { br[on-mobile] { display: block; } }
+
+@media only screen and (max-width: 1023px) { br[not-on-mobile] { display: none; } }
+
+br[on-tablet] { display: none; }
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) { br[on-tablet] { display: block; } }
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) { br[not-on-tablet] { display: none; } }
+
+br[on-phone] { display: none; }
+
+@media only screen and (max-width: 767px) { br[on-phone] { display: block; } }
+
+@media only screen and (max-width: 767px) { br[not-on-phone] { display: none; } }
+
+br[on-phone-l] { display: none; }
+
+@media only screen and (min-width: 425px) and (max-width: 767px) { br[on-phone-l] { display: block; } }
+
+@media only screen and (min-width: 425px) and (max-width: 767px) { br[not-on-phone-l] { display: none; } }
+
+br[on-phone-m] { display: none; }
+
+@media only screen and (min-width: 375px) and (max-width: 424px) { br[on-phone-m] { display: block; } }
+
+@media only screen and (min-width: 375px) and (max-width: 424px) { br[not-on-phone-m] { display: none; } }
+
+br[on-phone-s] { display: none; }
+
+@media only screen and (max-width: 374px) { br[on-phone-s] { display: block; } }
+
+@media only screen and (max-width: 374px) { br[not-on-phone-s] { display: none; } }
 
 /*# sourceMappingURL=main.css.map */

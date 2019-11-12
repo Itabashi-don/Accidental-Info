@@ -44,20 +44,20 @@
 		}
 
 		&:hover, &:focus, &[active] {
-			--navigation-indicator-left: 0;
-			--navigation-indicator-width: 100%;
+			--navigation_indicator-left: 0;
+			--navigation_indicator-width: 100%;
 		}
 
 		&::after {
 			content: "";
 
 			position: absolute;
-			left: var(--navigation-indicator-left, 50%); bottom: 0;
+			left: var(--navigation_indicator-left, 50%); bottom: 0;
 
 			display: block;
-			width: var(--navigation-indicator-width, 0); height: 3px;
+			width: var(--navigation_indicator-width, 0); height: $navigation_tabIndicator-height;
 
-			background: $navigation_tab-borderColor;
+			background: $navigation_tabIndicator-color;
 
 			transition: 0.25s 0s ease-in-out;
 			transition-property: left, width;

@@ -18,5 +18,5 @@ $mediaQueries: (
 
 // Generates a Media-Query of provided type
 @mixin onSize ($type) {
-	@media #{ map-get($mediaQueries, $type) } { @content }
+	@media #{map-get($mediaQueries, $type)} { @content }
 };
