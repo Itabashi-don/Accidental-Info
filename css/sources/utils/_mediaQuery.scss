@@ -8,10 +8,10 @@
 * {
 	@each $type, $query in $mediaQueries {
 		&[on-#{$type}] {
-			display: none !important;
+			display: none;
 			@include onSize($type) { display: initial }
 		}
 
-		&[not-on-#{$type}] { @include onSize($type) { display: none !important } }
+		&[not-on-#{$type}] { @include onSize($type) { display: none } }
 	}
 }

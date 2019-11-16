@@ -31,13 +31,15 @@ body { display: flex; flex-direction: column; color: rgba(0, 0, 0, 0.87); }
 
 .navigation_panelGroup { display: block; }
 
+.card[open] { --card_flipIndicator-width: 100%; --card_content-display: block; }
+
 .card .card_title { position: relative; padding: 1em; list-style: none; }
 
 .card .card_title::-webkit-details-marker { display: none; }
 
-.card .card_title::after { content: ""; position: absolute; left: 0; bottom: 0; display: block; width: 100%; height: 3px; background: #4fb3bf; opacity: var(--card_flipIndicator-opacity, 0); transition: 0.25s 0s ease-in-out; transition-property: opacity; }
+.card .card_title::after { content: ""; position: absolute; left: 0; bottom: 0; display: block; width: var(--card_flipIndicator-width, 0); height: 3px; background: #4fb3bf; transition: width 0.25s 0s ease-out; }
 
-.card .card_content { width: 100%; }
+.card .card_content { display: var(--card_content-display, none); width: 100%; }
 
 .card .card_content > * { width: 100%; }
 
@@ -131,46 +133,46 @@ body { display: flex; flex-direction: column; color: rgba(0, 0, 0, 0.87); }
 
 :root:lang(ja) *[locale="idea.transportationPanel.railways"]::before, :root:lang(ja-JP) *[locale="idea.transportationPanel.railways"]::before { content: "鉄道運行情報"; }
 
-*[on-laptop] { display: none !important; }
+*[on-laptop] { display: none; }
 
 @media only screen and (min-width: 1024px) { *[on-laptop] { display: initial; } }
 
-@media only screen and (min-width: 1024px) { *[not-on-laptop] { display: none !important; } }
+@media only screen and (min-width: 1024px) { *[not-on-laptop] { display: none; } }
 
-*[on-mobile] { display: none !important; }
+*[on-mobile] { display: none; }
 
 @media only screen and (max-width: 1023px) { *[on-mobile] { display: initial; } }
 
-@media only screen and (max-width: 1023px) { *[not-on-mobile] { display: none !important; } }
+@media only screen and (max-width: 1023px) { *[not-on-mobile] { display: none; } }
 
-*[on-tablet] { display: none !important; }
+*[on-tablet] { display: none; }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) { *[on-tablet] { display: initial; } }
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) { *[not-on-tablet] { display: none !important; } }
+@media only screen and (min-width: 768px) and (max-width: 1023px) { *[not-on-tablet] { display: none; } }
 
-*[on-phone] { display: none !important; }
+*[on-phone] { display: none; }
 
 @media only screen and (max-width: 767px) { *[on-phone] { display: initial; } }
 
-@media only screen and (max-width: 767px) { *[not-on-phone] { display: none !important; } }
+@media only screen and (max-width: 767px) { *[not-on-phone] { display: none; } }
 
-*[on-phone-l] { display: none !important; }
+*[on-phone-l] { display: none; }
 
 @media only screen and (min-width: 425px) and (max-width: 767px) { *[on-phone-l] { display: initial; } }
 
-@media only screen and (min-width: 425px) and (max-width: 767px) { *[not-on-phone-l] { display: none !important; } }
+@media only screen and (min-width: 425px) and (max-width: 767px) { *[not-on-phone-l] { display: none; } }
 
-*[on-phone-m] { display: none !important; }
+*[on-phone-m] { display: none; }
 
 @media only screen and (min-width: 375px) and (max-width: 424px) { *[on-phone-m] { display: initial; } }
 
-@media only screen and (min-width: 375px) and (max-width: 424px) { *[not-on-phone-m] { display: none !important; } }
+@media only screen and (min-width: 375px) and (max-width: 424px) { *[not-on-phone-m] { display: none; } }
 
-*[on-phone-s] { display: none !important; }
+*[on-phone-s] { display: none; }
 
 @media only screen and (max-width: 374px) { *[on-phone-s] { display: initial; } }
 
-@media only screen and (max-width: 374px) { *[not-on-phone-s] { display: none !important; } }
+@media only screen and (max-width: 374px) { *[not-on-phone-s] { display: none; } }
 
 /*# sourceMappingURL=main.css.map */

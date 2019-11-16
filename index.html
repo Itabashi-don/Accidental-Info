@@ -10,8 +10,10 @@
 		<Link Rel = "StyleSheet" Href = "https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
 		<Link Rel = "StyleSheet" Href = "./css/main.css" />
 
-		<Script Src = "./js/components/Navigation.js"></Script>
 		<Script Src = "./js/utils/I18n.js"></Script>
+		<Script Src = "./js/components/Navigation.js"></Script>
+		<Script Src = "./js/components/Card.js"></Script>
+
 		<Script Src = "./js/main.js" Defer></Script>
 	</Head>
 
@@ -51,7 +53,7 @@
 		<Main ID = "IDEA-content" Class = "content">
 			<PanelGroup Class = "content_panelGroup navigation_panelGroup">
 				<Panel ID = "IDEA-content_weatherPanel" Class = "content_panel navigation_panel" Active>
-					<Details Class = "card" Open>
+					<Card Class = "card" Open>
 						<Summary Class = "card_title">
 							<I Class = "fas fa-cloud-sun"></I>
 							<Span Locale = "idea.weatherPanel.weatherRadar"><!-- Weather Radar --></Span>
@@ -71,9 +73,9 @@
 								Style = "height: 180px">
 							</Iframe>
 						</Article>
-					</Details>
+					</Card>
 	
-					<Details Class = "card">
+					<Card Class = "card">
 						<Summary Class = "card_title">
 							<I Class = "fas fa-exclamation-triangle"></I>
 							<Span Locale = "idea.weatherPanel.warning"><!-- Warning and Advisory --></Span>
@@ -81,7 +83,7 @@
 		
 						<Article Class = "card_content">
 						</Article>
-					</Details>
+					</Card>
 				</Panel>
 	
 				<Panel ID = "IDEA-content_transportationPanel" Class = "content_panel navigation_panel">
