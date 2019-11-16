@@ -1,9 +1,26 @@
 const Navigation = (() => {
-	class Navigation {}
+	class Navigation {
+		static get className () { return "navigation" }
+
+		/** @param {HTMLElement} elem */
+		constructor (elem) {
+			this.elem = elem;
+		}
+
+		/** @return {Navigation.Tab[]} */
+		get childTabs () {
+			const tabs = this.elem.querySelectorAll(`:scope > .${Navigation.Tab.className}`);
+			return Array.from(tabs).map(tab => new Navigation.Tab(tab));
+		}
+
+		register () {
+			for (const childTab of this.childTabs) childTab.register();
+		}
+	}
+
+
 
 	Navigation.Trigger = class Trigger {
-		static get className () { return "navigation-trigger" }
-
 		/** @param {HTMLElement} elem */
 		constructor (elem) {
 			this.elem = elem;
@@ -25,7 +42,7 @@ const Navigation = (() => {
 		}
 
 		/**
-		 * A function firing when the trigger would be clicked
+		 * A function fired when it would be clicked
 		 * @abstract
 		 */
 		dispatch () { throw new Error("dispatch() must be implemented as it's an abstract method") }
@@ -47,15 +64,15 @@ const Navigation = (() => {
 			get group () { return new Navigation.Panel.PanelGroup(this.elem.parentElement) }
 
 			/** @return {boolean} */
-			get active () { return this.elem.hasAttribute(Panel.stateAttrs.active) }
+			get active () { return this.elem.hasAttribute(Panel.ATTRS.ACTIVE) }
 			/** @param {boolean} val */
-			set active (val) { val ? this.elem.setAttribute(Panel.stateAttrs.active, "") : this.elem.removeAttribute(Panel.stateAttrs.active) }
+			set active (val) { val ? this.elem.setAttribute(Panel.ATTRS.ACTIVE, "") : this.elem.removeAttribute(Panel.ATTRS.ACTIVE) }
 		}
 
-		Panel.stateClasses = {};
+		Panel.CLASSES = {};
 
-		Panel.stateAttrs = {
-			active: "active"
+		Panel.ATTRS = {
+			ACTIVE: "active"
 		};
 
 
@@ -91,8 +108,8 @@ const Navigation = (() => {
 
 
 		Object.defineProperties(Panel, {
-			stateClasses: { configurable: false, writable: false, enumerable: true },
-			stateAttrs: { configurable: false, writable: false, enumerable: true },
+			CLASSES: { configurable: false, writable: false, enumerable: true },
+			ATTRS: { configurable: false, writable: false, enumerable: true },
 
 			PanelGroup: { configurable: false, writable: false, enumerable: true }
 		});
@@ -112,23 +129,23 @@ const Navigation = (() => {
 			/** @param {Navigation.Panel | null} */
 			get matched () { return new Navigation.Panel(super.matched) }
 
-			/** @return {Tab.TabBar} */
-			get tabBar () { return new Tab.TabBar(this.elem.parentElement) }
+			/** @return {Navigation} */
+			get navigation () { return new Navigation(this.elem.parentElement) }
 
 			/** @return {boolean} */
-			get active () { return this.elem.hasAttribute(Tab.stateAttrs.active) }
+			get active () { return this.elem.hasAttribute(Tab.ATTRS.ACTIVE) }
 			/** @param {boolean} val */
-			set active (val) { val ? this.elem.setAttribute(Tab.stateAttrs.active, "") : this.elem.removeAttribute(Tab.stateAttrs.active) }
+			set active (val) { val ? this.elem.setAttribute(Tab.ATTRS.ACTIVE, "") : this.elem.removeAttribute(Tab.ATTRS.ACTIVE) }
 			
 			/** @return {boolean} */
-			get disabled () { return this.elem.classList.contains(Tab.stateClasses.disabled) }
+			get disabled () { return this.elem.hasAttribute(Tab.ATTRS.DISABLED) }
 			/** @param {boolean} val */
-			set disabled (val) { val ? this.elem.classList.add(Tab.stateClasses.disabled) : this.elem.classList.remove(Tab.stateClasses.disabled) }
+			set disabled (val) { val ? this.elem.setAttribute(Tab.ATTRS.DISABLED, "") : this.elem.removeAttribute(Tab.ATTRS.DISABLED) }
 
 			activate () {
 				if (this.active) return;
 
-				for (const tab of this.tabBar.childTabs) tab.active = false;
+				for (const tab of this.navigation.childTabs) tab.active = false;
 				this.active = true;
 
 				// ToDo: オートスクロール機能
@@ -142,41 +159,18 @@ const Navigation = (() => {
 			}
 		}
 
-		Tab.stateClasses = {};
+		Tab.CLASSES = {};
 
-		Tab.stateAttrs = {
-			active: "active",
-			disabled: "disabled"
-		};
-
-
-
-		Tab.TabBar = class TabBar {
-			static get className () { return "navigation" }
-	
-			/** @param {HTMLElement} elem */
-			constructor (elem) {
-				this.elem = elem;
-			}
-	
-			/** @return {Tab[]} */
-			get childTabs () {
-				const tabs = this.elem.querySelectorAll(`:scope > .${Navigation.Tab.className}`);
-				return Array.from(tabs).map(tab => new Navigation.Tab(tab));
-			}
-	
-			register () {
-				for (const childTab of this.childTabs) childTab.register();
-			}
+		Tab.ATTRS = {
+			ACTIVE: "active",
+			DISABLED: "disabled"
 		};
 
 
 
 		Object.defineProperties(Tab, {
-			stateClasses: { configurable: false, writable: false, enumerable: true },
-			stateAttrs: { configurable: false, writable: false, enumerable: true },
-
-			TabBar: { configurable: false, writable: false, enumerable: true }
+			CLASSES: { configurable: false, writable: false, enumerable: true },
+			ATTRS: { configurable: false, writable: false, enumerable: true }
 		});
 
 		return Tab;
@@ -192,3 +186,7 @@ const Navigation = (() => {
 
 	return Navigation;
 })();
+
+
+
+export default Navigation;

@@ -1,17 +1,20 @@
 {
 	"name": "itabashi-don_emergency-alerts",
-	"version": "0.0.57",
+	"version": "0.0.58",
 	"description": "A website collecting alerts for emergency of Itabashi and around",
 	"keywords": [
 		"Itabashi"
 	],
 	"main": "index.js",
 	"scripts": {
+		"build": "run-p build:js build:scss",
 		"start": "npm run server",
-		"dev": "run-p server build:scss",
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "run-p server watch:js watch:scss",
 		"server": "serve -n -l 8001",
-		"build:scss": "node-sass -w ./css/sources/main.scss ./css/main.css --output-style compact --source-map ./css/"
+		"build:js": "parcel build ./js/src/index.js -d ./js --no-source-maps",
+		"build:scss": "node-sass ./css/src/main.scss ./css/main.css --output-style compact --source-map ./css/",
+		"watch:js": "parcel watch ./js/src/index.js -d ./js",
+		"watch:scss": "node-sass -w ./css/src/main.scss ./css/main.css --output-style compact --source-map ./css/"
 	},
 	"author": {
 		"name": "板橋丼(Itabashi-don)",
@@ -31,6 +34,7 @@
 		"serve": "^11.2.0"
 	},
 	"devDependencies": {
-		"node-sass": "^4.12.0"
+		"node-sass": "^4.12.0",
+		"parcel-bundler": "^1.12.4"
 	}
 }

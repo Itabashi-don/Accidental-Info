@@ -25,10 +25,6 @@ const Card = (() => {
 		OPEN: "open"
 	};
 
-	Card.ACTIONS = {
-		CARD_OPEN: "CARD_OPEN_CHANGE"
-	};
-
 
 
 	Card.CardTitle = class CardTitle {
@@ -73,3 +69,7 @@ const Card = (() => {
 
 	return Card;
 })();
+
+
+
+export default Card;
