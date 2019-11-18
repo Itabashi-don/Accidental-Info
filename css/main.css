@@ -39,7 +39,7 @@ body { display: flex; flex-direction: column; color: rgba(0, 0, 0, 0.87); }
 
 .card .card_title::after { content: ""; position: absolute; left: 0; bottom: 0; display: block; width: var(--card_flipIndicator-width, 0); height: 3px; background: #4fb3bf; transition: width 0.25s 0s ease-out; }
 
-.card .card_content { display: var(--card_content-display, none); width: 100%; }
+.card .card_content { display: var(--card_content-display, none); width: 100%; transition: opacity 0.25s 0s ease-out; }
 
 .card .card_content > * { width: 100%; }
 
@@ -117,6 +117,10 @@ body { display: flex; flex-direction: column; color: rgba(0, 0, 0, 0.87); }
 
 :root *[locale="idea.transportationPanel.railways"]::before, :root:lang(en) *[locale="idea.transportationPanel.railways"]::before, :root:lang(en-US) *[locale="idea.transportationPanel.railways"]::before { content: "Rail Operations"; }
 
+:root *[locale="idea.riverPanel.arakawa"]::before, :root:lang(en) *[locale="idea.riverPanel.arakawa"]::before, :root:lang(en-US) *[locale="idea.riverPanel.arakawa"]::before { content: "Arakawa"; }
+
+:root *[locale="idea.municipalPanel.itabashi"]::before, :root:lang(en) *[locale="idea.municipalPanel.itabashi"]::before, :root:lang(en-US) *[locale="idea.municipalPanel.itabashi"]::before { content: "Itabashi"; }
+
 :root:lang(ja) *[locale="idea.navigation.weather"]::before, :root:lang(ja-JP) *[locale="idea.navigation.weather"]::before { content: "気象情報"; }
 
 :root:lang(ja) *[locale="idea.navigation.transportation"]::before, :root:lang(ja-JP) *[locale="idea.navigation.transportation"]::before { content: "交通機関情報"; }
@@ -132,6 +136,10 @@ body { display: flex; flex-direction: column; color: rgba(0, 0, 0, 0.87); }
 :root:lang(ja) *[locale="idea.weatherPanel.warning"]::before, :root:lang(ja-JP) *[locale="idea.weatherPanel.warning"]::before { content: "警報・注意報"; }
 
 :root:lang(ja) *[locale="idea.transportationPanel.railways"]::before, :root:lang(ja-JP) *[locale="idea.transportationPanel.railways"]::before { content: "鉄道運行情報"; }
+
+:root:lang(ja) *[locale="idea.riverPanel.arakawa"]::before, :root:lang(ja-JP) *[locale="idea.riverPanel.arakawa"]::before { content: "荒川"; }
+
+:root:lang(ja) *[locale="idea.municipalPanel.itabashi"]::before, :root:lang(ja-JP) *[locale="idea.municipalPanel.itabashi"]::before { content: "板橋区"; }
 
 *[on-laptop] { display: none; }
 

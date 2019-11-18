@@ -117,13 +117,246 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"components/Navigation.js":[function(require,module,exports) {
+})({"models/Action.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Action =
+/*#__PURE__*/
+function () {
+  function Action() {
+    _classCallCheck(this, Action);
+  }
+
+  _createClass(Action, null, [{
+    key: "validate",
+
+    /**
+     * Returns whether a provided object is Action
+     * @param {ActionObject} actionableObj
+     */
+    value: function validate(actionableObj) {
+      if (Util.getClass(actionableObj) !== "Object") return false;
+
+      for (var _i = 0, _arr = ["type", "value"]; _i < _arr.length; _i++) {
+        var prop = _arr[_i];
+        if (!Object.keys(actionableObj).includes(prop)) return false;
+      }
+
+      return true;
+    }
+  }]);
+
+  return Action;
+}();
+/**
+ * @typedef {object} ActionObject
+ * @prop {string} type
+ * @prop {object} value
+ */
+
+
+exports.default = Action;
+void 0;
+},{}],"actions/Card.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.openCard = openCard;
+exports.closeCard = closeCard;
+exports.CARD_CLOSE = exports.CARD_OPEN = void 0;
+
+var _index = require("./index");
+
+var CARD_OPEN = "CARD_OPEN";
+exports.CARD_OPEN = CARD_OPEN;
+var CARD_CLOSE = "CARD_CLOSE";
+exports.CARD_CLOSE = CARD_CLOSE;
+
+function openCard(card) {
+  return (0, _index.dispatch)({
+    type: CARD_OPEN,
+    value: card
+  });
+}
+
+function closeCard(card) {
+  return (0, _index.dispatch)({
+    type: CARD_CLOSE,
+    value: card
+  });
+}
+},{"./index":"actions/index.js"}],"actions/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.dispatch = dispatch;
+
+var _Action = require("../models/Action");
+
+var _Navigation = require("./Navigation");
+
+var _Card = require("./Card");
+
+/** @param {ActionObject} action */
+function dispatch(action) {
+  switch (action.type) {
+    case _Navigation.NAVIGATION_TAB_ACTIVE_CHANGE:
+      (function () {
+        var _action$value = action.value,
+            navigation = _action$value.navigation,
+            tab = _action$value.tab;
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = navigation.childTabs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var _tab = _step.value;
+            _tab.active = false;
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator.return != null) {
+              _iterator.return();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+
+        tab.active = true; // ToDo: オートスクロール機能
+      })();
+
+      break;
+
+    case _Navigation.NAVIGATION_PANEL_ACTIVE_CHANGE:
+      (function () {
+        var _action$value2 = action.value,
+            navigation = _action$value2.navigation,
+            panel = _action$value2.panel;
+        var matchedPanel = panel.group.panels.find(function (child) {
+          return child.id === panel.id;
+        });
+
+        if (matchedPanel && !matchedPanel.active) {
+          var _iteratorNormalCompletion2 = true;
+          var _didIteratorError2 = false;
+          var _iteratorError2 = undefined;
+
+          try {
+            for (var _iterator2 = panel.group.panels[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+              var child = _step2.value;
+              child.active = false;
+            }
+          } catch (err) {
+            _didIteratorError2 = true;
+            _iteratorError2 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+                _iterator2.return();
+              }
+            } finally {
+              if (_didIteratorError2) {
+                throw _iteratorError2;
+              }
+            }
+          }
+
+          matchedPanel.active = true;
+        }
+      })();
+
+      break;
+
+    case _Card.CARD_OPEN:
+      action.value.open = true;
+      break;
+
+    case _Card.CARD_CLOSE:
+      action.value.open = false;
+      break;
+  }
+}
+},{"../models/Action":"models/Action.js","./Navigation":"actions/Navigation.js","./Card":"actions/Card.js"}],"actions/Navigation.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.changeTabActive = changeTabActive;
+exports.changePanelActive = changePanelActive;
+exports.NAVIGATION_PANEL_ACTIVE_CHANGE = exports.NAVIGATION_TAB_ACTIVE_CHANGE = void 0;
+
+var _index = require("./index");
+
+var _Navigation = _interopRequireDefault(require("../components/Navigation"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var NAVIGATION_TAB_ACTIVE_CHANGE = "NAVIGATION_TAB_ACTIVE_CHANGE";
+exports.NAVIGATION_TAB_ACTIVE_CHANGE = NAVIGATION_TAB_ACTIVE_CHANGE;
+var NAVIGATION_PANEL_ACTIVE_CHANGE = "NAVIGATION_PANEL_ACTIVE_CHANGE";
+/**
+ * @param {Navigation} navigation
+ * @param {Navigation.Tab} tab
+ */
+
+exports.NAVIGATION_PANEL_ACTIVE_CHANGE = NAVIGATION_PANEL_ACTIVE_CHANGE;
+
+function changeTabActive(navigation, tab) {
+  return (0, _index.dispatch)({
+    type: NAVIGATION_TAB_ACTIVE_CHANGE,
+    value: {
+      navigation: navigation,
+      tab: tab
+    }
+  });
+}
+/**
+ * @param {Navigation} navigation
+ * @param {Navigation.Panel} panel
+ */
+
+
+function changePanelActive(navigation, panel) {
+  return (0, _index.dispatch)({
+    type: NAVIGATION_PANEL_ACTIVE_CHANGE,
+    value: {
+      navigation: navigation,
+      panel: panel
+    }
+  });
+}
+},{"./index":"actions/index.js","../components/Navigation":"components/Navigation.js"}],"components/Navigation.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Navigation = require("../actions/Navigation");
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -164,6 +397,7 @@ var Navigation = function () {
       _classCallCheck(this, Navigation);
 
       this.elem = elem;
+      this.register();
     }
     /** @return {Navigation.Tab[]} */
 
@@ -178,7 +412,7 @@ var Navigation = function () {
         try {
           for (var _iterator = this.childTabs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
             var childTab = _step.value;
-            childTab.register();
+            childTab.register(this);
           }
         } catch (err) {
           _didIteratorError = true;
@@ -228,7 +462,7 @@ var Navigation = function () {
         if (!this.selector) return;
         if (!this.matched) throw new ReferenceError("The selector didn't match with any elements");
         this.elem.addEventListener("click", function () {
-          return _this.dispatch();
+          return _this.handleClick();
         });
       }
       /**
@@ -237,9 +471,9 @@ var Navigation = function () {
        */
 
     }, {
-      key: "dispatch",
-      value: function dispatch() {
-        throw new Error("dispatch() must be implemented as it's an abstract method");
+      key: "handleClick",
+      value: function handleClick() {
+        throw new Error("handleClick() must be implemented as it's an abstract method");
       }
     }, {
       key: "selector",
@@ -261,6 +495,106 @@ var Navigation = function () {
     }]);
 
     return Trigger;
+  }();
+
+  Navigation.Tab = function () {
+    var Tab =
+    /*#__PURE__*/
+    function (_Navigation$Trigger) {
+      _inherits(Tab, _Navigation$Trigger);
+
+      _createClass(Tab, null, [{
+        key: "className",
+        get: function get() {
+          return "navigation_tab";
+        }
+        /** @param {HTMLElement} elem */
+
+      }]);
+
+      function Tab(elem) {
+        _classCallCheck(this, Tab);
+
+        return _possibleConstructorReturn(this, _getPrototypeOf(Tab).call(this, elem));
+      }
+      /** @param {Navigation.Panel | null} */
+
+
+      _createClass(Tab, [{
+        key: "register",
+
+        /** @param {Navigation} navigation */
+        value: function register(navigation) {
+          var _this2 = this;
+
+          if (!this.selector) return;
+          if (!this.matched) throw new ReferenceError("The selector didn't match with any elements");
+          this.elem.addEventListener("click", function () {
+            return _this2.handleActive(navigation);
+          });
+        }
+        /** @param {Navigation} navigation */
+
+      }, {
+        key: "handleActive",
+        value: function handleActive(navigation) {
+          if (!this.disabled && !this.active) {
+            (0, _Navigation.changeTabActive)(navigation, this);
+            (0, _Navigation.changePanelActive)(navigation, this.matched);
+          }
+        }
+      }, {
+        key: "matched",
+        get: function get() {
+          return new Navigation.Panel(_get(_getPrototypeOf(Tab.prototype), "matched", this));
+        }
+        /** @return {boolean} */
+
+      }, {
+        key: "active",
+        get: function get() {
+          return this.elem.hasAttribute(Tab.ATTRS.ACTIVE);
+        }
+        /** @param {boolean} val */
+        ,
+        set: function set(val) {
+          val ? this.elem.setAttribute(Tab.ATTRS.ACTIVE, "") : this.elem.removeAttribute(Tab.ATTRS.ACTIVE);
+        }
+        /** @return {boolean} */
+
+      }, {
+        key: "disabled",
+        get: function get() {
+          return this.elem.hasAttribute(Tab.ATTRS.DISABLED);
+        }
+        /** @param {boolean} val */
+        ,
+        set: function set(val) {
+          val ? this.elem.setAttribute(Tab.ATTRS.DISABLED, "") : this.elem.removeAttribute(Tab.ATTRS.DISABLED);
+        }
+      }]);
+
+      return Tab;
+    }(Navigation.Trigger);
+
+    Tab.CLASSES = {};
+    Tab.ATTRS = {
+      ACTIVE: "active",
+      DISABLED: "disabled"
+    };
+    Object.defineProperties(Tab, {
+      CLASSES: {
+        configurable: false,
+        writable: false,
+        enumerable: true
+      },
+      ATTRS: {
+        configurable: false,
+        writable: false,
+        enumerable: true
+      }
+    });
+    return Tab;
   }();
 
   Navigation.Panel = function () {
@@ -339,43 +673,6 @@ var Navigation = function () {
 
 
       _createClass(PanelGroup, [{
-        key: "activate",
-
-        /** @param {Panel} panel */
-        value: function activate(panel) {
-          var matchedPanel = this.panels.find(function (child) {
-            return child.id === panel.id;
-          });
-
-          if (matchedPanel && !matchedPanel.active) {
-            var _iteratorNormalCompletion2 = true;
-            var _didIteratorError2 = false;
-            var _iteratorError2 = undefined;
-
-            try {
-              for (var _iterator2 = this.panels[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                var child = _step2.value;
-                child.active = false;
-              }
-            } catch (err) {
-              _didIteratorError2 = true;
-              _iteratorError2 = err;
-            } finally {
-              try {
-                if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
-                  _iterator2.return();
-                }
-              } finally {
-                if (_didIteratorError2) {
-                  throw _iteratorError2;
-                }
-              }
-            }
-
-            matchedPanel.active = true;
-          }
-        }
-      }, {
         key: "panels",
         get: function get() {
           var panels = this.elem.querySelectorAll(":scope > .".concat(Panel.className));
@@ -417,140 +714,18 @@ var Navigation = function () {
     return Panel;
   }();
 
-  Navigation.Tab = function () {
-    var Tab =
-    /*#__PURE__*/
-    function (_Navigation$Trigger) {
-      _inherits(Tab, _Navigation$Trigger);
-
-      _createClass(Tab, null, [{
-        key: "className",
-        get: function get() {
-          return "navigation_tab";
-        }
-        /** @param {HTMLElement} elem */
-
-      }]);
-
-      function Tab(elem) {
-        _classCallCheck(this, Tab);
-
-        return _possibleConstructorReturn(this, _getPrototypeOf(Tab).call(this, elem));
-      }
-      /** @param {Navigation.Panel | null} */
-
-
-      _createClass(Tab, [{
-        key: "activate",
-        value: function activate() {
-          if (this.active) return;
-          var _iteratorNormalCompletion3 = true;
-          var _didIteratorError3 = false;
-          var _iteratorError3 = undefined;
-
-          try {
-            for (var _iterator3 = this.navigation.childTabs[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-              var tab = _step3.value;
-              tab.active = false;
-            }
-          } catch (err) {
-            _didIteratorError3 = true;
-            _iteratorError3 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
-                _iterator3.return();
-              }
-            } finally {
-              if (_didIteratorError3) {
-                throw _iteratorError3;
-              }
-            }
-          }
-
-          this.active = true; // ToDo: オートスクロール機能
-        }
-      }, {
-        key: "dispatch",
-        value: function dispatch() {
-          if (!this.disabled) {
-            this.activate();
-            this.matched.group.activate(this.matched);
-          }
-        }
-      }, {
-        key: "matched",
-        get: function get() {
-          return new Navigation.Panel(_get(_getPrototypeOf(Tab.prototype), "matched", this));
-        }
-        /** @return {Navigation} */
-
-      }, {
-        key: "navigation",
-        get: function get() {
-          return new Navigation(this.elem.parentElement);
-        }
-        /** @return {boolean} */
-
-      }, {
-        key: "active",
-        get: function get() {
-          return this.elem.hasAttribute(Tab.ATTRS.ACTIVE);
-        }
-        /** @param {boolean} val */
-        ,
-        set: function set(val) {
-          val ? this.elem.setAttribute(Tab.ATTRS.ACTIVE, "") : this.elem.removeAttribute(Tab.ATTRS.ACTIVE);
-        }
-        /** @return {boolean} */
-
-      }, {
-        key: "disabled",
-        get: function get() {
-          return this.elem.hasAttribute(Tab.ATTRS.DISABLED);
-        }
-        /** @param {boolean} val */
-        ,
-        set: function set(val) {
-          val ? this.elem.setAttribute(Tab.ATTRS.DISABLED, "") : this.elem.removeAttribute(Tab.ATTRS.DISABLED);
-        }
-      }]);
-
-      return Tab;
-    }(Navigation.Trigger);
-
-    Tab.CLASSES = {};
-    Tab.ATTRS = {
-      ACTIVE: "active",
-      DISABLED: "disabled"
-    };
-    Object.defineProperties(Tab, {
-      CLASSES: {
-        configurable: false,
-        writable: false,
-        enumerable: true
-      },
-      ATTRS: {
-        configurable: false,
-        writable: false,
-        enumerable: true
-      }
-    });
-    return Tab;
-  }();
-
   Object.defineProperties(Navigation, {
     Trigger: {
       configurable: false,
       writable: false,
       enumerable: true
     },
-    Panel: {
+    Tab: {
       configurable: false,
       writable: false,
       enumerable: true
     },
-    Tab: {
+    Panel: {
       configurable: false,
       writable: false,
       enumerable: true
@@ -561,13 +736,15 @@ var Navigation = function () {
 
 var _default = Navigation;
 exports.default = _default;
-},{}],"components/Card.js":[function(require,module,exports) {
+},{"../actions/Navigation":"actions/Navigation.js"}],"components/Card.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+var _Card = require("../actions/Card");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -592,11 +769,26 @@ var Card = function () {
       _classCallCheck(this, Card);
 
       this.elem = elem;
+      this.register();
     }
     /** @return {Card.CardTitle} */
 
 
     _createClass(Card, [{
+      key: "register",
+      value: function register() {
+        var _this = this;
+
+        this.cardTitle.elem.addEventListener("click", function () {
+          return _this.handleOpen();
+        });
+      }
+    }, {
+      key: "handleOpen",
+      value: function handleOpen() {
+        !this.open ? (0, _Card.openCard)(this) : (0, _Card.closeCard)(this);
+      }
+    }, {
       key: "cardTitle",
       get: function get() {
         return new Card.CardTitle(this.elem.querySelector(":scope > .".concat(Card.CardTitle.className)));
@@ -648,27 +840,6 @@ var Card = function () {
       this.elem = elem;
     }
 
-    _createClass(CardTitle, [{
-      key: "register",
-      value: function register() {
-        var _this = this;
-
-        this.elem.addEventListener("click", function () {
-          return _this.dispatch();
-        });
-      }
-    }, {
-      key: "dispatch",
-      value: function dispatch() {
-        this.card.open = !this.card.open;
-      }
-    }, {
-      key: "card",
-      get: function get() {
-        return new Card(this.elem.parentElement);
-      }
-    }]);
-
     return CardTitle;
   }();
 
@@ -689,13 +860,6 @@ var Card = function () {
 
       this.elem = elem;
     }
-
-    _createClass(CardContent, [{
-      key: "card",
-      get: function get() {
-        return new Card(this.elem.parentElement);
-      }
-    }]);
 
     return CardContent;
   }();
@@ -727,7 +891,7 @@ var Card = function () {
 
 var _default = Card;
 exports.default = _default;
-},{}],"components/index.js":[function(require,module,exports) {
+},{"../actions/Card":"actions/Card.js"}],"components/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -751,7 +915,7 @@ function initComponents() {
   try {
     for (var _iterator = navigations[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
       var nav = _step.value;
-      new _Navigation.default(nav).register();
+      new _Navigation.default(nav);
     }
   } catch (err) {
     _didIteratorError = true;
@@ -775,7 +939,7 @@ function initComponents() {
   try {
     for (var _iterator2 = cards[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
       var card = _step2.value;
-      new _Card.default(card).cardTitle.register();
+      new _Card.default(card);
     }
   } catch (err) {
     _didIteratorError2 = true;
@@ -792,140 +956,7 @@ function initComponents() {
     }
   }
 }
-},{"./Navigation":"components/Navigation.js","./Card":"components/Card.js"}],"models/Action.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Action =
-/*#__PURE__*/
-function () {
-  function Action() {
-    _classCallCheck(this, Action);
-  }
-
-  _createClass(Action, null, [{
-    key: "validate",
-
-    /**
-     * Returns whether a provided object is Action
-     * @param {ActionObject} actionableObj
-     */
-    value: function validate(actionableObj) {
-      if (Util.getClass(actionableObj) !== "Object") return false;
-
-      for (var _i = 0, _arr = ["type", "value"]; _i < _arr.length; _i++) {
-        var prop = _arr[_i];
-        if (!Object.keys(actionableObj).includes(prop)) return false;
-      }
-
-      return true;
-    }
-  }]);
-
-  return Action;
-}();
-/**
- * @typedef {object} ActionObject
- * @prop {string} type
- * @prop {object} value
- */
-
-
-exports.default = Action;
-void 0;
-},{}],"actions/Navigation.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.changeActive = changeActive;
-exports.NAVIGATION_ACTIVE_CHANGE = void 0;
-
-var _index = require("./index");
-
-require("../components/Navigation");
-
-var NAVIGATION_ACTIVE_CHANGE = "NAVIGATION_ACTIVE_CHANGE";
-/** @param {Na} */
-
-exports.NAVIGATION_ACTIVE_CHANGE = NAVIGATION_ACTIVE_CHANGE;
-
-function changeActive(navTab) {
-  return (0, _index.dispatch)({
-    type: NAVIGATION_ACTIVE_CHANGE,
-    value: navTab
-  });
-}
-},{"./index":"actions/index.js","../components/Navigation":"components/Navigation.js"}],"actions/Card.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.openCard = openCard;
-exports.closeCard = closeCard;
-exports.CARD_CLOSE = exports.CARD_OPEN = void 0;
-
-var _index = require("./index");
-
-var CARD_OPEN = "CARD_OPEN";
-exports.CARD_OPEN = CARD_OPEN;
-var CARD_CLOSE = "CARD_CLOSE";
-exports.CARD_CLOSE = CARD_CLOSE;
-
-function openCard(card) {
-  return (0, _index.dispatch)({
-    type: CARD_OPEN,
-    value: card
-  });
-}
-
-function closeCard(card) {
-  return (0, _index.dispatch)({
-    type: CARD_CLOSE,
-    value: card
-  });
-}
-},{"./index":"actions/index.js"}],"actions/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.dispatch = dispatch;
-
-var _Action = require("../models/Action");
-
-var _Navigation = require("./Navigation");
-
-var _Card = require("./Card");
-
-/** @param {ActionObject} action */
-function dispatch(action) {
-  switch (action.type) {
-    case _Navigation.NAVIGATION_ACTIVE_CHANGE:
-      action.value.activate();
-      break;
-
-    case _Card.CARD_OPEN:
-      break;
-
-    case _Card.CARD_CLOSE:
-      break;
-  }
-}
-},{"../models/Action":"models/Action.js","./Navigation":"actions/Navigation.js","./Card":"actions/Card.js"}],"utils/I18n.js":[function(require,module,exports) {
+},{"./Navigation":"components/Navigation.js","./Card":"components/Card.js"}],"utils/I18n.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -973,9 +1004,9 @@ var _I18n = _interopRequireDefault(require("./utils/I18n"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _index.initComponents)();
-
 _I18n.default.init();
+
+(0, _index.initComponents)();
 },{"./components/index":"components/index.js","./actions/index":"actions/index.js","./utils/I18n":"utils/I18n.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -1004,7 +1035,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54551" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49704" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

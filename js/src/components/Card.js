@@ -1,3 +1,7 @@
+import { openCard, closeCard } from "../actions/Card";
+
+
+
 const Card = (() => {
 	class Card {
 		static get className () { return "card" }
@@ -5,6 +9,7 @@ const Card = (() => {
 		/** @param {HTMLElement} elem */
 		constructor (elem) {
 			this.elem = elem;
+			this.register();
 		}
 
 		/** @return {Card.CardTitle} */
@@ -17,6 +22,14 @@ const Card = (() => {
 		get open () { return this.elem.hasAttribute(Card.ATTRS.OPEN) }
 		/** @param {boolean} val */
 		set open (val) { val ? this.elem.setAttribute(Card.ATTRS.OPEN, "") : this.elem.removeAttribute(Card.ATTRS.OPEN) }
+
+		register () {
+			this.cardTitle.elem.addEventListener("click", () => this.handleOpen());
+		}
+
+		handleOpen () {
+			!this.open ? openCard(this) : closeCard(this);
+		}
 	}
 
 	Card.CLASSES = {};
@@ -34,16 +47,6 @@ const Card = (() => {
 		constructor (elem) {
 			this.elem = elem;
 		}
-
-		get card () { return new Card(this.elem.parentElement) }
-
-		register () {
-			this.elem.addEventListener("click", () => this.dispatch());
-		}
-
-		dispatch () {
-			this.card.open = !this.card.open;
-		}
 	};
 
 	Card.CardContent = class CardContent {
@@ -53,8 +56,6 @@ const Card = (() => {
 		constructor (elem) {
 			this.elem = elem;
 		}
-
-		get card () { return new Card(this.elem.parentElement) }
 	};
 
 

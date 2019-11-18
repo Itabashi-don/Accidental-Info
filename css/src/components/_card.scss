@@ -37,6 +37,8 @@
 		display: var(--card_content-display, none);
 		width: 100%;
 
+		transition: opacity 0.25s 0s ease-out;
+
 		& > * { width: 100% }
 	}
 }
