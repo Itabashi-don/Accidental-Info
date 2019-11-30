@@ -1,6 +1,6 @@
 {
 	"name": "itabashi-don_emergency-alerts",
-	"version": "0.0.60",
+	"version": "0.0.61",
 	"description": "A website collecting alerts for emergency of Itabashi and around",
 	"keywords": [
 		"Itabashi"
@@ -9,11 +9,13 @@
 	"scripts": {
 		"build": "run-p build:js build:scss",
 		"start": "npm run server",
-		"dev": "run-p server watch:js watch:scss",
+		"dev": "run-p server watch:ts watch:scss",
 		"server": "serve -n -l 8001",
 		"build:js": "parcel build ./js/src/index.js -d ./js --no-source-maps --no-cache",
+		"build:ts": "parcel build ./ts/src/index.ts -d ./ts --no-source-maps --no-cache",
 		"build:scss": "node-sass ./css/src/main.scss ./css/main.css --output-style compact --source-map ./css/",
 		"watch:js": "parcel watch ./js/src/index.js -d ./js",
+		"watch:ts": "parcel watch ./ts/src/index.ts -d ./ts",
 		"watch:scss": "node-sass -w ./css/src/main.scss ./css/main.css --output-style compact --source-map ./css/"
 	},
 	"author": {
