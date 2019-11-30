@@ -1,6 +1,6 @@
 {
 	"name": "itabashi-don_emergency-alerts",
-	"version": "0.0.59",
+	"version": "0.0.60",
 	"description": "A website collecting alerts for emergency of Itabashi and around",
 	"keywords": [
 		"Itabashi"
@@ -34,7 +34,11 @@
 		"serve": "^11.2.0"
 	},
 	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^2.9.0",
+		"@typescript-eslint/parser": "^2.9.0",
+		"eslint": "^6.7.1",
 		"node-sass": "^4.12.0",
-		"parcel-bundler": "^1.12.4"
+		"parcel-bundler": "^1.12.4",
+		"typescript": "^3.7.2"
 	}
 }
