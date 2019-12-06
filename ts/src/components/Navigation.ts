@@ -1,4 +1,4 @@
-import Component from "./index";
+import Component from "./Component";
 
 import {
 	changeTabActive,
@@ -7,12 +7,13 @@ import {
 
 
 
-class Navigation extends Component {
+export class Navigation extends Component {
 	static readonly className = "navigation";
 
 
 	constructor (elem: Element) {
 		super(elem);
+		this.register();
 	}
 
 	get tabs (): Navigation.Tab[] {
@@ -25,7 +26,7 @@ class Navigation extends Component {
 	}
 }
 
-namespace Navigation {
+export namespace Navigation {
 	export const CLASSES = {};
 	export const ATTRS = {};
 

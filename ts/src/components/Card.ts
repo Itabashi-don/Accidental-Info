@@ -1,4 +1,4 @@
-import Component from "./index";
+import Component from "./Component";
 
 import {
 	openCard,
@@ -7,7 +7,7 @@ import {
 
 
 
-class Card extends Component {
+export class Card extends Component {
 	static readonly className = "card";
 
 	
@@ -28,7 +28,7 @@ class Card extends Component {
 	private handleOpen (): void { !this.open ? openCard(this) : closeCard(this) }
 }
 
-namespace Card {
+export namespace Card {
 	export const CLASSES = {};
 	export const ATTRS = { OPEN: "open" };
 

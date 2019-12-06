@@ -1,4 +1,4 @@
-import { initComponents } from "./components";
+import { initComponents } from "./components/index";
 import { initLocalization } from "./utils/I18n";
 
 

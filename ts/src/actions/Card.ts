@@ -1,4 +1,4 @@
-import { Action, dispatch } from ".";
+import { Action, dispatch } from "./index";
 import Card from "../components/Card";
 
 

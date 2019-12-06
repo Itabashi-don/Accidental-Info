@@ -117,58 +117,97 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"actions/Card.ts":[function(require,module,exports) {
+})({"components/Component.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _1 = require(".");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-exports.CARD_OPEN = "CARD_OPEN";
-exports.CARD_CLOSE = "CARD_CLOSE";
+var Component = function Component(elem) {
+  _classCallCheck(this, Component);
+
+  this.elem = elem;
+};
+
+var _default = Component;
+exports.default = _default;
+},{}],"actions/Card.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.openCard = openCard;
+exports.closeCard = closeCard;
+exports.CARD_CLOSE = exports.CARD_OPEN = void 0;
+
+var _index = require("./index");
+
+var CARD_OPEN = "CARD_OPEN";
+exports.CARD_OPEN = CARD_OPEN;
+var CARD_CLOSE = "CARD_CLOSE";
+exports.CARD_CLOSE = CARD_CLOSE;
 
 function openCard(card) {
-  return _1.dispatch({
-    type: exports.CARD_OPEN,
+  return (0, _index.dispatch)({
+    type: CARD_OPEN,
     value: card
   });
 }
-
-exports.openCard = openCard;
 
 function closeCard(card) {
-  return _1.dispatch({
-    type: exports.CARD_CLOSE,
+  return (0, _index.dispatch)({
+    type: CARD_CLOSE,
     value: card
   });
 }
-
-exports.closeCard = closeCard;
-},{".":"actions/index.ts"}],"actions/index.ts":[function(require,module,exports) {
+},{"./index":"actions/index.ts"}],"actions/index.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.dispatch = dispatch;
 
-var Navigation_1 = require("./Navigation");
+var _Navigation = require("./Navigation");
 
-var Card_1 = require("./Card");
+var _Card = require("./Card");
 
 function dispatch(action) {
   switch (action.type) {
-    case Navigation_1.NAVIGATION_TAB_ACTIVE_CHANGE:
+    case _Navigation.NAVIGATION_TAB_ACTIVE_CHANGE:
       (function () {
-        var _a = action.value,
-            navigation = _a.navigation,
-            tab = _a.tab;
+        var _action$value = action.value,
+            navigation = _action$value.navigation,
+            tab = _action$value.tab;
 
         if (tab && !tab.active) {
-          for (var _i = 0, _b = navigation.tabs; _i < _b.length; _i++) {
-            var child = _b[_i];
-            child.active = false;
+          var _iteratorNormalCompletion = true;
+          var _didIteratorError = false;
+          var _iteratorError = undefined;
+
+          try {
+            for (var _iterator = navigation.tabs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+              var child = _step.value;
+              child.active = false;
+            }
+          } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion && _iterator.return != null) {
+                _iterator.return();
+              }
+            } finally {
+              if (_didIteratorError) {
+                throw _iteratorError;
+              }
+            }
           }
 
           tab.active = true; // ToDo: オートスクロール機能
@@ -177,14 +216,33 @@ function dispatch(action) {
 
       break;
 
-    case Navigation_1.NAVIGATION_PANEL_ACTIVE_CHANGE:
+    case _Navigation.NAVIGATION_PANEL_ACTIVE_CHANGE:
       (function () {
         var panel = action.value.panel;
 
         if (panel && !panel.active) {
-          for (var _i = 0, _a = panel.group.panels; _i < _a.length; _i++) {
-            var child = _a[_i];
-            child.active = false;
+          var _iteratorNormalCompletion2 = true;
+          var _didIteratorError2 = false;
+          var _iteratorError2 = undefined;
+
+          try {
+            for (var _iterator2 = panel.group.panels[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+              var child = _step2.value;
+              child.active = false;
+            }
+          } catch (err) {
+            _didIteratorError2 = true;
+            _iteratorError2 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+                _iterator2.return();
+              }
+            } finally {
+              if (_didIteratorError2) {
+                throw _iteratorError2;
+              }
+            }
           }
 
           panel.active = true;
@@ -193,32 +251,35 @@ function dispatch(action) {
 
       break;
 
-    case Card_1.CARD_OPEN:
+    case _Card.CARD_OPEN:
       action.value.open = true;
       break;
 
-    case Card_1.CARD_CLOSE:
+    case _Card.CARD_CLOSE:
       action.value.open = false;
       break;
   }
 }
-
-exports.dispatch = dispatch;
 },{"./Navigation":"actions/Navigation.ts","./Card":"actions/Card.ts"}],"actions/Navigation.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.changeTabActive = changeTabActive;
+exports.changePanelActive = changePanelActive;
+exports.NAVIGATION_PANEL_ACTIVE_CHANGE = exports.NAVIGATION_TAB_ACTIVE_CHANGE = void 0;
 
-var _1 = require(".");
+var _index = require("./index");
 
-exports.NAVIGATION_TAB_ACTIVE_CHANGE = "NAVIGATION_TAB_ACTIVE_CHANGE";
-exports.NAVIGATION_PANEL_ACTIVE_CHANGE = "NAVIGATION_PANEL_ACTIVE_CHANGE";
+var NAVIGATION_TAB_ACTIVE_CHANGE = "NAVIGATION_TAB_ACTIVE_CHANGE";
+exports.NAVIGATION_TAB_ACTIVE_CHANGE = NAVIGATION_TAB_ACTIVE_CHANGE;
+var NAVIGATION_PANEL_ACTIVE_CHANGE = "NAVIGATION_PANEL_ACTIVE_CHANGE";
+exports.NAVIGATION_PANEL_ACTIVE_CHANGE = NAVIGATION_PANEL_ACTIVE_CHANGE;
 
 function changeTabActive(navigation, tab) {
-  return _1.dispatch({
-    type: exports.NAVIGATION_TAB_ACTIVE_CHANGE,
+  return (0, _index.dispatch)({
+    type: NAVIGATION_TAB_ACTIVE_CHANGE,
     value: {
       navigation: navigation,
       tab: tab
@@ -226,202 +287,217 @@ function changeTabActive(navigation, tab) {
   });
 }
 
-exports.changeTabActive = changeTabActive;
-
 function changePanelActive(navigation, panel) {
-  return _1.dispatch({
-    type: exports.NAVIGATION_PANEL_ACTIVE_CHANGE,
+  return (0, _index.dispatch)({
+    type: NAVIGATION_PANEL_ACTIVE_CHANGE,
     value: {
       navigation: navigation,
       panel: panel
     }
   });
 }
-
-exports.changePanelActive = changePanelActive;
-},{".":"actions/index.ts"}],"components/Navigation.ts":[function(require,module,exports) {
+},{"./index":"actions/index.ts"}],"components/Navigation.ts":[function(require,module,exports) {
 "use strict";
-
-var __extends = this && this.__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = exports.Navigation = void 0;
 
-var index_1 = __importDefault(require("./index"));
+var _Component5 = _interopRequireDefault(require("./Component"));
 
-var Navigation_1 = require("../actions/Navigation");
+var _Navigation = require("../actions/Navigation");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var Navigation =
-/** @class */
-function (_super) {
-  __extends(Navigation, _super);
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Navigation, _Component);
 
   function Navigation(elem) {
-    return _super.call(this, elem) || this;
+    var _this;
+
+    _classCallCheck(this, Navigation);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Navigation).call(this, elem));
+
+    _this.register();
+
+    return _this;
   }
 
-  Object.defineProperty(Navigation.prototype, "tabs", {
+  _createClass(Navigation, [{
+    key: "register",
+    value: function register() {
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = this.tabs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var childTab = _step.value;
+          childTab.register(this);
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return != null) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+    }
+  }, {
+    key: "tabs",
     get: function get() {
-      var tabs = this.elem.querySelectorAll(":scope > ." + Navigation.Tab.className);
+      var tabs = this.elem.querySelectorAll(":scope > .".concat(Navigation.Tab.className));
       return Array.from(tabs).map(function (tab) {
         return new Navigation.Tab(tab);
       });
-    },
-    enumerable: true,
-    configurable: true
-  });
-
-  Navigation.prototype.register = function () {
-    for (var _i = 0, _a = this.tabs; _i < _a.length; _i++) {
-      var childTab = _a[_i];
-      childTab.register(this);
     }
-  };
+  }]);
 
-  Navigation.className = "navigation";
   return Navigation;
-}(index_1.default);
+}(_Component5.default);
+
+exports.Navigation = Navigation;
+Navigation.className = "navigation";
 
 (function (Navigation) {
   Navigation.CLASSES = {};
   Navigation.ATTRS = {}; // ========== Trigger ==========
 
   var Trigger =
-  /** @class */
-  function (_super) {
-    __extends(Trigger, _super);
+  /*#__PURE__*/
+  function (_Component2) {
+    _inherits(Trigger, _Component2);
 
     function Trigger(elem) {
-      return _super.call(this, elem) || this;
+      _classCallCheck(this, Trigger);
+
+      return _possibleConstructorReturn(this, _getPrototypeOf(Trigger).call(this, elem));
     }
 
-    Object.defineProperty(Trigger.prototype, "selector", {
+    _createClass(Trigger, [{
+      key: "register",
+      value: function register() {
+        var _this2 = this;
+
+        if (!this.available) return;
+        this.elem.addEventListener("click", function () {
+          return _this2.handleClick();
+        });
+      }
+    }, {
+      key: "selector",
       get: function get() {
         return this.elem.getAttribute("selector");
       },
       set: function set(val) {
         this.elem.setAttribute("selector", val);
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(Trigger.prototype, "matched", {
+      }
+    }, {
+      key: "matched",
       get: function get() {
         return this.selector ? document.querySelector(this.selector) : null;
-      },
-      enumerable: true,
-      configurable: true
-    });
-
-    Trigger.prototype.register = function () {
-      var _this = this;
-
-      if (!this.available) return;
-      this.elem.addEventListener("click", function () {
-        return _this.handleClick();
-      });
-    };
-
-    Object.defineProperty(Trigger.prototype, "available", {
+      }
+    }, {
+      key: "available",
       get: function get() {
         return Boolean(this.selector && this.matched);
-      },
-      enumerable: true,
-      configurable: true
-    });
+      }
+    }]);
+
     return Trigger;
-  }(index_1.default);
+  }(_Component5.default);
 
   Navigation.Trigger = Trigger; // ========== Tab ==========
 
   var Tab =
-  /** @class */
-  function (_super) {
-    __extends(Tab, _super);
+  /*#__PURE__*/
+  function (_Trigger) {
+    _inherits(Tab, _Trigger);
 
     function Tab(elem) {
-      return _super.call(this, elem) || this;
+      _classCallCheck(this, Tab);
+
+      return _possibleConstructorReturn(this, _getPrototypeOf(Tab).call(this, elem));
     }
 
-    Object.defineProperty(Tab.prototype, "active", {
+    _createClass(Tab, [{
+      key: "register",
+      value: function register(navigation) {
+        var _this3 = this;
+
+        if (!this.available) return;
+        this.elem.addEventListener("click", function () {
+          return _this3.handleClick(navigation);
+        });
+      }
+    }, {
+      key: "handleClick",
+      value: function handleClick(navigation) {
+        if (!this.disabled && !this.active) {
+          (0, _Navigation.changeTabActive)(navigation, this);
+          (0, _Navigation.changePanelActive)(navigation, this.matched);
+        }
+      }
+    }, {
+      key: "active",
       get: function get() {
         return this.elem.hasAttribute(Tab.ATTRS.ACTIVE);
       },
       set: function set(val) {
         val ? this.elem.setAttribute(Tab.ATTRS.ACTIVE, "") : this.elem.removeAttribute(Tab.ATTRS.ACTIVE);
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(Tab.prototype, "disabled", {
+      }
+    }, {
+      key: "disabled",
       get: function get() {
         return this.elem.hasAttribute(Tab.ATTRS.DISABLED);
       },
       set: function set(val) {
         val ? this.elem.setAttribute(Tab.ATTRS.DISABLED, "") : this.elem.removeAttribute(Tab.ATTRS.DISABLED);
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(Tab.prototype, "matched", {
-      get: function get() {
-        return new Navigation.Panel(_super.prototype.matched);
-      },
-      enumerable: true,
-      configurable: true
-    });
-
-    Tab.prototype.register = function (navigation) {
-      var _this = this;
-
-      if (!this.available) return;
-      this.elem.addEventListener("click", function () {
-        return _this.handleClick(navigation);
-      });
-    };
-
-    Tab.prototype.handleClick = function (navigation) {
-      if (!this.disabled && !this.active) {
-        Navigation_1.changeTabActive(navigation, this);
-        Navigation_1.changePanelActive(navigation, this.matched);
       }
-    };
+    }, {
+      key: "matched",
+      get: function get() {
+        return new Navigation.Panel(_get(_getPrototypeOf(Tab.prototype), "matched", this));
+      }
+    }]);
 
-    Tab.className = "navigation_tab";
     return Tab;
   }(Trigger);
 
+  Tab.className = "navigation_tab";
   Navigation.Tab = Tab;
 
   (function (Tab) {
@@ -434,42 +510,40 @@ function (_super) {
 
 
   var Panel =
-  /** @class */
-  function (_super) {
-    __extends(Panel, _super);
+  /*#__PURE__*/
+  function (_Component3) {
+    _inherits(Panel, _Component3);
 
     function Panel(elem) {
-      return _super.call(this, elem) || this;
+      _classCallCheck(this, Panel);
+
+      return _possibleConstructorReturn(this, _getPrototypeOf(Panel).call(this, elem));
     }
 
-    Object.defineProperty(Panel.prototype, "id", {
+    _createClass(Panel, [{
+      key: "id",
       get: function get() {
         return this.elem.id;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(Panel.prototype, "group", {
+      }
+    }, {
+      key: "group",
       get: function get() {
         return new Navigation.Panel.PanelGroup(this.elem.parentElement);
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Object.defineProperty(Panel.prototype, "active", {
+      }
+    }, {
+      key: "active",
       get: function get() {
         return this.elem.hasAttribute(Panel.ATTRS.ACTIVE);
       },
       set: function set(val) {
         val ? this.elem.setAttribute(Panel.ATTRS.ACTIVE, "") : this.elem.removeAttribute(Panel.ATTRS.ACTIVE);
-      },
-      enumerable: true,
-      configurable: true
-    });
-    Panel.className = "navigation_panel";
-    return Panel;
-  }(index_1.default);
+      }
+    }]);
 
+    return Panel;
+  }(_Component5.default);
+
+  Panel.className = "navigation_panel";
   Navigation.Panel = Panel;
 
   (function (Panel) {
@@ -479,37 +553,37 @@ function (_super) {
     }; // ========== PanelGroup ==========
 
     var PanelGroup =
-    /** @class */
-    function (_super) {
-      __extends(PanelGroup, _super);
+    /*#__PURE__*/
+    function (_Component4) {
+      _inherits(PanelGroup, _Component4);
 
       function PanelGroup(elem) {
-        return _super.call(this, elem) || this;
+        _classCallCheck(this, PanelGroup);
+
+        return _possibleConstructorReturn(this, _getPrototypeOf(PanelGroup).call(this, elem));
       }
 
-      Object.defineProperty(PanelGroup.prototype, "panels", {
+      _createClass(PanelGroup, [{
+        key: "panels",
         get: function get() {
-          var panels = this.elem.querySelectorAll(":scope > ." + Panel.className);
+          var panels = this.elem.querySelectorAll(":scope > .".concat(Panel.className));
           return Array.from(panels).map(function (panel) {
             return new Panel(panel);
           });
-        },
-        enumerable: true,
-        configurable: true
-      });
-      Object.defineProperty(PanelGroup.prototype, "activePanel", {
+        }
+      }, {
+        key: "activePanel",
         get: function get() {
           return this.panels.find(function (panel) {
             return panel.active;
           });
-        },
-        enumerable: true,
-        configurable: true
-      });
-      PanelGroup.className = "navigation_panelGroup";
-      return PanelGroup;
-    }(index_1.default);
+        }
+      }]);
 
+      return PanelGroup;
+    }(_Component5.default);
+
+    PanelGroup.className = "navigation_panelGroup";
     Panel.PanelGroup = PanelGroup;
 
     (function (PanelGroup) {
@@ -517,105 +591,98 @@ function (_super) {
       PanelGroup.ATTRS = {};
     })(PanelGroup = Panel.PanelGroup || (Panel.PanelGroup = {}));
   })(Panel = Navigation.Panel || (Navigation.Panel = {}));
-})(Navigation || (Navigation = {}));
+})(Navigation || (exports.Navigation = Navigation = {}));
 
-exports.default = Navigation;
-},{"./index":"components/index.ts","../actions/Navigation":"actions/Navigation.ts"}],"components/Card.ts":[function(require,module,exports) {
+var _default = Navigation;
+exports.default = _default;
+},{"./Component":"components/Component.ts","../actions/Navigation":"actions/Navigation.ts"}],"components/Card.ts":[function(require,module,exports) {
 "use strict";
-
-var __extends = this && this.__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = exports.Card = void 0;
 
-var index_1 = __importDefault(require("./index"));
+var _Component4 = _interopRequireDefault(require("./Component"));
 
-var Card_1 = require("../actions/Card");
+var _Card = require("../actions/Card");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var Card =
-/** @class */
-function (_super) {
-  __extends(Card, _super);
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Card, _Component);
 
   function Card(elem) {
-    var _this = _super.call(this, elem) || this;
+    var _this;
+
+    _classCallCheck(this, Card);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Card).call(this, elem));
 
     _this.register();
 
     return _this;
   }
 
-  Object.defineProperty(Card.prototype, "open", {
+  _createClass(Card, [{
+    key: "register",
+    value: function register() {
+      var _this2 = this;
+
+      this.cardTitle.elem.addEventListener("click", function () {
+        return _this2.handleOpen();
+      });
+    }
+  }, {
+    key: "handleOpen",
+    value: function handleOpen() {
+      !this.open ? (0, _Card.openCard)(this) : (0, _Card.closeCard)(this);
+    }
+  }, {
+    key: "open",
     get: function get() {
       return this.elem.hasAttribute(Card.ATTRS.OPEN);
     },
     set: function set(val) {
       val ? this.elem.setAttribute(Card.ATTRS.OPEN, "") : this.elem.removeAttribute(Card.ATTRS.OPEN);
-    },
-    enumerable: true,
-    configurable: true
-  });
-  Object.defineProperty(Card.prototype, "cardTitle", {
+    }
+  }, {
+    key: "cardTitle",
     get: function get() {
-      return new Card.CardTitle(this.elem.querySelector(":scope > ." + Card.CardTitle.className));
-    },
-    enumerable: true,
-    configurable: true
-  });
-  Object.defineProperty(Card.prototype, "cardContent", {
+      return new Card.CardTitle(this.elem.querySelector(":scope > .".concat(Card.CardTitle.className)));
+    }
+  }, {
+    key: "cardContent",
     get: function get() {
-      return new Card.CardContent(this.elem.querySelector(":scope > ." + Card.CardContent.className));
-    },
-    enumerable: true,
-    configurable: true
-  });
+      return new Card.CardContent(this.elem.querySelector(":scope > .".concat(Card.CardContent.className)));
+    }
+  }]);
 
-  Card.prototype.register = function () {
-    var _this = this;
-
-    this.cardTitle.elem.addEventListener("click", function () {
-      return _this.handleOpen();
-    });
-  };
-
-  Card.prototype.handleOpen = function () {
-    !this.open ? Card_1.openCard(this) : Card_1.closeCard(this);
-  };
-
-  Card.className = "card";
   return Card;
-}(index_1.default);
+}(_Component4.default);
+
+exports.Card = Card;
+Card.className = "card";
 
 (function (Card) {
   Card.CLASSES = {};
@@ -624,18 +691,20 @@ function (_super) {
   }; // ========== CardTitle ==========
 
   var CardTitle =
-  /** @class */
-  function (_super) {
-    __extends(CardTitle, _super);
+  /*#__PURE__*/
+  function (_Component2) {
+    _inherits(CardTitle, _Component2);
 
     function CardTitle(elem) {
-      return _super.call(this, elem) || this;
+      _classCallCheck(this, CardTitle);
+
+      return _possibleConstructorReturn(this, _getPrototypeOf(CardTitle).call(this, elem));
     }
 
-    CardTitle.className = "card_title";
     return CardTitle;
-  }(index_1.default);
+  }(_Component4.default);
 
+  CardTitle.className = "card_title";
   Card.CardTitle = CardTitle;
 
   (function (CardTitle) {
@@ -645,98 +714,116 @@ function (_super) {
 
 
   var CardContent =
-  /** @class */
-  function (_super) {
-    __extends(CardContent, _super);
+  /*#__PURE__*/
+  function (_Component3) {
+    _inherits(CardContent, _Component3);
 
     function CardContent(elem) {
-      return _super.call(this, elem) || this;
+      _classCallCheck(this, CardContent);
+
+      return _possibleConstructorReturn(this, _getPrototypeOf(CardContent).call(this, elem));
     }
 
-    CardContent.className = "card_content";
     return CardContent;
-  }(index_1.default);
+  }(_Component4.default);
 
+  CardContent.className = "card_content";
   Card.CardContent = CardContent;
 
   (function (CardContent) {
     CardContent.CLASSES = {};
     CardContent.ATTRS = {};
   })(CardContent = Card.CardContent || (Card.CardContent = {}));
-})(Card || (Card = {}));
+})(Card || (exports.Card = Card = {}));
 
-exports.default = Card;
-},{"./index":"components/index.ts","../actions/Card":"actions/Card.ts"}],"components/index.ts":[function(require,module,exports) {
+var _default = Card;
+exports.default = _default;
+},{"./Component":"components/Component.ts","../actions/Card":"actions/Card.ts"}],"components/index.ts":[function(require,module,exports) {
 "use strict";
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.initComponents = initComponents;
 
-var Navigation_1 = __importDefault(require("./Navigation"));
+var _Navigation = _interopRequireDefault(require("./Navigation"));
 
-var Card_1 = __importDefault(require("./Card"));
+var _Card = _interopRequireDefault(require("./Card"));
 
-var Component =
-/** @class */
-function () {
-  function Component(elem) {
-    this.elem = elem;
-  }
-
-  return Component;
-}();
-
-exports.default = Component;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function initComponents() {
-  var navigations = document.getElementsByClassName(Navigation_1.default.className);
-  var cards = document.getElementsByClassName(Card_1.default.className);
+  var navigations = document.getElementsByClassName(_Navigation.default.className);
+  var cards = document.getElementsByClassName(_Card.default.className);
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
 
-  for (var _i = 0, navigations_1 = navigations; _i < navigations_1.length; _i++) {
-    var nav = navigations_1[_i];
-    new Navigation_1.default(nav);
+  try {
+    for (var _iterator = navigations[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var nav = _step.value;
+      new _Navigation.default(nav);
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return != null) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
   }
 
-  for (var _a = 0, cards_1 = cards; _a < cards_1.length; _a++) {
-    var card = cards_1[_a];
-    new Card_1.default(card);
+  var _iteratorNormalCompletion2 = true;
+  var _didIteratorError2 = false;
+  var _iteratorError2 = undefined;
+
+  try {
+    for (var _iterator2 = cards[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+      var card = _step2.value;
+      new _Card.default(card);
+    }
+  } catch (err) {
+    _didIteratorError2 = true;
+    _iteratorError2 = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+        _iterator2.return();
+      }
+    } finally {
+      if (_didIteratorError2) {
+        throw _iteratorError2;
+      }
+    }
   }
 }
-
-exports.initComponents = initComponents;
 },{"./Navigation":"components/Navigation.ts","./Card":"components/Card.ts"}],"utils/I18n.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.initLocalization = initLocalization;
 
 function initLocalization() {
   document.documentElement.lang = navigator.language;
 }
-
-exports.initLocalization = initLocalization;
 },{}],"index.ts":[function(require,module,exports) {
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var _index = require("./components/index");
 
-var components_1 = require("./components");
+var _I18n = require("./utils/I18n");
 
-var I18n_1 = require("./utils/I18n");
-
-I18n_1.initLocalization();
-components_1.initComponents();
-},{"./components":"components/index.ts","./utils/I18n":"utils/I18n.ts"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+(0, _I18n.initLocalization)();
+(0, _index.initComponents)();
+},{"./components/index":"components/index.ts","./utils/I18n":"utils/I18n.ts"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -764,7 +851,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61874" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56140" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -941,4 +1028,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.ts"], null)
-//# sourceMappingURL=/index.js.map
+//# sourceMappingURL=index.js.map
