@@ -23,6 +23,7 @@
 	background-repeat: no-repeat;
 	background-color: $navigation-backColor;
 
+
 	a { text-decoration: none }
 
 	#{&}_tab {
@@ -36,6 +37,7 @@
 
 		transition: color 0.25s 0s ease-out;
 
+
 		&:focus { color: $navigation_tab-textColor }
 		&[active] { color: $navigation_tab-textColor--active }
 		&[disabled] {
@@ -47,6 +49,7 @@
 			--navigation_indicator-left: 0;
 			--navigation_indicator-width: 100%;
 		}
+
 
 		&::after {
 			content: "";

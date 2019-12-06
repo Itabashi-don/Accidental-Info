@@ -26,6 +26,7 @@
 
 	z-index: 126;
 
+	
 	a {
 		color: $header_link-textColor;
 		&:focus { color: $header_link-textColor--focused }
@@ -39,6 +40,7 @@
 
 	padding: 0;
 	@include onSize(laptop) { padding: 1rem }
+
 
 	& + * {
 		margin-top: calc(#{fontBasedHeight($header_serviceName-fontSize * 2 + 1rem)} + 1rem + 1rem);
@@ -59,6 +61,7 @@
 
 		font-size: $header_serviceName-fontSize;
 		
+
 		#{getUuid(header_serviceName-logo)} {
 			height: fontBasedHeight(1em);
 			& img { height: inherit }
@@ -79,13 +82,15 @@
 
 #{getUuid(footer)} { @extend %header-and-footer;
 	left: 0; bottom: 0;
-	
+
+
 	#{&}_copyright {
 		flex: 1;
 
 		font-size: $footer_copyright-fontSize;
 		text-align: right;
 
+		
 		a {
 			display: inline-block;
 			height: fontBasedHeight(1em);

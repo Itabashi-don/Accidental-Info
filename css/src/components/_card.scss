@@ -8,8 +8,13 @@
 #{getUuid(card)} {
 	&[open] {
 		--card_flipIndicator-width: 100%;
+		--card_flipIndicator-borderWidth--top: 0;
+		--card_flipIndicator-borderWidth--right: 0;
+		
 		--card_content-display: block;
+		// ToDo: border-leftの実装、open時にアニメーションで非表示
 	}
+
 
 	#{&}_title {
 		position: relative;
@@ -18,7 +23,8 @@
 		list-style: none;
 		&::-webkit-details-marker { display: none }
 
-		&::after {
+
+		&::before {
 			content: "";
 
 			position: absolute;
@@ -31,6 +37,23 @@
 
 			transition: width 0.25s 0s ease-out;
 		}
+
+		&::after {
+			content: "";
+
+			position: absolute;
+			right: 0; bottom: 0;
+
+			display: block;
+			opacity: var(--card_flipIndicator-opacity, 1);
+
+			border: 0 solid;
+			border-top-width: var(--card_flipIndicator-borderWidth--top, $card_flipIndicator-borderWidth);
+			border-right-width: var(--card_flipIndicator-borderWidth--right, $card_flipIndicator-borderWidth);
+			border-color: transparent $navigation_tabIndicator-color transparent transparent;
+
+			transition: border-top-width 0.25s 0s ease-in, border-right-width 0.25s 0s ease-in-out;
+		}
 	}
 
 	#{&}_content {
@@ -39,6 +62,7 @@
 
 		transition: opacity 0.25s 0s ease-out;
 
+		
 		& > * { width: 100% }
 	}
 }

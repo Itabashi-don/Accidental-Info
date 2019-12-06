@@ -31,13 +31,15 @@ body { display: flex; flex-direction: column; color: rgba(0, 0, 0, 0.87); }
 
 .navigation_panelGroup { display: block; }
 
-.card[open] { --card_flipIndicator-width: 100%; --card_content-display: block; }
+.card[open] { --card_flipIndicator-width: 100%; --card_flipIndicator-borderWidth--top: 0; --card_flipIndicator-borderWidth--right: 0; --card_content-display: block; }
 
 .card .card_title { position: relative; padding: 1em; list-style: none; }
 
 .card .card_title::-webkit-details-marker { display: none; }
 
-.card .card_title::after { content: ""; position: absolute; left: 0; bottom: 0; display: block; width: var(--card_flipIndicator-width, 0); height: 3px; background: #4fb3bf; transition: width 0.25s 0s ease-out; }
+.card .card_title::before { content: ""; position: absolute; left: 0; bottom: 0; display: block; width: var(--card_flipIndicator-width, 0); height: 3px; background: #4fb3bf; transition: width 0.25s 0s ease-out; }
+
+.card .card_title::after { content: ""; position: absolute; right: 0; bottom: 0; display: block; opacity: var(--card_flipIndicator-opacity, 1); border: 0 solid; border-top-width: var(--card_flipIndicator-borderWidth--top, 0.8rem); border-right-width: var(--card_flipIndicator-borderWidth--right, 0.8rem); border-color: transparent #4fb3bf transparent transparent; transition: border-top-width 0.25s 0s ease-in, border-right-width 0.25s 0s ease-in-out; }
 
 .card .card_content { display: var(--card_content-display, none); width: 100%; transition: opacity 0.25s 0s ease-out; }
 
